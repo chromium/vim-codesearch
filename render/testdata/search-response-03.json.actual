@@ -1,0 +1,121 @@
+This file contains the rendered output per line and its associated metadata.
+
+Lines that begin with a line number contains (after the '|') the contents that
+will be inserted into the vim buffer at that line. The immediately following
+line contains an object representing associated metadata.
+-------------------------------------------------------------------------------
+
+001|1. src/base/at_exit.cc^>{
+   |{'j': ('src/base/at_exit.cc', 0, 0)}
+002|    20 ^c{// version of the constructor, and if we are building a dynamic library we may}c_
+   |{'j': ('src/base/at_exit.cc', 19, 7)}
+003|    21 ^c{// end up with multiple AtExitManagers on the same process.  We don't protect}c_
+   |{'j': ('src/base/at_exit.cc', 20, 7)}
+004|    22 ^c{// this for thread-safe access, since it will only be modified in testing.}c_
+   |{'j': ('src/base/at_exit.cc', 21, 7)}
+005|    23 ^k{static}k_ AtExitManager* ^${g_top_manager}$_ = NULL;
+   |{'j': ('src/base/at_exit.cc', 22, 7)}
+006|    24 
+   |{'j': ('src/base/at_exit.cc', 23, 7)}
+007|    25 ^k{static}k_ ^k{bool}k_ g_disable_managers = ^k{false}k_;
+   |{'j': ('src/base/at_exit.cc', 24, 7)}
+008|    26 
+   |{'j': ('src/base/at_exit.cc', 25, 7)}
+009|    27 }>_^>{
+   |{'j': ('src/base/at_exit.cc', 26, 7)}
+010|    [...]
+   |{'j': ('src/base/at_exit.cc', 61, 9)}
+011|    62   AutoLock lock(^${g_top_manager}$_->lock_);
+   |{'j': ('src/base/at_exit.cc', 61, 7)}
+012|    63   DCHECK(!^${g_top_manager}$_->processing_callbacks_);
+   |{'j': ('src/base/at_exit.cc', 62, 7)}
+013|    64   ^${g_top_manager}$_->stack_.push(std::move(task));
+   |{'j': ('src/base/at_exit.cc', 63, 7)}
+014|    65 }
+   |{'j': ('src/base/at_exit.cc', 64, 7)}
+015|    66 
+   |{'j': ('src/base/at_exit.cc', 65, 7)}
+016|    67 ^c{// static}c_
+   |{'j': ('src/base/at_exit.cc', 66, 7)}
+017|    68 }>_
+   |{'j': ('src/base/at_exit.cc', 67, 7)}
+018|
+   |{}
+019|2. src/base/at_exit.cc^>{
+   |{'j': ('src/base/at_exit.cc', 0, 0)}
+020|    20 ^c{// version of the constructor, and if we are building a dynamic library we may}c_
+   |{'j': ('src/base/at_exit.cc', 19, 7)}
+021|    21 ^c{// end up with multiple AtExitManagers on the same process.  We don't protect}c_
+   |{'j': ('src/base/at_exit.cc', 20, 7)}
+022|    22 ^c{// this for thread-safe access, since it will only be modified in testing.}c_
+   |{'j': ('src/base/at_exit.cc', 21, 7)}
+023|    23 ^k{static}k_ AtExitManager* ^${g_top_manager}$_ = NULL;
+   |{'j': ('src/base/at_exit.cc', 22, 7)}
+024|    24 
+   |{'j': ('src/base/at_exit.cc', 23, 7)}
+025|    25 ^k{static}k_ ^k{bool}k_ g_disable_managers = ^k{false}k_;
+   |{'j': ('src/base/at_exit.cc', 24, 7)}
+026|    26 
+   |{'j': ('src/base/at_exit.cc', 25, 7)}
+027|    27 }>_^>{
+   |{'j': ('src/base/at_exit.cc', 26, 7)}
+028|    [...]
+   |{'j': ('src/base/at_exit.cc', 61, 9)}
+029|    62   AutoLock lock(^${g_top_manager}$_->lock_);
+   |{'j': ('src/base/at_exit.cc', 61, 7)}
+030|    63   DCHECK(!^${g_top_manager}$_->processing_callbacks_);
+   |{'j': ('src/base/at_exit.cc', 62, 7)}
+031|    64   ^${g_top_manager}$_->stack_.push(std::move(task));
+   |{'j': ('src/base/at_exit.cc', 63, 7)}
+032|    65 }
+   |{'j': ('src/base/at_exit.cc', 64, 7)}
+033|    66 
+   |{'j': ('src/base/at_exit.cc', 65, 7)}
+034|    67 ^c{// static}c_
+   |{'j': ('src/base/at_exit.cc', 66, 7)}
+035|    68 }>_
+   |{'j': ('src/base/at_exit.cc', 67, 7)}
+036|
+   |{}
+037|3. src/build/sanitizers/tsan_suppressions.cc^>{
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 0, 0)}
+038|    118 ^s{"race:base::Thread::StopSoon\n"}s_
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 117, 8)}
+039|    119 
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 118, 8)}
+040|    120 ^c{// http://crbug.com/272095}c_
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 119, 8)}
+041|    121 ^s{"race:base::^${g_top_manager}$_\n"}s_
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 120, 8)}
+042|    122 
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 121, 8)}
+043|    123 ^c{// http://crbug.com/308590}c_
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 122, 8)}
+044|    124 ^s{"race:CustomThreadWatcher::~CustomThreadWatcher\n"}s_
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 123, 8)}
+045|    125 }>_
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 124, 8)}
+046|
+   |{}
+047|4. src/build/sanitizers/tsan_suppressions.cc^>{
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 0, 0)}
+048|    118 ^s{"race:base::Thread::StopSoon\n"}s_
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 117, 8)}
+049|    119 
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 118, 8)}
+050|    120 ^c{// http://crbug.com/272095}c_
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 119, 8)}
+051|    121 ^s{"race:base::^${g_top_manager}$_\n"}s_
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 120, 8)}
+052|    122 
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 121, 8)}
+053|    123 ^c{// http://crbug.com/308590}c_
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 122, 8)}
+054|    124 ^s{"race:CustomThreadWatcher::~CustomThreadWatcher\n"}s_
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 123, 8)}
+055|    125 }>_
+   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 124, 8)}
+056|
+   |{}
+057|
+   |{}

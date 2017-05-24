@@ -1,0 +1,659 @@
+{
+    "search_response": [
+        {
+            "maybe_skipped_documents": false, 
+            "estimated_total_number_of_results": 13, 
+            "hit_max_matches_per_file": true, 
+            "results_offset": 0, 
+            "search_result": [
+                {
+                    "docid": "zzUX4LneK-Q", 
+                    "language": "c++", 
+                    "match_reason": {
+                        "content": true, 
+                        "scoped_symbol": true
+                    }, 
+                    "best_matching_line_number": 24, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "// Therefore only considering files that exist on the filesystem is\n// insufficient. This class tracks files that are assigned to active downloads\n// so that uniquification can take those into account as well.\nclass DownloadPathReservationTracker {\n public:\n  // Callback used with |GetReservedPath|. |target_path| specifies the target\n  // path for the download. |target_path_verified| is true if all of the\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 15, 
+                                            "end_column": 37
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 21, 
+                            "match_reason": {
+                                "content": true, 
+                                "scoped_symbol": true
+                            }, 
+                            "scope": ""
+                        }
+                    ], 
+                    "full_history_search": false, 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "file": {
+                            "changelist": "0", 
+                            "name": "src/chrome/browser/download/download_path_reservation_tracker.h", 
+                            "package_name": "chromium", 
+                            "revision": "0"
+                        }
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1
+                }, 
+                {
+                    "docid": "BExR-2xcwiM", 
+                    "language": "c++", 
+                    "match_reason": {
+                        "content": true, 
+                        "scoped_symbol": true
+                    }, 
+                    "best_matching_line_number": 35, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "namespace {\n\nclass DownloadPathReservationTrackerTest : public testing::Test {\n public:\n  DownloadPathReservationTrackerTest();\n\n  // testing::Test\n  void SetUp() override;\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 15, 
+                                            "end_column": 37
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 11, 
+                                            "end_column": 33
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 33, 
+                            "match_reason": {
+                                "content": true, 
+                                "scoped_symbol": true
+                            }, 
+                            "scope": ""
+                        }
+                    ], 
+                    "full_history_search": false, 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "file": {
+                            "changelist": "0", 
+                            "name": "src/chrome/browser/download/download_path_reservation_tracker_unittest.cc", 
+                            "package_name": "chromium", 
+                            "revision": "0"
+                        }
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 61, 
+                    "hit_max_matches": true
+                }, 
+                {
+                    "docid": "LtEGRGlTIGY", 
+                    "language": "c++", 
+                    "match_reason": {
+                        "content": true, 
+                        "scoped_symbol": true
+                    }, 
+                    "best_matching_line_number": 165, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "    const base::FilePath& suggested_path,\n    const base::FilePath& default_download_path,\n    bool create_directory,\n    DownloadPathReservationTracker::FilenameConflictAction conflict_action,\n    base::FilePath* reserved_path) {\n  DCHECK_CURRENTLY_ON(BrowserThread::FILE);\n  DCHECK(suggested_path.IsAbsolute());\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 13, 
+                                            "end_column": 35
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 162, 
+                            "match_reason": {
+                                "content": true
+                            }, 
+                            "scope": ""
+                        }
+                    ], 
+                    "full_history_search": false, 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "file": {
+                            "changelist": "0", 
+                            "name": "src/chrome/browser/download/download_path_reservation_tracker.cc", 
+                            "package_name": "chromium", 
+                            "revision": "0"
+                        }
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 7
+                }, 
+                {
+                    "docid": "WNv6OTWGZz4", 
+                    "language": "c++", 
+                    "match_reason": {
+                        "content": true
+                    }, 
+                    "best_matching_line_number": 173, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "  // |conflict_action_|.\n  void NotifyExtensionsDone(\n      const base::FilePath& new_path,\n      DownloadPathReservationTracker::FilenameConflictAction conflict_action);\n\n  // Invokes ReserveVirtualPath() on the delegate to acquire a reservation for\n  // the path. See DownloadPathReservationTracker.\n  // Next state:\n  // - STATE_PROMPT_USER_FOR_DOWNLOAD_PATH.\n  Result DoReserveVirtualPath();\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 15, 
+                                            "end_column": 37
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 28, 
+                                            "end_column": 50
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 170, 
+                            "match_reason": {
+                                "content": true
+                            }, 
+                            "scope": ""
+                        }
+                    ], 
+                    "full_history_search": false, 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "file": {
+                            "changelist": "0", 
+                            "name": "src/chrome/browser/download/download_target_determiner.h", 
+                            "package_name": "chromium", 
+                            "revision": "0"
+                        }
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 3
+                }, 
+                {
+                    "docid": "rGzlI55GPI8", 
+                    "language": "c++", 
+                    "match_reason": {
+                        "content": true
+                    }, 
+                    "best_matching_line_number": 107, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "      should_prompt_(false),\n      should_notify_extensions_(false),\n      create_target_directory_(false),\n      conflict_action_(DownloadPathReservationTracker::OVERWRITE),\n      danger_type_(download->GetDangerType()),\n      danger_level_(DownloadFileType::NOT_DANGEROUS),\n      virtual_path_(initial_virtual_path),\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 32, 
+                                            "end_column": 54
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 104, 
+                            "match_reason": {
+                                "content": true
+                            }, 
+                            "scope": ""
+                        }
+                    ], 
+                    "full_history_search": false, 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "file": {
+                            "changelist": "0", 
+                            "name": "src/chrome/browser/download/download_target_determiner.cc", 
+                            "package_name": "chromium", 
+                            "revision": "0"
+                        }
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 7
+                }, 
+                {
+                    "docid": "yj8BH5ftBkg", 
+                    "language": "c++", 
+                    "match_reason": {
+                        "content": true
+                    }, 
+                    "best_matching_line_number": 306, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": " public:\n  typedef base::Callback<void(\n      const base::FilePath& changed_filename,\n      DownloadPathReservationTracker::FilenameConflictAction)>\n    FilenameChangedCallback;\n\n  static void SetDetermineFilenameTimeoutSecondsForTesting(int s);\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 15, 
+                                            "end_column": 37
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 303, 
+                            "match_reason": {
+                                "content": true
+                            }, 
+                            "scope": ""
+                        }
+                    ], 
+                    "full_history_search": false, 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "file": {
+                            "changelist": "0", 
+                            "name": "src/chrome/browser/extensions/api/downloads/downloads_api.h", 
+                            "package_name": "chromium", 
+                            "revision": "0"
+                        }
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1
+                }, 
+                {
+                    "docid": "vGZDy-f1g8M", 
+                    "language": "c++", 
+                    "match_reason": {
+                        "content": true
+                    }, 
+                    "best_matching_line_number": 586, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "DownloadPathReservationTracker::FilenameConflictAction ConvertConflictAction(\n    downloads::FilenameConflictAction action) {\n  switch (action) {\n    case downloads::FILENAME_CONFLICT_ACTION_NONE:\n    case downloads::FILENAME_CONFLICT_ACTION_UNIQUIFY:\n      return DownloadPathReservationTracker::UNIQUIFY;\n    case downloads::FILENAME_CONFLICT_ACTION_OVERWRITE:\n      return DownloadPathReservationTracker::OVERWRITE;\n    case downloads::FILENAME_CONFLICT_ACTION_PROMPT:\n      return DownloadPathReservationTracker::PROMPT;\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 9, 
+                                            "end_column": 31
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 22, 
+                                            "end_column": 44
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 8, 
+                                            "end_line": 8, 
+                                            "start_column": 22, 
+                                            "end_column": 44
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 10, 
+                                            "end_line": 10, 
+                                            "start_column": 22, 
+                                            "end_column": 44
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 586, 
+                            "match_reason": {
+                                "content": true
+                            }, 
+                            "scope": ""
+                        }
+                    ], 
+                    "full_history_search": false, 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "file": {
+                            "changelist": "0", 
+                            "name": "src/chrome/browser/extensions/api/downloads/downloads_api.cc", 
+                            "package_name": "chromium", 
+                            "revision": "0"
+                        }
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 5
+                }, 
+                {
+                    "docid": "WxJXrluMwrA", 
+                    "language": "c++", 
+                    "match_reason": {
+                        "content": true
+                    }, 
+                    "best_matching_line_number": 33, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "  // ignored.\n  typedef base::Callback<void(\n      const base::FilePath& new_virtual_path,\n      DownloadPathReservationTracker::FilenameConflictAction conflict_action)>\n  NotifyExtensionsCallback;\n\n  // Callback to be invoked when ReserveVirtualPath() completes. If the path\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 15, 
+                                            "end_column": 37
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 30, 
+                            "match_reason": {
+                                "content": true
+                            }, 
+                            "scope": ""
+                        }
+                    ], 
+                    "full_history_search": false, 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "file": {
+                            "changelist": "0", 
+                            "name": "src/chrome/browser/download/download_target_determiner_delegate.h", 
+                            "package_name": "chromium", 
+                            "revision": "0"
+                        }
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 2
+                }, 
+                {
+                    "docid": "liZvKXVDLM8", 
+                    "language": "c++", 
+                    "match_reason": {
+                        "content": true
+                    }, 
+                    "best_matching_line_number": 111, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "      content::DownloadItem* download,\n      const base::FilePath& virtual_path,\n      bool create_directory,\n      DownloadPathReservationTracker::FilenameConflictAction conflict_action,\n      const ReservedPathCallback& callback) override;\n  void PromptUserForDownloadPath(content::DownloadItem* download,\n                                 const base::FilePath& suggested_virtual_path,\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 15, 
+                                            "end_column": 37
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 108, 
+                            "match_reason": {
+                                "content": true
+                            }, 
+                            "scope": ""
+                        }
+                    ], 
+                    "full_history_search": false, 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "file": {
+                            "changelist": "0", 
+                            "name": "src/chrome/browser/download/chrome_download_manager_delegate.h", 
+                            "package_name": "chromium", 
+                            "revision": "0"
+                        }
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1
+                }, 
+                {
+                    "docid": "_JvbiSSqvHg", 
+                    "language": "c++", 
+                    "match_reason": {
+                        "content": true
+                    }, 
+                    "best_matching_line_number": 167, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "                    const LocalPathCallback&));\n  MOCK_METHOD5(ReserveVirtualPath,\n               void(DownloadItem*, const base::FilePath&, bool,\n                    DownloadPathReservationTracker::FilenameConflictAction,\n                    const ReservedPathCallback&));\n  MOCK_METHOD2(GetFileMimeType,\n               void(const base::FilePath&,\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 29, 
+                                            "end_column": 51
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 164, 
+                            "match_reason": {
+                                "content": true
+                            }, 
+                            "scope": ""
+                        }
+                    ], 
+                    "full_history_search": false, 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "file": {
+                            "changelist": "0", 
+                            "name": "src/chrome/browser/download/download_target_determiner_unittest.cc", 
+                            "package_name": "chromium", 
+                            "revision": "0"
+                        }
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 13
+                }, 
+                {
+                    "docid": "6bZrtHH9Up0", 
+                    "language": "c++", 
+                    "match_reason": {
+                        "content": true
+                    }, 
+                    "best_matching_line_number": 580, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "                   DownloadPathReservationTracker::UNIQUIFY);\n    router->OnDeterminingFilename(download, virtual_path.BaseName(),\n                                  original_path_callback,\n                                  callback);\n    return;\n  }\n#endif\n  callback.Run(base::FilePath(), DownloadPathReservationTracker::UNIQUIFY);\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 28, 
+                                            "end_column": 50
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 8, 
+                                            "end_line": 8, 
+                                            "start_column": 42, 
+                                            "end_column": 64
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 580, 
+                            "match_reason": {
+                                "content": true
+                            }, 
+                            "scope": ""
+                        }
+                    ], 
+                    "full_history_search": false, 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "file": {
+                            "changelist": "0", 
+                            "name": "src/chrome/browser/download/chrome_download_manager_delegate.cc", 
+                            "package_name": "chromium", 
+                            "revision": "0"
+                        }
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 4
+                }, 
+                {
+                    "docid": "68uZqksL2gs", 
+                    "language": "c++", 
+                    "match_reason": {
+                        "content": true
+                    }, 
+                    "best_matching_line_number": 104, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "                 DownloadPathReservationTracker::UNIQUIFY);\n  }\n\n  void ReserveVirtualPath(\n      content::DownloadItem* download,\n      const base::FilePath& virtual_path,\n      bool create_directory,\n      DownloadPathReservationTracker::FilenameConflictAction conflict_action,\n      const DownloadPathReservationTracker::ReservedPathCallback& callback)\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 26, 
+                                            "end_column": 48
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 8, 
+                                            "end_line": 8, 
+                                            "start_column": 15, 
+                                            "end_column": 37
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 9, 
+                                            "end_line": 9, 
+                                            "start_column": 21, 
+                                            "end_column": 43
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 104, 
+                            "match_reason": {
+                                "content": true
+                            }, 
+                            "scope": ""
+                        }
+                    ], 
+                    "full_history_search": false, 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "file": {
+                            "changelist": "0", 
+                            "name": "src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc", 
+                            "package_name": "chromium", 
+                            "revision": "0"
+                        }
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 3
+                }, 
+                {
+                    "docid": "mVasASkQUKc", 
+                    "language": "c++", 
+                    "match_reason": {
+                        "content": true
+                    }, 
+                    "best_matching_line_number": 84, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "  DownloadPathReservationTracker::GetReservedPath(\n      download_item_,\n      file_path_,\n      download_dir,\n      true,\n      DownloadPathReservationTracker::UNIQUIFY,\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 11, 
+                                            "end_column": 33
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 15, 
+                                            "end_column": 37
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 84, 
+                            "match_reason": {
+                                "content": true
+                            }, 
+                            "scope": ""
+                        }
+                    ], 
+                    "full_history_search": false, 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "file": {
+                            "changelist": "0", 
+                            "name": "src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc", 
+                            "package_name": "chromium", 
+                            "revision": "0"
+                        }
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 2
+                }
+            ]
+        }
+    ], 
+    "elapsed_ms": 22
+}

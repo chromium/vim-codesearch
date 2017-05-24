@@ -1,0 +1,204 @@
+*crcs.txt*   Vim integration for Chromium CodeSearch
+
+1. Warnings 	 		|crcs-warnings| 
+2. Overview 			|crcs-overview|
+3. Commands 			|crcs-commands|
+4. Search results buffer 	|crcs-results-buffer|
+5. Cross references buffer 	|crcs-xref-buffer|
+6. Call graph buffer 		|crcs-call-graph-buffer|
+7. Tours 			|crcs-tours|
+8. Settings 			|crcs-settings|	
+9. Contributing and bugs 	|crcs-bugs|
+
+This plugin is not supported by the Chromium team. It's maintained by
+volunteers. If you run into any problems, please contact one of the folks in
+the `OWNERS` file for assistance. As always, patches welcome.
+
+==============================================================================
+                                  WARNINGS                       *crcs-warnings*
+
+NOTE: This plugin makes network requests to the codesearch server. This may
+not jive with the privacy expectations of a text editor. If you need a code
+indexing solution that doesn't depend on a live internet connection, or y'know
+possibly broadcast what you are working on, then this is not going to work.
+>
+            ^^^ Lookie there ^^^ Read the warning ^^^
+<
+NOTE: Effective use of the plugin requires a recent checkout. The codesearch
+data is refreshed every couple of hours. The plugin relies on the local
+checkout for navigating through search results. If there's a large difference
+between the locally checked out source files and the files as known to code
+search, then you'll see confusing behavior.
+
+==============================================================================
+                                  OVERVIEW                       *crcs-overview*
+
+Congratulations! You've successfully installed the Chromium codesearch plugin.
+In addition to having approximate feature parity with http://cs.chromium.org,
+this plugin aims to be a platform for building editor features that are backed
+by Chromium codesearch data.
+
+Here's a quick overview of basic functionality:
+
+Start by visiting a file inside your Chromium checkout. This would be file
+under `src/`. The plugin uses the path of the current buffer, failing which,
+the current directory to locate the Chromium checkout. (See |crcs-settings|
+for details on how to configure how the plugin locates the Chromium checkout).
+
+Now start a search:
+>
+	:CrSearch hello world
+
+No quotes or whitespace escapes are needed when including whitespace.
+Everything after `:CrSearch` is passed along as the search string. You'll be
+taken to a search results buffer. (See |crcs-results-buffer| for more
+information about this mode). Here you can navigate using your favorite Vim
+keybindings and his <Enter> to jump directly to the source file corresponding
+to the search result.
+
+Let's try looking up a call graph.
+
+   1. Open a `.cc` file. Say `src/base/logging.cc`.
+   2. Locate a function definition. Place your cusor on the identifier.
+   3. Invoke a callgraph search:
+>
+	:CrCallgraph
+
+This should take you to the call graph buffer. (See |crcs-call-graph-buffer|
+for more information about this mode). Much like the search results buffer,
+you can hit <Enter> on a search result to jump to the source file
+corresponding to the search result.
+
+Also, try out a cross reference search.
+
+  1. Open a `.cc` file, or a `.h` file. Say `src/base/logging.cc`
+  2. Place your cursor on some symbol.
+  3. Invoke a cross reference search: >
+
+	:CrXrefSearch
+
+The command takes you to the cross reference buffer showing the references
+that code search knows about. (See |crcs-xref-buffer| for more details about
+this mode).
+
+==============================================================================
+                                   COMMANDS                      *crcs-commands*
+
+                                                                    *:CrSearch*
+:CrSearch {search-terms}	Invokes a code search for {search-terms} which
+				may contain whitespace. In addition to free
+				text search, the CodeSearch backend supports
+				several additional search tags. E.g.:
+>
+				class:base::File
+				symbol:std::vector
+				file:(code|[^or]g)search
+<
+                                As can be seen, the search terms may contain
+				regular expressions.
+
+				The search results will be presented in search
+				results buffer which is explained in
+				|crcs-results-buffer|.
+
+								*:CrXrefSearch*
+:CrXrefSearch			Invokes a cross reference search for the
+                                symbol under the cursor. The current buffer
+				must be inside a Chromium checkout and the
+				corrsponding file should be known to the code
+				search backend.
+
+				Results are displayed in a cross reference
+				buffer which is explained in
+				|crcs-xref-buffer|.
+
+
+							  	*:CrCallGraph*
+:CrCallGraph 			Invokes a call graph search for the symbol
+				under the cursor. Similar to `:CrXrefSearch`,
+				the current buffer must be inside a Chromium
+				checkout and the corresponding file should be
+				known to the code search backend.
+
+				Results are displayed in a call graph buffer
+				which is explained in |crcs-call-graph-buffer|.
+
+								      *:CrTour*
+:CrTour {tour-type}		Start a code tour of the specified type based
+				on the symbol under the cursor. As always, the
+				current buffer must be inside a Chromium
+				checkout and the corresponding file should be
+				known to the code search backend.
+
+				Based on {tour-type}, the command loads a
+				list of locations to the *quickfix* list. You
+				can use your favorite quickfix navigation
+				techniques to navigate the tour.
+
+				The list of {tour-type}s is discussed in
+				|crcs-tours|.
+
+==============================================================================
+                                    TOURS                          *crcs-tours*
+
+Tours are just a fancy term for an operation that loads bunch of locations in
+the codebase to the *quickfix* list. Such an operation is useful in a number
+of scenarios, which is why this concept exists.
+
+When invoking the |:CrTour| command, you can choose from a number of tour
+types as described below:
+
+                                          *crcs-tour-caller* *crcs-tour-called-at*
+`caller` or `called` `at`	Visits all the known call sites for the symbol
+				under the cursor. >
+
+				:CrTour caller
+				:CrTour called at
+<		
+
+                                                        *crcs-tour-call-targets*
+`call` `targets`                    Visits the possible targets of the function
+                                call or method invocation under the cursor.
+				If the method invocation is for a virtual
+				method, then visits all possible overrides of
+				the method. >
+
+				:CrTour call targets
+
+<
+						         *crcs-tour-declaration*
+`declaration`			Jumps to the declaration for the symbol under
+				the cursor.
+>
+				:CrTour declaration
+<
+
+                                                          *crcs-tour-definition*
+`definition`			Jumps to the definition of the symbol under
+				the cursor.
+>
+				:CrTour definition
+<
+
+						      *crcs-tour-instantiations*
+`instantiations`		Loads the locations of the known
+				instantiations of the class under the cursor.
+>
+				:CrTour instantiations
+<
+						       *crcs-tour-overridden-by*
+`overridden` `by`		Navigates to the classes or methods that
+				override the symbol under the cursor.
+>
+				:CrTour overridden by
+<
+						           *crcs-tour-overrides*
+`overrides` 			Navigates to the class or method that the
+				symbol under the cursor overrides.
+>
+				:CrTour overrides
+<
+
+ vim:tw=78:ts=8:ft=help:norl:
+
+

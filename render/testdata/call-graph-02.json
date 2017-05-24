@@ -1,0 +1,30 @@
+{
+    "elapsed_ms": 114, 
+    "call_graph_response": [
+        {
+            "node": {
+                "display_name": "net::HttpAuthHandlerNegotiateTest_NoKerberosCredentials_Test::TestBody()", 
+                "package_name": "chromium", 
+                "call_site_range": {
+                    "start_line": 357, 
+                    "end_line": 357, 
+                    "start_column": 1, 
+                    "end_column": 1
+                }, 
+                "snippet": {
+                    "text": {
+                        "text": "TEST_F(HttpAuthHandlerNegotiateTest, NoKerberosCredentials) {"
+                    }
+                }, 
+                "node_kind": "METHOD", 
+                "signature": "cpp:net::class-HttpAuthHandlerNegotiateTest_NoKerberosCredentials_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def", 
+                "identifier": "TestBody", 
+                "file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc"
+            }, 
+            "estimated_total_number_results": 0, 
+            "is_call_graph": true, 
+            "return_code": 1, 
+            "results_offset": 0
+        }
+    ]
+}

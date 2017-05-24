@@ -1,0 +1,75 @@
+This file contains the rendered output per line and its associated metadata.
+
+Lines that begin with a line number contains (after the '|') the contents that
+will be inserted into the vim buffer at that line. The immediately following
+line contains an object representing associated metadata.
+-------------------------------------------------------------------------------
+
+001|^Cat{Declaration:
+   |{}
+002|}Cat_  ^F{src/net/http/proxy_client_socket.h}F_
+   |{'j': ('src/net/http/proxy_client_socket.h', 0, 7)}
+003|    48:  ^>{  virtual int RestartWithAuth(const CompletionCallback& callback) = 0;}>_
+   |{'j': ('src/net/http/proxy_client_socket.h', 47, 9)}
+004|
+   |{}
+005|^Cat{Calls:
+   |{}
+006|}Cat_  ^F{src/jingle/glue/proxy_resolving_client_socket.cc}F_
+   |{'j': ('src/jingle/glue/proxy_resolving_client_socket.cc', 0, 7)}
+007|    288:  ^>{        return proxy_socket->RestartWithAuth(connect_callback_);}>_
+   |{'j': ('src/jingle/glue/proxy_resolving_client_socket.cc', 287, 10)}
+008|
+   |{}
+009|  ^F{src/net/http/http_proxy_client_socket_wrapper.cc}F_
+   |{'j': ('src/net/http/http_proxy_client_socket_wrapper.cc', 0, 2)}
+010|    592:  ^>{  return transport_socket_->RestartWithAuth(base::Bind(}>_
+   |{'j': ('src/net/http/http_proxy_client_socket_wrapper.cc', 591, 10)}
+011|
+   |{}
+012|  ^F{src/net/http/http_stream_factory_impl_job.cc}F_
+   |{'j': ('src/net/http/http_stream_factory_impl_job.cc', 0, 2)}
+013|    1295:  ^>{  return proxy_socket->RestartWithAuth(io_callback_);}>_
+   |{'j': ('src/net/http/http_stream_factory_impl_job.cc', 1294, 11)}
+014|
+   |{}
+015|^Cat{Overridden by:
+   |{}
+016|}Cat_  ^F{src/net/http/http_proxy_client_socket.cc}F_
+   |{'j': ('src/net/http/http_proxy_client_socket.cc', 0, 7)}
+017|    66:  ^>{int HttpProxyClientSocket::RestartWithAuth(const CompletionCallback& callback) {}>_
+   |{'j': ('src/net/http/http_proxy_client_socket.cc', 65, 9)}
+018|
+   |{}
+019|  ^F{src/net/http/http_proxy_client_socket.h}F_
+   |{'j': ('src/net/http/http_proxy_client_socket.h', 0, 2)}
+020|    57:  ^>{  int RestartWithAuth(const CompletionCallback& callback) override;}>_
+   |{'j': ('src/net/http/http_proxy_client_socket.h', 56, 9)}
+021|
+   |{}
+022|  ^F{src/net/http/http_proxy_client_socket_wrapper.cc}F_
+   |{'j': ('src/net/http/http_proxy_client_socket_wrapper.cc', 0, 2)}
+023|    132:  ^>{int HttpProxyClientSocketWrapper::RestartWithAuth(}>_
+   |{'j': ('src/net/http/http_proxy_client_socket_wrapper.cc', 131, 10)}
+024|
+   |{}
+025|  ^F{src/net/http/http_proxy_client_socket_wrapper.h}F_
+   |{'j': ('src/net/http/http_proxy_client_socket_wrapper.h', 0, 2)}
+026|    86:  ^>{  int RestartWithAuth(const CompletionCallback& callback) override;}>_
+   |{'j': ('src/net/http/http_proxy_client_socket_wrapper.h', 85, 9)}
+027|
+   |{}
+028|  ^F{src/net/spdy/spdy_proxy_client_socket.cc}F_
+   |{'j': ('src/net/spdy/spdy_proxy_client_socket.cc', 0, 2)}
+029|    81:  ^>{int SpdyProxyClientSocket::RestartWithAuth(const CompletionCallback& callback) {}>_
+   |{'j': ('src/net/spdy/spdy_proxy_client_socket.cc', 80, 9)}
+030|
+   |{}
+031|  ^F{src/net/spdy/spdy_proxy_client_socket.h}F_
+   |{'j': ('src/net/spdy/spdy_proxy_client_socket.h', 0, 2)}
+032|    62:  ^>{  int RestartWithAuth(const CompletionCallback& callback) override;}>_
+   |{'j': ('src/net/spdy/spdy_proxy_client_socket.h', 61, 9)}
+033|
+   |{}
+034|
+   |{}
