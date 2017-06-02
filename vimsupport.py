@@ -122,6 +122,7 @@ def JumpToNextFile():
   col = int(col)
   line = location_map.NextFileLocation(line)
   vim.eval("setpos('.', [%d, %d, %d, %d])" % (0, line, col, 0))
+  vim.command('norm zz')
 
 
 @CalledFromVim()
@@ -132,6 +133,7 @@ def JumpToPrevFile():
   col = int(col)
   line = location_map.PreviousFileLocation(line)
   vim.eval("setpos('.', [%d, %d, %d, %d])" % (0, line, col, 0))
+  vim.command('norm zz')
 
 
 def _GetSignatureAtSource():

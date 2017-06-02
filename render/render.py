@@ -105,9 +105,9 @@ class LocationMapper(object):
   def PreviousFileLocation(self, line):
     current_file, _, _ = self.jump_map_[line]
 
-    line -= 1
-    while line >= 0:
-      f, _, _ = self.jump_map_.get(line, '')
+    line -= 2
+    while line >= 1:
+      f, _, _ = self.jump_map_.get(line, ('', 0, 0))
       if f and f != current_file:
         new_file = f
         break
@@ -115,22 +115,22 @@ class LocationMapper(object):
 
     old_line = line
     line -= 1
-    while line >= 0:
-      f, _, _ = self.jump_map_.get(line, '')
+    while line >= 1:
+      f, _, _ = self.jump_map_.get(line, ('', 0, 0))
       if f != new_file:
-        return old_line
+        return old_line + 1
       old_line = line
       line -= 1
-    return 0
+    return 1
 
   def NextFileLocation(self, line):
     original_line = line
     current_file, _, _ = self.jump_map_[line]
-    line += 1
-    while line < len(self.lines_):
-      f, _, _ = self.jump_map_.get(line, '')
+    while line <= len(self.lines_):
+      f, _, _ = self.jump_map_.get(line, ('', 0, 0))
       if f and f != current_file:
-        return line
+        return line + 1
+      line += 1
     return original_line
 
   def SignatureAt(self, line):
