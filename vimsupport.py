@@ -118,6 +118,8 @@ def JumpToContext():
 def JumpToNextFile():
   location_map = _GetLocationMapForCurrentBuffer()
   _, line, col, _, _ = vim.eval('getcurpos()')
+  line = int(line)
+  col = int(col)
   line = location_map.NextFileLocation(line)
   vim.eval("setpos('.', [%d, %d, %d, %d])" % (0, line, col, 0))
 
@@ -126,6 +128,8 @@ def JumpToNextFile():
 def JumpToPrevFile():
   location_map = _GetLocationMapForCurrentBuffer()
   _, line, col, _, _ = vim.eval('getcurpos()')
+  line = int(line)
+  col = int(col)
   line = location_map.PreviousFileLocation(line)
   vim.eval("setpos('.', [%d, %d, %d, %d])" % (0, line, col, 0))
 
