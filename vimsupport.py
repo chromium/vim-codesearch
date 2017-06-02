@@ -75,21 +75,26 @@ def _SetupVimBuffer(t, name):
   return buffer_num
 
 
+def _GetLocationMapForCurrentBuffer():
+  buffer_num = vim.current.buffer.number
+  if buffer_num not in g_buffer_map_:
+    vim.command('echo "Buffer #{} not in map"'.format(buffer_num))
+    return None
+  return g_buffer_map_[buffer_num]
+
+
 @CalledFromVim()
 def CleanupBuffer(buffer_num):
   del g_buffer_map_[buffer_num]
 
 
 def _GetJumpTargetAtPos():
-  buffer_num = vim.current.buffer.number
+  location_map = _GetLocationMapForCurrentBuffer()
+
   _, line, column, _, _ = vim.eval('getcurpos()')
-  if buffer_num not in g_buffer_map_:
-    vim.command('echo "Buffer #{} not in map"'.format(buffer_num))
-    return None
   line = int(line)
   column = int(column)
 
-  location_map = g_buffer_map_[buffer_num]
   return location_map.JumpTargetAt(line, column)
 
 
@@ -106,6 +111,22 @@ def JumpToContext():
   filename, line, col = target
   filename = os.path.join(root_path, filename)
   vim.command('e {}'.format(filename))
+  vim.eval("setpos('.', [%d, %d, %d, %d])" % (0, line, col, 0))
+
+
+@CalledFromVim()
+def JumpToNextFile():
+  location_map = _GetLocationMapForCurrentBuffer()
+  _, line, col, _, _ = vim.eval('getcurpos()')
+  line = location_map.NextFileLocation(line)
+  vim.eval("setpos('.', [%d, %d, %d, %d])" % (0, line, col, 0))
+
+
+@CalledFromVim()
+def JumpToPrevFile():
+  location_map = _GetLocationMapForCurrentBuffer()
+  _, line, col, _, _ = vim.eval('getcurpos()')
+  line = location_map.PreviousFileLocation(line)
   vim.eval("setpos('.', [%d, %d, %d, %d])" % (0, line, col, 0))
 
 

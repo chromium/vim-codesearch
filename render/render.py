@@ -102,6 +102,37 @@ class LocationMapper(object):
       target_column = 0
     return (filename, target_line + 1, target_column + 1)
 
+  def PreviousFileLocation(self, line):
+    current_file, _, _ = self.jump_map_[line]
+
+    line -= 1
+    while line >= 0:
+      f, _, _ = self.jump_map_.get(line, '')
+      if f and f != current_file:
+        new_file = f
+        break
+      line -= 1
+
+    old_line = line
+    line -= 1
+    while line >= 0:
+      f, _, _ = self.jump_map_.get(line, '')
+      if f != new_file:
+        return old_line
+      old_line = line
+      line -= 1
+    return 0
+
+  def NextFileLocation(self, line):
+    original_line = line
+    current_file, _, _ = self.jump_map_[line]
+    line += 1
+    while line < len(self.lines_):
+      f, _, _ = self.jump_map_.get(line, '')
+      if f and f != current_file:
+        return line
+    return original_line
+
   def SignatureAt(self, line):
     assert line > 0
     line -= 1

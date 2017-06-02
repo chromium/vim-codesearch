@@ -78,6 +78,9 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
     syn match csMatchFileName / .*/hs=s+1 contained
     hi def link csMatchFileName Directory
     hi def link csMatchNum Number
+
+    nnoremap <buffer> <silent> gj :call crcs#JumpToNextFile()<CR>
+    nnoremap <buffer> <silent> gk :call crcs#JumpToPrevFile()<CR>
   endif
 
   " Xref results
@@ -88,6 +91,9 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
     hi def link csCategory Special
     hi def link csLine Number
     hi def link csFilename Directory
+
+    nnoremap <buffer> <silent> gj :call crcs#JumpToNextFile()<CR>
+    nnoremap <buffer> <silent> gk :call crcs#JumpToPrevFile()<CR>
   endif
 
   if a:buftype ==# 'call'
@@ -177,6 +183,14 @@ endfunction
 function! crcs#JumpToCallers()
   call crcs#Setup()
   cexpr pyeval('GetCallers()')
+endfunction
+
+function! crcs#JumpToNextFile()
+  py JumpToNextFile()
+endfunction
+
+function! crcs#JumpToPrevFile()
+  py JumpToPrevFile()
 endfunction
 
 function! crcs#RefTypeCompleter(arglead, cmdline, cursorpos)
