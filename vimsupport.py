@@ -17,7 +17,7 @@ except ImportError:
 
 from codesearch import CodeSearch, CompoundRequest, SearchRequest, \
         XrefSearchRequest, CallGraphRequest, EdgeEnumKind, XrefSearchResponse, \
-        AnnotationType, AnnotationTypeValue
+        AnnotationType, AnnotationTypeValue, NoSourceRootError
 from render.render import RenderCompoundResponse, RenderNode, LocationMapper, DisableConcealableMarkup
 
 g_codesearch = None
@@ -30,14 +30,15 @@ def CalledFromVim(default=None):
   def wrapper(func):
 
     def inner_call_wrapper(*args, **kwargs):
+      global g_codesearch
       try:
         return func(*args, **kwargs)
       except (URLError, HTTPError):
-        vim.command('echom "{}"'.format('couldn\'t contact codesearch server.'))
+        vim.command('echoerr "{}"'.format('couldn\'t contact codesearch server.'))
         return default
       except NoSourceRootError:
         vim.command(
-            'echom "{}"'.format("""Couldn't determing Chromium source location.
+            'echoerr "{}"'.format(r"""Couldn't determine Chromium source location.
 
 In order to show search results and link to corresponding files in the working
 directory, this plugin needs to know the location of your Chromium checkout.
@@ -50,15 +51,16 @@ This can be accomplished via two ways:
      I.e. this should point to the directory containing your .gclient file.
      This can be done by adding something like the following to your .vimrc:
 
-         " Change this to point to the directory above your Chromium checkout.
-         " E.g.: If you checked out Chromium to ~/sources/chrome/src
+         \" Change this to point to the directory above your Chromium checkout.
+         \" E.g.: If you checked out Chromium to ~/sources/chrome/src
          let g:codesearch_source_root = '~/sources/chrome/'
-"""))
+""".replace('\n', r'\n')))
+        g_codesearch = None
       except Exception as e:
-        vim.command('echom "{}"'.format(str(e.message).replace('"', '\\"')))
+        vim.command('echoerr "{}"'.format(str(e.message).replace('"', '\\"')))
         return default
       except:
-        vim.command('echom "{}"'.format("something went wrong"))
+        vim.command('echoerr "{}"'.format("something went wrong"))
         return default
 
     return inner_call_wrapper
