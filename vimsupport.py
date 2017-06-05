@@ -441,4 +441,3 @@ def ShowSignature():
     return
 
   vim.command('echo \'Signature: {}\''.format(signature))
-

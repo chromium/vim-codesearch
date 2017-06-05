@@ -13,8 +13,9 @@ import codesearch as cs
 
 SNIPPET_INDENT = 4
 
-TAG_START_FORMAT='^{:s}{{'
-TAG_END_FORMAT='}}{:s}_'
+TAG_START_FORMAT = '^{:s}{{'
+TAG_END_FORMAT = '}}{:s}_'
+
 
 def StartTag(s):
   assert isinstance(s, str)
@@ -414,8 +415,8 @@ def RenderCompoundResponse(compound_response):
 
 
 def DisableConcealableMarkup():
-    global TAG_START_FORMAT
-    global TAG_END_FORMAT
+  global TAG_START_FORMAT
+  global TAG_END_FORMAT
 
-    TAG_START_FORMAT = ''
-    TAG_END_FORMAT = ''
+  TAG_START_FORMAT = ''
+  TAG_END_FORMAT = ''
