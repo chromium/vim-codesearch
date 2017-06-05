@@ -3,12 +3,13 @@
 1. Warnings 	 		|crcs-warnings| 
 2. Overview 			|crcs-overview|
 3. Commands 			|crcs-commands|
-4. Search results buffer 	|crcs-results-buffer|
+4. Search results buffer 	|crcs-search-buffer|
 5. Cross references buffer 	|crcs-xref-buffer|
 6. Call graph buffer 		|crcs-call-graph-buffer|
 7. Tours 			|crcs-tours|
 8. Settings 			|crcs-settings|	
-9. Contributing and bugs 	|crcs-bugs|
+9. Default key bindings         |crcs-default-keybindings|
+10. Contributing and bugs 	|crcs-bugs|
 
 This plugin is not supported by the Chromium team. It's maintained by
 volunteers. If you run into any problems, please contact one of the folks in
@@ -139,6 +140,59 @@ this mode).
 				|crcs-tours|.
 
 ==============================================================================
+                             SEARCH RESULTS BUFFER          *crcs-search-buffer*
+
+The |:CrSearch|  command uses this type of buffer to render code search
+results. In addition to regular text mode keybindings, the following
+keybindings are available:
+
+<CR>                            Jump to context. If the cursor is on a
+                                filename or a snippet, pressing <CR> loads the
+				corresponding source file and jumps to the
+				corresponding location.
+
+[[                              Jump to search results from the next file.
+
+]]                              Jump to search results from the previous file.
+
+==============================================================================
+                            CROSS REFERENCES BUFFER           *crcs-xref-buffer*
+
+The |:CrXrefSearch| command uses this type of buffer to render cross
+references.
+
+<CR>                            Jump to context. If the cursor is on a
+                                filename or a snippet, pressing <CR> loads the
+				corresponding source file and jumps to the
+				corresponding location.
+
+[[                              Jump to search results from the next file.
+
+]]                              Jump to search results from the previous file.
+
+==============================================================================
+                               CALL GRAPH BUFFER         *crcs-call-graph-buffer*
+
+The |:CrCallgraph| command uses this type of buffer to render call graphs. In
+addition to regular text mode keybindings, the following keybindings are
+available:
+
+<CR>                            Jump to context. If the cursor is on a
+                                filename or a snippet, pressing <CR> loads the
+				corresponding source file and jumps to the
+				corresponding location.
+
+za                              Expand the call graph at the node under the
+                                cursor.
+
+zc                              Collapse the call graph at the node under the
+                                cursor.
+
+Nodes for which the callgraph hasn't been expanded are indicated with `[+]`,
+while expanded nodes are indicated with `[-]`. A `[*]` means that there are no
+callers for the corresponding node.
+
+==============================================================================
                                     TOURS                          *crcs-tours*
 
 Tours are just a fancy term for an operation that loads bunch of locations in
@@ -198,6 +252,47 @@ types as described below:
 >
 				:CrTour overrides
 <
+==============================================================================
+                                   SETTINGS                      *crcs-settings*
+
+`g:codesearch_default_bindings`   If set to a non-zero value, causes the default
+				keybindings to be bound globally at Vim
+				startup. See |crcs-default-keybindings|.
+
+`g:codesearch_source_root`	Set this to the directory above the root of
+				the local Chromium checkout. If this setting
+				is not present, then the root of the source
+				checkout will be determined based on the path
+				of the current buffer.
+
+				E.g. If you have Chromium checked out at
+				`~/src/chrome/src` such that
+				`~/src/chrome/src/.gn` file exists:, then
+				`g:codesearch_source_root` should be set to
+				`~/src/chrome/`.
+
+==============================================================================
+                             DEFAULT KEY BINDINGS     *crcs-default-keybindings*
+
+You almost never should be using the default key bindings since they use the
+<Leader> prefix. Instead consider binding the |crcs-commands| directly
+yourself.
+
+The default keybindings are:
+
+<Leader>s			|:CrSearch|
+<Leader>x			|:CrXrefSearch|
+<Leader>g			|:CrCallgraph|
+<Leader>j			|:CrLoadCallers|
+<Leader>gd			|:CrTour| `declarations`
+<Leader>gD			|:CrTour| `definitions`
+<Leader>l			|:CrTour|
+
+==============================================================================
+                                     BUGS                            *crcs-bugs*
+
+You will no doubt run into bugs. Please file issues at
+https://github.com/chromium/vim-codesearch
 
  vim:tw=78:ts=8:ft=help:norl:
 

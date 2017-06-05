@@ -83,8 +83,8 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
     hi def link csMatchFileName Directory
     hi def link csMatchNum Number
 
-    nnoremap <buffer> <silent> gj :call crcs#JumpToNextFile()<CR>
-    nnoremap <buffer> <silent> gk :call crcs#JumpToPrevFile()<CR>
+    nnoremap <buffer> <silent> [[ :call crcs#JumpToNextFile()<CR>
+    nnoremap <buffer> <silent> ]] :call crcs#JumpToPrevFile()<CR>
   endif
 
   " Xref results
@@ -96,8 +96,8 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
     hi def link csLine Number
     hi def link csFilename Directory
 
-    nnoremap <buffer> <silent> gj :call crcs#JumpToNextFile()<CR>
-    nnoremap <buffer> <silent> gk :call crcs#JumpToPrevFile()<CR>
+    nnoremap <buffer> <silent> [[ :call crcs#JumpToNextFile()<CR>
+    nnoremap <buffer> <silent> ]] :call crcs#JumpToPrevFile()<CR>
   endif
 
   if a:buftype ==# 'call'
