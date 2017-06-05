@@ -156,9 +156,11 @@ function! crcs#Setup()
   let s:initialized = 1
 
   py import sys
-  exec "py sys.path.append('" . s:plugin_root . "/third_party/codesearch-py')"
-  exec "py sys.path.append('" . s:plugin_root . "/')"
-  exec "pyf" s:plugin_root . "/vimsupport.py"
+  py import os
+  exec "py sys.path.append(os.path.join('" . fnameescape(s:plugin_root) .
+     \ "', 'third_party', 'codesearch-py'))"
+  exec "py sys.path.append('" . fnameescape(s:plugin_root) . "')"
+  exec "pyf" fnameescape(s:plugin_root . "/vimsupport.py")
 
   if !has('conceal')
     exec "py DisableConcealableMarkup()"
