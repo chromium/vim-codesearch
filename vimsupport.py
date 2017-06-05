@@ -33,13 +33,32 @@ def CalledFromVim(default=None):
       try:
         return func(*args, **kwargs)
       except (URLError, HTTPError):
-        vim.command('echom "{}"'.format('Couldn\'t contact codesearch server.'))
+        vim.command('echom "{}"'.format('couldn\'t contact codesearch server.'))
         return default
+      except NoSourceRootError:
+        vim.command(
+            'echom "{}"'.format("""Couldn't determing Chromium source location.
+
+In order to show search results and link to corresponding files in the working
+directory, this plugin needs to know the location of your Chromium checkout.
+This can be accomplished via two ways:
+
+  1) Invoke :CrSearch or a similar command while editing a file inside the
+     Chromium source directory.
+
+  2) Set g:codesearch_source_root to the directory above your 'src' directory.
+     I.e. this should point to the directory containing your .gclient file.
+     This can be done by adding something like the following to your .vimrc:
+
+         " Change this to point to the directory above your Chromium checkout.
+         " E.g.: If you checked out Chromium to ~/sources/chrome/src
+         let g:codesearch_source_root = '~/sources/chrome/'
+"""))
       except Exception as e:
         vim.command('echom "{}"'.format(str(e.message).replace('"', '\\"')))
         return default
       except:
-        vim.command('echom "{}"'.format("Something went wrong"))
+        vim.command('echom "{}"'.format("something went wrong"))
         return default
 
     return inner_call_wrapper
@@ -52,15 +71,20 @@ def _GetCodeSearch(base_filename=None):
   if g_codesearch:
     return g_codesearch
 
-  if not base_filename:
-    base_filename = vim.eval("expand('%:p')")
+  arguments = {'user_agent_string': 'Vim-CodeSearch-Client'}
 
-  if not base_filename:
-    base_filename = vim.eval('getcwd()')
+  if 'codesearch_source_root' in vim.vars:
+    arguments['source_root'] = vim.vars['codesearch_source_root']
+  else:
+    if not base_filename:
+      base_filename = vim.eval("expand('%:p')")
 
-  g_codesearch = CodeSearch(
-      a_path_inside_source_dir=base_filename,
-      user_agent_string='Vim-CodeSearch-Client')
+    if not base_filename:
+      base_filename = vim.eval('getcwd()')
+
+    arguments['a_path_inside_source_dir'] = base_filename
+
+  g_codesearch = CodeSearch(**arguments)
   return g_codesearch
 
 

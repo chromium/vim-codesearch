@@ -157,9 +157,9 @@ function! crcs#Setup()
 
   py import sys
   py import os
-  exec "py sys.path.append(os.path.join('" . fnameescape(s:plugin_root) .
+  exec "py sys.path.append(os.path.join(r'" . s:plugin_root .
      \ "', 'third_party', 'codesearch-py'))"
-  exec "py sys.path.append('" . fnameescape(s:plugin_root) . "')"
+  exec "py sys.path.append(r'" . s:plugin_root  . "')"
   exec "pyf" fnameescape(s:plugin_root . "/vimsupport.py")
 
   if !has('conceal')
