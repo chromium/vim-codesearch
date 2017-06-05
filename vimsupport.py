@@ -18,7 +18,7 @@ except ImportError:
 from codesearch import CodeSearch, CompoundRequest, SearchRequest, \
         XrefSearchRequest, CallGraphRequest, EdgeEnumKind, XrefSearchResponse, \
         AnnotationType, AnnotationTypeValue
-from render.render import RenderCompoundResponse, RenderNode, LocationMapper
+from render.render import RenderCompoundResponse, RenderNode, LocationMapper, DisableConcealableMarkup
 
 g_codesearch = None
 
@@ -441,3 +441,4 @@ def ShowSignature():
     return
 
   vim.command('echo \'Signature: {}\''.format(signature))
+

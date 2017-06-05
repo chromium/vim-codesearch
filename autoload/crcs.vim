@@ -73,9 +73,13 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
   
   " High level syntax groups for describing search results.
   if a:buftype ==# 'search'
-    syn region csMatchFileSpec start=/^\d*\. /rs=s end=/\^>{$/me=e-3,re=e contains=csMatchNum,csMatchFileName keepend
+    if has('conceal')
+      syn region csMatchFileSpec start=/^\d*\. /rs=s end=/\^>{$/me=e-3,re=e contains=csMatchNum,csMatchFileName keepend
+    else
+      syn region csMatchFileSpec start=/^\d*\. /rs=s end=/$/ contains=csMatchNum,csMatchFileName keepend
+    endif
     syn match csMatchNum /^\d*\./he=e-1 contained nextgroup=csMatchFileName
-    syn match csMatchFileName / .*/hs=s+1 contained
+    syn match csMatchFileName / .*$/hs=s+1 contained
     hi def link csMatchFileName Directory
     hi def link csMatchNum Number
 
@@ -133,7 +137,7 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
 endfunction
 
 let s:cs_buffer = -1
-let s:initialized = v:false
+let s:initialized = 0
 let s:plugin_root = resolve(expand('<sfile>:p:h:h'))
 
 " This needs to be called from a BufDelete auto command where |bufnr| is set
@@ -149,12 +153,19 @@ function! crcs#Setup()
   if s:initialized
     return
   endif
-  let s:initialized = v:true
+  let s:initialized = 1
 
   py import sys
   exec "py sys.path.append('" . s:plugin_root . "/third_party/codesearch-py')"
   exec "py sys.path.append('" . s:plugin_root . "/')"
   exec "pyf" s:plugin_root . "/vimsupport.py"
+
+  if !has('conceal')
+    exec "py DisableConcealableMarkup()"
+  endif
+
+  if !has('hidden')
+  endif
 endfunction
 
 function! crcs#CodeSearch(query)

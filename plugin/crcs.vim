@@ -4,6 +4,10 @@
 " license that can be found in the LICENSE file or at
 " https://developers.google.com/open-source/licenses/bsd.
 
+if ! &hidden
+	echoerr "'set hidden' is required for correct functionality of Chromium CodeSearch."
+endif
+
 command! -nargs=1 CrSearch call crcs#CodeSearch(<q-args>)
 command! CrXrefSearch call crcs#XrefSearch()
 command! CrCallgraph call crcs#Callgraph()

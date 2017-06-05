@@ -13,15 +13,17 @@ import codesearch as cs
 
 SNIPPET_INDENT = 4
 
+TAG_START_FORMAT='^{:s}{{'
+TAG_END_FORMAT='}}{:s}_'
 
 def StartTag(s):
   assert isinstance(s, str)
-  return '^{:s}{{'.format(s)
+  return TAG_START_FORMAT.format(s)
 
 
 def EndTag(s):
   assert isinstance(s, str)
-  return '}}{:s}_'.format(s)
+  return TAG_END_FORMAT.format(s)
 
 
 RE_BLOCK_START_META = re.compile(r'\^[^{]+{')
@@ -409,3 +411,11 @@ def RenderCompoundResponse(compound_response):
     RenderNode(mapper, compound_response.call_graph_response[0].node, 0)
 
   return mapper
+
+
+def DisableConcealableMarkup():
+    global TAG_START_FORMAT
+    global TAG_END_FORMAT
+
+    TAG_START_FORMAT = ''
+    TAG_END_FORMAT = ''
