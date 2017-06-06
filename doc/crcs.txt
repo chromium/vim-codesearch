@@ -132,7 +132,7 @@ this mode).
 				known to the code search backend.
 
 				Based on {tour-type}, the command loads a
-				list of locations to the *quickfix* list. You
+				list of locations to the |quickfix| list. You
 				can use your favorite quickfix navigation
 				techniques to navigate the tour.
 
@@ -196,7 +196,7 @@ callers for the corresponding node.
                                     TOURS                          *crcs-tours*
 
 Tours are just a fancy term for an operation that loads bunch of locations in
-the codebase to the *quickfix* list. Such an operation is useful in a number
+the codebase to the |quickfix| list. Such an operation is useful in a number
 of scenarios, which is why this concept exists.
 
 When invoking the |:CrTour| command, you can choose from a number of tour
