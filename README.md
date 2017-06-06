@@ -42,7 +42,7 @@ match the snippets displayed, or worse, cross references are incorrect.
 Installation
 ------------
 
-Use your favorite plugin manager.
+Use your favorite plugin manager. E.g.:
 
 * [Vundle](https://github.com/VundleVim/Vundle.vim):
 
@@ -70,30 +70,15 @@ Documentation
 Once installed, you should be able to run `:help crcs.txt` to view the help
 file. As with all Vim plugins, all documentation should go there.
 
-TODO/Wishlist
--------------
-
-1. Better exception handling. Since the plugin is very much in alpha, exceptions
-   are exposed to vim. This makes it handy for debugging, but is a pain for
-   end-users, if there are any.
-
-1. Show the commit that was last indexed by codesearch and warn if a jump target
-   differs from the version of the file that was indexed. Optionally allow
-   loading the indexed source file instead of the file in the work directory.
-
-1. Make it easier for end-users to add custom tours. (See `help crcs-tours` for
-   information on tours).
-
-1. Add a mode and hooks for code exploration and code auditing.
-
-1. Deal better with generated files.
-
-1. Narrow search results based on a `gn` build target.
-
 Contributing
 ------------
 
 **NOTE**: This is not an official Google product.
 
 See [CONTRIBUTING](./CONTRIBUTING.md).
+
+BUGS
+----
+
+File bugs at https://github.com/chromium/vim-codesearch
 
