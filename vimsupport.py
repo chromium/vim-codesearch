@@ -15,10 +15,25 @@ try:
 except ImportError:
   from urllib2 import URLError, HTTPError
 
-from codesearch import CodeSearch, CompoundRequest, SearchRequest, \
-        XrefSearchRequest, CallGraphRequest, EdgeEnumKind, XrefSearchResponse, \
-        AnnotationType, AnnotationTypeValue, NoSourceRootError
-from render.render import RenderCompoundResponse, RenderNode, LocationMapper, DisableConcealableMarkup
+sys.path.append(os.path.join(CR_CS_PYTHON_ROOT, 'third_party', 'codesearch-py'))
+sys.path.append(CR_CS_PYTHON_ROOT)
+
+try:
+  from codesearch import CodeSearch, CompoundRequest, SearchRequest, \
+          XrefSearchRequest, CallGraphRequest, EdgeEnumKind, XrefSearchResponse, \
+          AnnotationType, AnnotationTypeValue, NoSourceRootError
+  from render.render import RenderCompoundResponse, RenderNode, LocationMapper, DisableConcealableMarkup
+except ImportError:
+  vim.command('echoerr "{}"'.format(r"""Can't import 'codesearch' module.
+
+Looks like the 'codesearch-py' module can't be located. This is pulled into the
+vim-codesearch plugin via Git Submodules. In case your package manager didn't
+pull in the submodule, could you try the following?
+
+    cd {:s}
+    git submodule update --init --recursive
+""".format(CR_CS_PYTHON_ROOT).replace('\n', r'\n')))
+  quit()
 
 g_codesearch = None
 
@@ -34,11 +49,12 @@ def CalledFromVim(default=None):
       try:
         return func(*args, **kwargs)
       except (URLError, HTTPError):
-        vim.command('echoerr "{}"'.format('couldn\'t contact codesearch server.'))
+        vim.command(
+            'echoerr "{}"'.format('couldn\'t contact codesearch server.'))
         return default
       except NoSourceRootError:
-        vim.command(
-            'echoerr "{}"'.format(r"""Couldn't determine Chromium source location.
+        vim.command('echoerr "{}"'.format(
+            r"""Couldn't determine Chromium source location.
 
 In order to show search results and link to corresponding files in the working
 directory, this plugin needs to know the location of your Chromium checkout.
