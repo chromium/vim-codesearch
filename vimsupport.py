@@ -72,11 +72,6 @@ This can be accomplished via two ways:
          let g:codesearch_source_root = '~/sources/chrome/'
 """.replace('\n', r'\n')))
         g_codesearch = None
-      except Exception as e:
-        vim.command('echoerr "{}"'.format(str(e.message).replace('"', '\\"')))
-        return default
-      except:
-        vim.command('echoerr "{}"'.format("something went wrong"))
         return default
 
     return inner_call_wrapper
