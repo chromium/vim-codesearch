@@ -13,7 +13,7 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
       if a:dirname != ''
 	let b:cs_root_path = a:dirname
       endif
-      exec 'f' fnameescape(a:bufname)
+      exec 'file' fnameescape(a:bufname)
       return s:cs_buffer_{a:buftype}
     endif
   endif
@@ -115,9 +115,9 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
   if a:dirname != ''
     let b:cs_root_path = a:dirname
   endif
-  exec 'f' fnameescape(a:bufname)
 
   setlocal buftype=nofile
+  setlocal noswapfile
   setlocal nomodifiable
   setlocal nospell
   setlocal conceallevel=3
@@ -126,6 +126,7 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
   setlocal nonumber
   setlocal norelativenumber
 
+  exec 'file' fnameescape(a:bufname)
   exec 'au BufDelete <buffer> call crcs#OnBufferUnload(expand("<abuf>"), "' . a:buftype . '")'
 
   nnoremap <buffer> <CR> :call crcs#JumpToContext()<CR>
