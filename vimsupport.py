@@ -103,6 +103,10 @@ def _GetCodeSearch(base_filename=None):
     arguments['a_path_inside_source_dir'] = base_filename
 
   g_codesearch = CodeSearch(**arguments)
+
+  if 'codesearch_source_root' not in vim.vars:
+    vim.vars['codesearch_source_root'] = g_codesearch.GetSourceRoot()
+
   return g_codesearch
 
 
