@@ -64,6 +64,19 @@ Plug 'chromium/vim-codesearch'
 call plug#end()
 ```
 
+It's highly recommended that you add the following to your `.vimrc` file
+(assuming that you've checked out Chromium into `/src/chrome/src`):
+
+```viml
+let g:codesearch_source_root = '/src/chrome'
+```
+
+I.e. `g:codesearch_source_root` should point to the directory above `src`. This
+is also the directory containing your `.gclient` file. Setting
+`g:codesearch_source_root` in the `.vimrc` file allows the plugin to locate the
+Chromium checkout regardless of the current directory.
+
+
 Documentation
 -------------
 
