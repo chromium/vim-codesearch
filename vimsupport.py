@@ -137,7 +137,7 @@ def CleanupBuffer(buffer_num):
 def _GetJumpTargetAtPos():
   location_map = _GetLocationMapForCurrentBuffer()
 
-  _, line, column, _, _ = vim.eval('getcurpos()')
+  _, line, column, _ = vim.eval("getpos('.')")
   line = int(line)
   column = int(column)
 
@@ -163,7 +163,7 @@ def JumpToContext():
 @CalledFromVim()
 def JumpToNextFile():
   location_map = _GetLocationMapForCurrentBuffer()
-  _, line, col, _, _ = vim.eval('getcurpos()')
+  _, line, col, _ = vim.eval("getpos('.')")
   line = int(line)
   col = int(col)
   line = location_map.NextFileLocation(line)
@@ -174,7 +174,7 @@ def JumpToNextFile():
 @CalledFromVim()
 def JumpToPrevFile():
   location_map = _GetLocationMapForCurrentBuffer()
-  _, line, col, _, _ = vim.eval('getcurpos()')
+  _, line, col, _ = vim.eval("getpos('.')")
   line = int(line)
   col = int(col)
   line = location_map.PreviousFileLocation(line)
@@ -192,7 +192,7 @@ def _GetSignatureAtSource():
       signature = None
     return signature
 
-  _, line, column, _, _ = vim.eval('getcurpos()')
+  _, line, column, _ = vim.eval("getpos('.')")
   line = int(line)
   column = int(column)
 
@@ -471,7 +471,7 @@ def ShowAnnotationsHere():
   result = cs.GetAnnotationsForFile(
       filename, [AnnotationType(id=AnnotationTypeValue.XREF_SIGNATURE)])
   result = result.annotation_response[0]
-  _, line, column, _, _ = vim.eval('getcurpos()')
+  _, line, column, _ = vim.eval("getpos('.')")
   line = int(line)
   column = int(column)
   for annotation in result.annotation:
