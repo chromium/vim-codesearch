@@ -11,7 +11,6 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
       exec 'buffer' s:cs_buffer_{a:buftype}
 
       if a:dirname != ''
-	exec 'lcd' fnameescape(a:dirname)
 	let b:cs_root_path = a:dirname
       endif
       exec 'f' fnameescape(a:bufname)
@@ -114,7 +113,6 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
   
   let b:cs_root_path = ""
   if a:dirname != ''
-    exec 'lcd' fnameescape(a:dirname)
     let b:cs_root_path = a:dirname
   endif
   exec 'f' fnameescape(a:bufname)
