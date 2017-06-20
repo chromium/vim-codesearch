@@ -21,3 +21,11 @@ All submissions, including submissions by project members, require review. We
 use GitHub pull requests for this purpose. Consult
 [GitHub Help](https://help.github.com/articles/about-pull-requests/) for more
 information on using pull requests.
+
+## Tests
+
+This project uses [Vroom](https://github.com/google/vroom) for testing, which
+requires Python3. Tests are run via the `run_tests.sh` script, and are located
+in the [`vroom/`](https://github.com/chromium/vim-codesearch/tree/master/vroom)
+directory.
+
