@@ -1,0 +1,74 @@
+Test basic CodeSearch searches via :CrSearch
+--------------------------------------------
+
+Run this via ./run_tests.sh in the root of the source tree. Requires Vroom and
+Python3. See https://github.com/google/vroom.
+
+Start by loading the plugin.
+
+  :exec 'set rtp+=' . fnameescape(fnamemodify($VROOMDIR,':p:h:h'))
+  :set hidden
+  :let g:codesearch_source_root = '.'
+  :let g:codesearch_test_data_dir = fnamemodify($VROOMDIR, ':p')
+  :runtime! plugin/crcs.vim
+  :call crcs#PrepareForTesting()
+
+Try a simple search. This should result in a search results page:
+
+  :CrSearch hello world
+  1. src/gin/shell/hello_world.js^>{
+      3 ^c{//^c{}c_ found in the LICENSE file.}c_
+      4 
+      5 define([^s{"console"}s_], ^k{function}k_(console) {
+      6   console.log(^s{"^${Hello World}$_"}s_);
+      7 });
+      8 }>_
+  &
+  2. src/v8/samples/hello-world.cc^>{
+      33     ^c{// Create a new context.}c_
+      34     Local<Context> context = Context::New(isolate);
+      35 
+      36     ^c{// Enter the context for compiling and running the ^${hello world}$_ script.}c_
+      37     Context::Scope context_scope(context);
+      38 
+      39     ^c{// Create a string containing the JavaScript source code.}c_
+      40 }>_
+
+Now let's try moving to a line containing code and then hitting <CR>.:
+
+  > 5Gw<CR>
+  :echomsg expand('<cfile>')
+  ~ hello_world.js
+
+And try to go back:
+
+  > <C-O>
+  :echomsg bufname("%")
+  ~ Codesearch: hello\ world (verbatim)
+
+Jump to the top of the page:
+
+  > gg
+
+And try to navigate to the results from the second file:
+
+  > [[
+  :echomsg line(".")
+  ~ 9
+
+And the next file:
+
+  > [[
+  :echomsg line(".")
+  ~ 19
+
+Try to navigate back:
+
+  > 58G
+  :echomsg line(".")
+  ~ 58
+  > ]]
+  :echomsg line(".")
+  ~ 19
+
+

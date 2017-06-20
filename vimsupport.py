@@ -21,7 +21,8 @@ sys.path.append(CR_CS_PYTHON_ROOT)
 try:
   from codesearch import CodeSearch, CompoundRequest, SearchRequest, \
           XrefSearchRequest, CallGraphRequest, EdgeEnumKind, XrefSearchResponse, \
-          AnnotationType, AnnotationTypeValue, NoSourceRootError
+          AnnotationType, AnnotationTypeValue, NoSourceRootError, \
+          InstallTestRequestHandler
   from render.render import RenderCompoundResponse, RenderNode, LocationMapper, DisableConcealableMarkup
 except ImportError:
   vim.command('echoerr "{}"'.format(r"""Can't import 'codesearch' module.
@@ -96,6 +97,13 @@ def _GetCodeSearch(base_filename=None):
       base_filename = vim.eval('getcwd()')
 
     arguments['a_path_inside_source_dir'] = base_filename
+
+  if 'codesearch_cache_dir' in vim.vars:
+      arguments['cache_dir'] = vim.vars['codesearch_cache_dir']
+      arguments['should_cache'] = True
+
+  if 'codesearch_cache_timeout_in_seconds' in vim.vars:
+      arguments['cache_timeout_in_seconds'] = int(vim.vars['codesearch_cache_timeout_in_seconds'])
 
   g_codesearch = CodeSearch(**arguments)
 
@@ -482,3 +490,8 @@ def ShowSignature():
     return
 
   vim.command('echo \'Signature: {}\''.format(signature))
+
+@CalledFromVim()
+def PrepareForTesting():
+  InstallTestRequestHandler(test_data_dir=vim.vars['codesearch_test_data_dir'])
+

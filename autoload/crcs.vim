@@ -160,7 +160,7 @@ function! crcs#Setup()
   exec "pyf" fnameescape(s:plugin_root . "/vimsupport.py")
 
   if !has('conceal')
-    exec "py DisableConcealableMarkup()"
+    py DisableConcealableMarkup()
   endif
 
   if !has('hidden')
@@ -231,4 +231,9 @@ endfunction
 function! crcs#CloseCallgraphFold()
   " Should only be called from a callgraph buffer.
   py CloseCallgraphFold()
+endfunction
+
+function! crcs#PrepareForTesting()
+	call crcs#Setup()
+  py PrepareForTesting()
 endfunction
