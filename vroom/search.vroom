@@ -71,4 +71,12 @@ Try to navigate back:
   :echomsg line(".")
   ~ 19
 
+Navigation should work at the top and the bottom of the buffer.
+
+  > gg]]
+  :echomsg line(".")
+  ~ 1
+  > G[[
+  :echomsg line(".")
+  ~ 881
 

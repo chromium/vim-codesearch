@@ -128,7 +128,7 @@ class LocationMapper(object):
 
   def NextFileLocation(self, line):
     original_line = line
-    current_file, _, _ = self.jump_map_[line]
+    current_file, _, _ = self.jump_map_.get(line, ('', 0, 0))
     while line <= len(self.lines_):
       f, _, _ = self.jump_map_.get(line, ('', 0, 0))
       if f and f != current_file:
