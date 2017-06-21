@@ -7,20 +7,23 @@ totally unnecessary to leave your editor to visit https://cs.chromium.org.
 
 Examples of what's currently possible:
 
-* Search from within Vim and visit a rendered search results buffer. `<Enter>`
-  takes you to the corresponding file in the local working directory.
+* Search from within Vim and visit a rendered search results buffer. E.g.: Type
+  `:CrSearch` *your search term* from any buffer to see the results of searching
+  for *your search terms* on CodeSearch. Hit `<Enter>` to visit the
+  corresponding file in the local working directory.
 
   ![screencast](resources/searching.gif)
 
-* Look up cross references for the symbol under the cursor. The crossreferences
-  are displayed in a new buffer which allows navigation to corresponding files
-  in the local working directory.
+* Look up cross references for the symbol under the cursor by invoking
+  `:CrXrefSearch` from a buffer corresponding to a Chromium source file. The
+  crossreferences are displayed in a new buffer which allows navigation to
+  corresponding files in the local working directory.
 
   ![screencast](resources/xrefs.gif)
 
-* Look up the call graph for a symbol under the cursor. The graph can be
-  expanded incrementally and support navigation similar to other rendered
-  buffers.
+* Look up the call graph for a symbol under the cursor by invoking
+  `:CrCallgraph`. The graph can be expanded incrementally and support navigation
+  similar to other rendered buffers.
 
   ![screencast](resources/calls.gif)
 
