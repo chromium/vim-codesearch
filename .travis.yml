@@ -4,6 +4,9 @@ before_script:
   - wget https://github.com/google/vroom/releases/download/v0.12.0/vroom_0.12.0-1_all.deb
   - sudo dpkg -i vroom_0.12.0-1_all.deb
   - sudo apt-get update -qq
+  - sudo apt-get install -qq software-properties-common
+  - sudo add-apt-repository ppa:neovim-ppa/stable
+  - sudo apt-get update -qq
   - sudo apt-get install -qq neovim python-neovim python3-neovim
 
 script: ./run_tests.sh
