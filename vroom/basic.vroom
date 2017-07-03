@@ -1,19 +1,6 @@
-In the beginning, there is no CodeSearch plugin. So an attempt to try to invoke
-:CrSearch will ultimately fail.
+In the beginning, we search for 'hello world'. Fortunately there are lots of
+instances of this in the Chromium tree.
 
-  @clear
-  :CrSearch hello world
-  ~ E492: * (glob)
-
-And now, try fiddling with the runtime path to see if we can get the plugin to
-load. If this test fails, then all the other tests will also fail.
-
-  :exec 'set rtp+=' . fnameescape(fnamemodify($VROOMDIR,':p:h:h'))
-  :set hidden
-  :let g:codesearch_source_root = '/src/chrome'
-  :let g:codesearch_test_data_dir = fnamemodify($VROOMDIR, ':p')
-  :runtime! plugin/crcs.vim
-  :call crcs#PrepareForTesting()
   :CrSearch hello world
   *hello_world.js* (glob)
   *found in the LICENSE file* (glob)

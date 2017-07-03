@@ -4,15 +4,6 @@ Test basic CodeSearch searches via :CrSearch
 Run this via ./run_tests.sh in the root of the source tree. Requires Vroom and
 Python3. See https://github.com/google/vroom.
 
-Start by loading the plugin.
-
-  :exec 'set rtp+=' . fnameescape(fnamemodify($VROOMDIR,':p:h:h'))
-  :set hidden
-  :let g:codesearch_source_root = '.'
-  :let g:codesearch_test_data_dir = fnamemodify($VROOMDIR, ':p')
-  :runtime! plugin/crcs.vim
-  :call crcs#PrepareForTesting()
-
 Try a simple search. This should result in a search results page:
 
   :CrSearch hello world
@@ -37,7 +28,7 @@ Try a simple search. This should result in a search results page:
 Now let's try moving to a line containing code and then hitting <CR>.:
 
   > 5Gw<CR>
-  :echomsg expand('<cfile>')
+  :echomsg expand('%:t')
   ~ hello_world.js
 
 And try to go back:

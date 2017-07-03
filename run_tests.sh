@@ -4,6 +4,6 @@ set -e
 
 {
   cd vroom/
-  vroom --neovim .
+  vroom --neovim --vimrc default.init.vim .
 }
 
