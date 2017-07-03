@@ -7,7 +7,8 @@ before_script:
   - sudo apt-get install -q software-properties-common
   - sudo add-apt-repository -y ppa:neovim-ppa/unstable
   - sudo apt-get update -q
-  - sudo apt-get install -q -y neovim python-dev python-pip python3-dev python3-pip
+  - sudo apt-get install -q -y neovim python-dev python-pip python3-dev python3-setuptools
+  - sudo easy_install3 pip
   - sudo pip2 install --upgrade neovim
   - sudo pip3 install --upgrade neovim
 
