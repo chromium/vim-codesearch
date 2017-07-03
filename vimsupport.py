@@ -493,5 +493,5 @@ def ShowSignature():
 
 @CalledFromVim()
 def PrepareForTesting():
-  InstallTestRequestHandler(test_data_dir=vim.vars['codesearch_test_data_dir'])
+    InstallTestRequestHandler(test_data_dir=vim.eval('g:codesearch_test_data_dir'))
 
