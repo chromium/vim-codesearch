@@ -2,8 +2,14 @@
 
 set -e
 
+if [ ${VIM_FLAVOR:-neovim} == neovim ]; then
+  flags=--neovim
+else
+  flags=
+fi
+
 {
   cd vroom/
-  vroom --neovim --vimrc default.init.vim .
+  vroom $flags --vimrc default.init.vim .
 }
 
