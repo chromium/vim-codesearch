@@ -11,7 +11,7 @@ before_install:
 
 install:
   - sudo pip install -q neovim
-  - sudo pip-3.3 install -q neovim
+  - sudo pip3 install -q neovim
 
 script: ./run_tests.sh
 
