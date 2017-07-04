@@ -5,13 +5,13 @@ before_install:
   - sudo dpkg -i vroom_0.12.0-1_all.deb
   - eval "$(curl -Ss https://raw.githubusercontent.com/neovim/bot-ci/master/scripts/travis-setup.sh) nightly-x64"
   - sudo apt-get update -q
-  - sudo apt-get install -q python python3 python-pip
+  - sudo apt-get install -q python python3 python-pip python-setuptools python3-setuptools
   - curl http://python-distribute.org/distribute_setup.py | sudo python3
   - curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python3
 
 install:
   - pip install -q neovim
-  - pip3 install -q neovim
+  - pip-3.3 install -q neovim
 
 script: ./run_tests.sh
 
