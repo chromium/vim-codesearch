@@ -11,8 +11,8 @@ before_install:
   - eval "$(curl -Ss https://raw.githubusercontent.com/neovim/bot-ci/master/scripts/travis-setup.sh) nightly-x64"
   - sudo pip install neovim
   - sudo pip3 install neovim
-  - git clone --depth 1 -q https://github.com/google/vroom.git
-  - cd vroom && python3 setup.py build && sudo python3 setup.py install
+  - mkdir deps
+  - cd deps && git clone --depth 1 -q https://github.com/google/vroom.git && cd vroom && python3 setup.py build && sudo python3 setup.py install && cd ../..
 
 script: ./run_tests.sh
 
