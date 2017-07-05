@@ -1,20 +1,18 @@
 language: generic
 
+# Ubuntu Trusty is required for getting Python3 PIP setup working without too
+# much pain. The Precise images don't have a python3-pip package.
 dist: trusty
 sudo: required
 
 before_install:
-  - wget https://github.com/google/vroom/releases/download/v0.12.0/vroom_0.12.0-1_all.deb
-  - sudo dpkg -i vroom_0.12.0-1_all.deb
-  - eval "$(curl -Ss https://raw.githubusercontent.com/neovim/bot-ci/master/scripts/travis-setup.sh) nightly-x64"
   - sudo apt-get update -q
-  - sudo apt-get install -q python python3 python-pip python-setuptools python3-setuptools python3-pip
-    #  - curl http://python-distribute.org/distribute_setup.py | sudo python3
-    #  - curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python3
-
-install:
-  - sudo pip install -q neovim
-  - sudo pip3 install -q neovim
+  - sudo apt-get install -qq python python3 python-pip python-setuptools python3-setuptools python3-pip
+  - eval "$(curl -Ss https://raw.githubusercontent.com/neovim/bot-ci/master/scripts/travis-setup.sh) nightly-x64"
+  - sudo pip install neovim
+  - sudo pip3 install neovim
+  - git clone --depth 1 -q https://github.com/google/vroom.git
+  - cd vroom && python3 setup.py build && sudo python3 setup.py install
 
 script: ./run_tests.sh
 
