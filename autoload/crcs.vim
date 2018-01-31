@@ -100,9 +100,10 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
   endif
 
   if a:buftype ==# 'call'
-    syn region csNode concealends matchgroup=csConceal start=/\^N{/ end=/}N_/ contains=csNode,csExpander,csSymbol,csMarkedupCode nextgroup=csExpander transparent
+    syn region csNode concealends matchgroup=csConceal start=/\^N{/ end=/}N_/ contains=csNode,csExpander,csSymbol,csMarkedupCode,csFilename nextgroup=csExpander transparent
     syn match csExpander /\[[-+\*]\]/ nextgroup=csSymbol
-    syn region csSymbol concealends matchgroup=csConceal start=/\^S{/ end=/}S_/ contained
+    syn region csSymbol concealends matchgroup=csConceal start=/\^S{/ end=/}S_/ nextgroup=csFilename contained
+    syn region csFilename concealends matchgroup=csConceal start=/\^F{/ end=/}F_/ contains=NONE nextgroup=csMarkedupCode
 
     hi def link csExpander Special
     hi def link csSymbol Directory
