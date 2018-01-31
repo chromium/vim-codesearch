@@ -94,7 +94,10 @@ class LocationMapper(object):
     line -= 1
     column -= 1
     if line not in self.jump_map_:
-      line = max([l for l in self.jump_map_.keys() if l < line])
+      candidates = [l for l in self.jump_map_.keys() if l < line] 
+      if len(candidates) == 0:
+          return None
+      line = max(candidates)
     filename, target_line, offset_column = self.jump_map_[line]
     if offset_column < column:
       overhead = CountBlockMarkupOverhead(
@@ -285,14 +288,14 @@ def RenderXrefSearchResponse(mapper, xref_search_response):
       self.bin = []
 
   collectors = {
-      cs.EdgeEnumKind.HAS_DEFINITION: Bin('Definition', 1),
-      cs.EdgeEnumKind.HAS_DECLARATION: Bin('Declaration', 2),
-      cs.EdgeEnumKind.CALLED_AT: Bin('Calls', 3),
-      cs.EdgeEnumKind.INSTANTIATED_AT: Bin('Instantiations', 4),
-      cs.EdgeEnumKind.OVERRIDDEN_BY: Bin('Overridden by', 5),
-      cs.EdgeEnumKind.OVERRIDES: Bin('Overrides', 6),
-      cs.EdgeEnumKind.EXTENDED_BY: Bin('Extended by', 7),
-      cs.EdgeEnumKind.EXTENDS: Bin('Extends', 8),
+      cs.KytheXrefKind.DEFINITION: Bin('Definition', 1),
+      cs.KytheXrefKind.DECLARATION: Bin('Declaration', 2),
+      cs.KytheXrefKind.CALLED_BY: Bin('Calls', 3),
+      cs.KytheXrefKind.INSTANTIATION: Bin('Instantiations', 4),
+      cs.KytheXrefKind.OVERRIDDEN_BY: Bin('Overridden by', 5),
+      cs.KytheXrefKind.OVERRIDES: Bin('Overrides', 6),
+      cs.KytheXrefKind.EXTENDED_BY: Bin('Extended by', 7),
+      cs.KytheXrefKind.EXTENDS: Bin('Extends', 8),
 
       # Everything else.
       0: Bin('References', 100)
@@ -345,10 +348,10 @@ def RenderNode(mapper, node, level):
   with TaggedBlock(mapper, 'N'):
     # Rendered text looks like:
     #
-    # [-] namespace::Bar()
+    # [-] namespace::Bar() (filename.cc)
     #     38   InvokeBaz(1, 2, true);
     #
-    #     [+] Quux()
+    #     [+] Quux() (filename.cc)
     #         10   Bar()
     #
 
@@ -364,15 +367,19 @@ def RenderNode(mapper, node, level):
         indent=' ' * (level * NODE_INDENT), expander=expander))
 
     # Symbol
-    with TaggedBlock(mapper, 'S'):
-      if hasattr(node, 'call_scope_range'):
-        start_line = node.call_scope_range.start_line
-      elif hasattr(node, 'call_site_range'):
-        start_line = node.call_site_range.start_line
-      else:
-        start_line = 1
-      mapper.SetTargetForPos(node.file_path, start_line)
-      mapper.write(AbbreviateCppSymbol(node.display_name))
+    if hasattr(node, 'file_path') and hasattr(node, 'identifier'):
+        with TaggedBlock(mapper, 'S'):
+          if hasattr(node, 'call_scope_range'):
+            start_line = node.call_scope_range.start_line
+          elif hasattr(node, 'call_site_range'):
+            start_line = node.call_site_range.start_line
+          else:
+            start_line = 1
+          mapper.SetTargetForPos(node.file_path, start_line)
+          mapper.write(AbbreviateCppSymbol(node.identifier))
+        mapper.write(' ')
+        with TaggedBlock(mapper, 'F'):
+            mapper.write(node.file_path)
 
     # Render snippet
     if hasattr(node, 'snippet') and hasattr(node, 'snippet_file_path'):

@@ -20,12 +20,13 @@ sys.path.append(CR_CS_PYTHON_ROOT)
 
 try:
   from codesearch import CodeSearch, CompoundRequest, SearchRequest, \
-          XrefSearchRequest, CallGraphRequest, EdgeEnumKind, XrefSearchResponse, \
+          XrefSearchRequest, CallGraphRequest, KytheXrefKind, XrefSearchResponse, \
           AnnotationType, AnnotationTypeValue, NoSourceRootError, \
-          InstallTestRequestHandler
+          InstallTestRequestHandler, XrefNode
   from render.render import RenderCompoundResponse, RenderNode, LocationMapper, DisableConcealableMarkup
 except ImportError:
-  vim.command('echoerr "{}"'.format(r"""Can't import 'codesearch' module.
+  vim.command('echoerr "{}"'.format("""\
+Can't import 'codesearch' module.
 
 Looks like the 'codesearch-py' module can't be located. This is pulled into the
 vim-codesearch plugin via Git Submodules. In case your package manager didn't
@@ -55,7 +56,8 @@ def CalledFromVim(default=None):
         return default
       except NoSourceRootError:
         vim.command('echoerr "{}"'.format(
-            r"""Couldn't determine Chromium source location.
+            """\
+Couldn't determine Chromium source location.
 
 In order to show search results and link to corresponding files in the working
 directory, this plugin needs to know the location of your Chromium checkout.
@@ -383,18 +385,21 @@ def GetCallers():
     if not hasattr(c, 'file_path') or not hasattr(c, 'call_site_range'):
       continue
     lines.append('{}:{}:{}: {}'.format(
-        os.path.join(cs.GetSourceRoot(), c.file_path), c.call_site_range.
-        start_line, c.call_site_range.start_column, c.display_name))
+        os.path.join(cs.GetSourceRoot(), c.file_path), c.call_site_range.start_line, c.call_site_range.start_column, c.display_name))
   return '\n'.join(lines)
 
 
 def _XrefSearchResultsToQuickFixList(cs, results):
   lines = []
+  assert isinstance(results, list)
   for r in results:
-    for m in r.match:
+      assert isinstance(r, XrefNode)
+      if not hasattr(r.single_match, 'line_number') or not hasattr(r.single_match, 'line_text'):
+          continue
+      filepath = os.path.join(cs.GetSourceRoot(), r.filespec.name)
       lines.append('{}:{}:1: {}'.format(
-          os.path.join(cs.GetSourceRoot(), r.file.name), m.line_number,
-          m.line_text))
+          filepath, r.single_match.line_number,
+          r.single_match.line_text))
   return lines
 
 
@@ -404,7 +409,8 @@ def _GetLocationsForXrefType(t):
     return []
 
   cs = _GetCodeSearch()
-  results = cs.GetXrefsFor(signature, [t])
+  node = XrefNode.FromSignature(cs, signature)
+  results = node.Traverse(t)
   return _XrefSearchResultsToQuickFixList(cs, results)
 
 
@@ -413,24 +419,32 @@ def _GetCallTargets():
   if not signature:
     return []
   cs = _GetCodeSearch()
-  results = cs.GetCallTargets(signature)
+  node = XrefNode.FromSignature(cs, signature)
+  dcl_list = node.Traverse([KytheXrefKind.DECLARATION, KytheXrefKind.DEFINITION])
+  if len(dcl_list) == 0:
+      return []
+
+  overrides = []
+  for dcl in dcl_list:
+      overrides.extend(dcl.Traverse(KytheXrefKind.OVERRIDDEN_BY))
+
+  results = dcl_list + overrides
   return _XrefSearchResultsToQuickFixList(cs, results)
 
 
 REFERENCE_TYPES = {
-    'call': EdgeEnumKind.CALL,
-    'called at': EdgeEnumKind.CALLED_AT,
-    'caller': EdgeEnumKind.CALLED_AT,
-    'declaration': EdgeEnumKind.HAS_DECLARATION,
-    'definition': EdgeEnumKind.HAS_DEFINITION,
-    'extended by': EdgeEnumKind.EXTENDED_BY,
-    'extends': EdgeEnumKind.EXTENDS,
-    'instantiations': EdgeEnumKind.INSTANTIATED_AT,
-    'overridden by': EdgeEnumKind.OVERRIDDEN_BY,
-    'overrides': EdgeEnumKind.OVERRIDES,
-    'references': EdgeEnumKind.REFERENCED_AT,
-    'subclasses': EdgeEnumKind.EXTENDED_BY,
-    'superclasses': EdgeEnumKind.EXTENDS,
+    'called at': KytheXrefKind.CALLED_BY,
+    'caller': KytheXrefKind.CALLED_BY,
+    'declaration': KytheXrefKind.DECLARATION,
+    'definition': KytheXrefKind.DEFINITION,
+    'extended by': KytheXrefKind.EXTENDED_BY,
+    'extends': KytheXrefKind.EXTENDS,
+    'instantiations': KytheXrefKind.INSTANTIATION,
+    'overridden by': KytheXrefKind.OVERRIDDEN_BY,
+    'overrides': KytheXrefKind.OVERRIDES,
+    'references': KytheXrefKind.REFERENCE,
+    'subclasses': KytheXrefKind.EXTENDED_BY,
+    'superclasses': KytheXrefKind.EXTENDS,
     'call targets': _GetCallTargets,
 }
 
