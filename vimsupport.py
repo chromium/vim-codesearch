@@ -9,7 +9,7 @@ from __future__ import absolute_import
 import os
 import sys
 import vim
-
+from ssl import SSLError
 try:
   from urllib.error import URLError, HTTPError
 except ImportError:
@@ -18,14 +18,34 @@ except ImportError:
 sys.path.append(os.path.join(CR_CS_PYTHON_ROOT, 'third_party', 'codesearch-py'))
 sys.path.append(CR_CS_PYTHON_ROOT)
 
+def EchoVimError(s):
+  vim.command('echohl WarningMsg | echo "{}" | echohl None'.format(s))
+
 try:
-  from codesearch import CodeSearch, CompoundRequest, SearchRequest, \
-          XrefSearchRequest, CallGraphRequest, KytheXrefKind, XrefSearchResponse, \
-          AnnotationType, AnnotationTypeValue, NoSourceRootError, \
-          InstallTestRequestHandler, XrefNode
-  from render.render import RenderCompoundResponse, RenderNode, LocationMapper, DisableConcealableMarkup
+  from codesearch import \
+      AnnotationType,\
+      AnnotationTypeValue,\
+      CallGraphRequest,\
+      CodeSearch, \
+      CompoundRequest,\
+      InstallTestRequestHandler,\
+      KytheXrefKind,\
+      NoFileSpecError, \
+      NoSourceRootError, \
+      NotFoundError, \
+      SearchRequest, \
+      ServerError,\
+      XrefNode,\
+      XrefSearchRequest,\
+      XrefSearchResponse
+  from render.render import \
+      RenderCompoundResponse, \
+      RenderNode, \
+      LocationMapper, \
+      DisableConcealableMarkup
+
 except ImportError:
-  vim.command('echoerr "{}"'.format("""\
+  EchoVimError("""\
 Can't import 'codesearch' module.
 
 Looks like the 'codesearch-py' module can't be located. This is pulled into the
@@ -34,7 +54,7 @@ pull in the submodule, could you try the following?
 
     cd {:s}
     git submodule update --init --recursive
-""".format(CR_CS_PYTHON_ROOT).replace('\n', r'\n')))
+""".format(CR_CS_PYTHON_ROOT).replace('\n', r'\n'))
   quit()
 
 g_codesearch = None
@@ -50,13 +70,25 @@ def CalledFromVim(default=None):
       global g_codesearch
       try:
         return func(*args, **kwargs)
-      except (URLError, HTTPError):
-        vim.command(
-            'echoerr "{}"'.format('couldn\'t contact codesearch server.'))
+
+      except (URLError, HTTPError, SSLError):
+        EchoVimError('couldn\'t contact codesearch server.')
         return default
+
+      except ServerError as e:
+        EchoVimError('server error: {}'.format(e.message))
+        return default
+
+      except NoFileSpecError as e:
+        EchoVimError('internal error: {}'.format(e.message))
+        return default
+
+      except NotFoundError as e:
+        EchoVimError(e.message)
+        return default
+
       except NoSourceRootError:
-        vim.command('echoerr "{}"'.format(
-            """\
+        EchoVimError("""\
 Couldn't determine Chromium source location.
 
 In order to show search results and link to corresponding files in the working
@@ -73,7 +105,7 @@ This can be accomplished via two ways:
          \" Change this to point to the directory above your Chromium checkout.
          \" E.g.: If you checked out Chromium to ~/sources/chrome/src
          let g:codesearch_source_root = '~/sources/chrome/'
-""".replace('\n', r'\n')))
+                     """.replace('\n', r'\n'))
         g_codesearch = None
         return default
 
@@ -364,13 +396,7 @@ def GetCallers():
     return ''
 
   cs = _GetCodeSearch()
-  response = cs.SendRequestToServer(
-      CompoundRequest(call_graph_request=[
-          CallGraphRequest(
-              signature=signature,
-              file_spec=cs.GetFileSpec(),
-              max_num_results=100)
-      ]))
+  response = cs.GetCallGraph(signature)
   if response is None or not hasattr(
       response, 'call_graph_response') or not hasattr(
           response.call_graph_response[0], 'node'):
@@ -382,10 +408,13 @@ def GetCallers():
 
   lines = []
   for c in node.children:
-    if not hasattr(c, 'file_path') or not hasattr(c, 'call_site_range'):
+    if not hasattr(c, 'file_path') or not hasattr(c, 'call_site_range') or not hasattr(c, 'snippet'):
       continue
     lines.append('{}:{}:{}: {}'.format(
-        os.path.join(cs.GetSourceRoot(), c.file_path), c.call_site_range.start_line, c.call_site_range.start_column, c.display_name))
+        os.path.join(cs.GetSourceRoot(), c.file_path),
+        c.call_site_range.start_line,
+        c.call_site_range.start_column,
+        c.identifier))
   return '\n'.join(lines)
 
 

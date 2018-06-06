@@ -193,7 +193,10 @@ endfunction
 
 function! crcs#JumpToCallers()
   call crcs#Setup()
-  cexpr pyeval('GetCallers()')
+  let l:callers=pyeval('GetCallers()')
+  if l:callers != ''
+    cexpr l:callers
+  endif
 endfunction
 
 function! crcs#JumpToNextFile()
@@ -211,7 +214,10 @@ endfunction
 
 function! crcs#GoToRef(t)
   call crcs#Setup()
-  cexpr pyeval("GetReferences('" . a:t . "')")
+  let l:refs = pyeval("GetReferences('" . a:t . "')")
+  if length(l:refs) != 0
+    cexpr l:refs
+  endif
 endfunction
 
 function! crcs#ShowAnnotationsHere()
@@ -235,6 +241,6 @@ function! crcs#CloseCallgraphFold()
 endfunction
 
 function! crcs#PrepareForTesting()
-	call crcs#Setup()
+  call crcs#Setup()
   py PrepareForTesting()
 endfunction
