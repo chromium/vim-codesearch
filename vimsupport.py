@@ -19,7 +19,8 @@ sys.path.append(os.path.join(CR_CS_PYTHON_ROOT, 'third_party', 'codesearch-py'))
 sys.path.append(CR_CS_PYTHON_ROOT)
 
 def EchoVimError(s):
-  vim.command('echohl WarningMsg | echo "{}" | echohl None'.format(s))
+  es = s.replace('\\', '\\\\').replace('"', r'\"').replace('\n', r'\n')
+  vim.command('echohl WarningMsg | echo "{}" | echohl None'.format(es))
 
 try:
   from codesearch import \
@@ -54,7 +55,7 @@ pull in the submodule, could you try the following?
 
     cd {:s}
     git submodule update --init --recursive
-""".format(CR_CS_PYTHON_ROOT).replace('\n', r'\n'))
+""".format(CR_CS_PYTHON_ROOT))
   quit()
 
 g_codesearch = None
@@ -102,10 +103,10 @@ This can be accomplished via two ways:
      I.e. this should point to the directory containing your .gclient file.
      This can be done by adding something like the following to your .vimrc:
 
-         \" Change this to point to the directory above your Chromium checkout.
-         \" E.g.: If you checked out Chromium to ~/sources/chrome/src
+         " Change this to point to the directory above your Chromium checkout.
+         " E.g.: If you checked out Chromium to ~/sources/chrome/src
          let g:codesearch_source_root = '~/sources/chrome/'
-                     """.replace('\n', r'\n'))
+""")
         g_codesearch = None
         return default
 
