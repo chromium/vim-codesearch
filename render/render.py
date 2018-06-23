@@ -254,11 +254,38 @@ def RenderSearchResult(mapper, index, search_result):
   mapper.newline()
 
 
-def RenderSearchResponse(mapper, search_response):
-  for index, result in enumerate(search_response.search_result):
-    RenderSearchResult(mapper, index, result)
+def RenderSearchResponse(mapper, query, search_response):
+  assert isinstance(search_response, cs.SearchResponse)
+
+  if search_response.search_result:
+    mapper.write('CodeSearch results for ')
+    with TaggedBlock(mapper, 'q'):
+      mapper.write(query)
+    mapper.newline()
     mapper.newline()
 
+    for index, result in enumerate(search_response.search_result):
+      RenderSearchResult(mapper, index + search_response.results_offset, result)
+      mapper.newline()
+
+    if search_response.hit_max_results:
+      mapper.write('Search results are truncated. Showing {} results out of an estimated {}.'.format(
+          len(search_response.search_result),
+          search_response.estimated_total_number_of_results
+      ))
+      mapper.newline()
+  else:
+    mapper.write('No results for query ')
+    with TaggedBlock(mapper, 'q'):
+      mapper.write(query)
+    mapper.newline()
+    mapper.newline()
+
+    if search_response.status_message:
+      mapper.write('Server status: {}'.format(search_response.status_message))
+      mapper.newline()
+    mapper.write('Status code  : {}'.format(search_response.status))
+    mapper.newline()
 
 def RenderXrefResults(mapper, results):
 
@@ -291,8 +318,11 @@ def RenderXrefResults(mapper, results):
 
 def RenderXrefSearchResponse(mapper, xref_search_response):
   # Failed?
-  if hasattr(xref_search_response,
-             'status') and xref_search_response.status != 0:
+  if xref_search_response.status != 0:
+    mapper.write('No results for query\n')
+    if xref_search_response.status_message:
+      mapper.write('Server status: {}'.format(xref_search_response.status_message))
+    mapper.write(  'Status code  : {}'.format(xref_search_response.status))
     return
 
   class Bin:
