@@ -1,36 +1,66 @@
 {
-    "elapsed_ms": 126, 
     "call_graph_response": [
         {
             "node": {
-                "display_name": "net::HttpAuthHandler::GenerateAuthToken(const net::AuthCredentials *, const net::HttpRequestInfo *, const base::Callback<void (int), base::internal::CopyMode::Copyable, base::internal::RepeatMode::Repeating> &, std::basic_string<char, std::char_traits<char>, std::allocator<char> > *)", 
-                "package_name": "chromium", 
+                "call_scope_range": {
+                    "start_line": 0, 
+                    "end_line": 0, 
+                    "start_column": 0, 
+                    "end_column": 0
+                }, 
+                "call_site_range": {
+                    "start_line": 0, 
+                    "end_line": 0, 
+                    "start_column": 0, 
+                    "end_column": 0
+                }, 
+                "snippet": {
+                    "text": {}, 
+                    "first_line_number": 0, 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": false, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }
+                }, 
+                "node_kind": "FUNCTION", 
+                "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler.h#JeFRw996xZZVV9czj%2FFb1cDpm3lK9KygMuH3I5j8Gvs%3D", 
+                "override": false, 
                 "children": [
                     {
                         "call_scope_range": {
-                            "start_line": 144, 
-                            "end_line": 144, 
+                            "start_line": 145, 
+                            "end_line": 145, 
                             "start_column": 25, 
                             "end_column": 46
                         }, 
-                        "display_name": "net::HttpAuthController::MaybeGenerateAuthToken(const net::HttpRequestInfo *, const base::Callback<void (int), base::internal::CopyMode::Copyable, base::internal::RepeatMode::Repeating> &, const net::NetLogWithSource &)", 
                         "package_name": "chromium", 
                         "snippet_package_name": "chromium", 
                         "call_site_range": {
-                            "start_line": 158, 
-                            "end_line": 158, 
-                            "start_column": 22, 
-                            "end_column": 38
+                            "start_line": 159, 
+                            "end_line": 163, 
+                            "start_column": 12, 
+                            "end_column": 19
                         }, 
                         "snippet": {
                             "text": {
                                 "text": "  int rv = handler_->GenerateAuthToken("
                             }, 
-                            "first_line_number": 158
+                            "first_line_number": 159, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": false, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }, 
                         "snippet_file_path": "src/net/http/http_auth_controller.cc", 
-                        "node_kind": "METHOD", 
-                        "signature": "cpp:net::class-HttpAuthController::MaybeGenerateAuthToken(const net::HttpRequestInfo *, const base::Callback<void (int), base::internal::CopyMode::Copyable, base::internal::RepeatMode::Repeating> &, const net::NetLogWithSource &)@chromium/../../net/http/http_auth_controller.cc|def", 
+                        "node_kind": "FUNCTION", 
+                        "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_controller.cc#KT6dW2Oyiv3OtfDK3Auh0pjK2V2ZCCzASfU34HIjU1A%3D", 
+                        "override": false, 
                         "params": [
                             "request", 
                             "callback", 
@@ -44,26 +74,33 @@
                             "start_line": 26, 
                             "end_line": 26, 
                             "start_column": 1, 
-                            "end_column": 1
+                            "end_column": 0
                         }, 
-                        "display_name": "net::HttpAuthHandlerBasicTest_GenerateAuthToken_Test::TestBody()", 
                         "package_name": "chromium", 
                         "snippet_package_name": "chromium", 
                         "call_site_range": {
                             "start_line": 54, 
-                            "end_line": 54, 
-                            "start_column": 21, 
-                            "end_column": 37
+                            "end_line": 55, 
+                            "start_column": 14, 
+                            "end_column": 71
                         }, 
                         "snippet": {
                             "text": {
                                 "text": "    int rv = basic->GenerateAuthToken(&credentials, &request_info,"
                             }, 
-                            "first_line_number": 54
+                            "first_line_number": 54, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": false, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }, 
                         "snippet_file_path": "src/net/http/http_auth_handler_basic_unittest.cc", 
-                        "node_kind": "METHOD", 
-                        "signature": "cpp:net::class-HttpAuthHandlerBasicTest_GenerateAuthToken_Test::TestBody()@chromium/../../net/http/http_auth_handler_basic_unittest.cc|def", 
+                        "node_kind": "FUNCTION", 
+                        "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_basic_unittest.cc#rGyD7PGS8PcACbNF5dm7cMXAM6Dsg2C7f2H2w45x0Xo%3D", 
+                        "override": false, 
                         "identifier": "TestBody", 
                         "file_path": "src/net/http/http_auth_handler_basic_unittest.cc"
                     }, 
@@ -74,24 +111,31 @@
                             "start_column": 6, 
                             "end_column": 23
                         }, 
-                        "display_name": "net::<anonymous-namespace>::RespondToChallenge(net::HttpAuth::Target, const std::basic_string<char, std::char_traits<char>, std::allocator<char> > &, const std::basic_string<char, std::char_traits<char>, std::allocator<char> > &, const std::basic_string<char, std::char_traits<char>, std::allocator<char> > &, std::basic_string<char, std::char_traits<char>, std::allocator<char> > *)", 
                         "package_name": "chromium", 
                         "snippet_package_name": "chromium", 
                         "call_site_range": {
                             "start_line": 80, 
-                            "end_line": 80, 
-                            "start_column": 30, 
-                            "end_column": 46
+                            "end_line": 81, 
+                            "start_column": 21, 
+                            "end_column": 62
                         }, 
                         "snippet": {
                             "text": {
                                 "text": "  int rv_generate = handler->GenerateAuthToken("
                             }, 
-                            "first_line_number": 80
+                            "first_line_number": 80, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": false, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }, 
                         "snippet_file_path": "src/net/http/http_auth_handler_digest_unittest.cc", 
                         "node_kind": "FUNCTION", 
-                        "signature": "cpp:net::<anonymous-namespace>::RespondToChallenge(net::HttpAuth::Target, const std::basic_string<char, std::char_traits<char>, std::allocator<char> > &, const std::basic_string<char, std::char_traits<char>, std::allocator<char> > &, const std::basic_string<char, std::char_traits<char>, std::allocator<char> > &, std::basic_string<char, std::char_traits<char>, std::allocator<char> > *)@chromium/../../net/http/http_auth_handler_digest_unittest.cc|def", 
+                        "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_digest_unittest.cc#NWXPUm5fOZr6UiWzw8QJpbFF8qT%2Bbs0%2FWxz%2Bz6rxCAE%3D", 
+                        "override": false, 
                         "params": [
                             "target", 
                             "proxy_name", 
@@ -104,255 +148,329 @@
                     }, 
                     {
                         "call_scope_range": {
-                            "start_line": 245, 
-                            "end_line": 245, 
+                            "start_line": 247, 
+                            "end_line": 247, 
                             "start_column": 1, 
-                            "end_column": 1
+                            "end_column": 0
                         }, 
-                        "display_name": "net::HttpAuthHandlerNegotiateTest_DisableCname_Test::TestBody()", 
                         "package_name": "chromium", 
                         "snippet_package_name": "chromium", 
                         "call_site_range": {
-                            "start_line": 255, 
-                            "end_line": 255, 
-                            "start_column": 50, 
-                            "end_column": 66
+                            "start_line": 257, 
+                            "end_line": 257, 
+                            "start_column": 3, 
+                            "end_column": 2
                         }, 
                         "snippet": {
                             "text": {
                                 "text": "  EXPECT_EQ(OK, callback.GetResult(auth_handler->GenerateAuthToken("
                             }, 
-                            "first_line_number": 255
+                            "first_line_number": 257, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": false, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }, 
                         "snippet_file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc", 
-                        "node_kind": "METHOD", 
-                        "signature": "cpp:net::class-HttpAuthHandlerNegotiateTest_DisableCname_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def", 
+                        "node_kind": "FUNCTION", 
+                        "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#K4ikCIS9mEQ2mHfCRGMW5LQewkaTRwkdAaRECIIEiX8%3D", 
+                        "override": false, 
                         "identifier": "TestBody", 
                         "file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc"
                     }, 
                     {
                         "call_scope_range": {
-                            "start_line": 264, 
-                            "end_line": 264, 
+                            "start_line": 266, 
+                            "end_line": 266, 
                             "start_column": 1, 
-                            "end_column": 1
+                            "end_column": 0
                         }, 
-                        "display_name": "net::HttpAuthHandlerNegotiateTest_DisableCnameStandardPort_Test::TestBody()", 
                         "package_name": "chromium", 
                         "snippet_package_name": "chromium", 
                         "call_site_range": {
-                            "start_line": 273, 
-                            "end_line": 273, 
-                            "start_column": 50, 
-                            "end_column": 66
+                            "start_line": 275, 
+                            "end_line": 275, 
+                            "start_column": 3, 
+                            "end_column": 2
                         }, 
                         "snippet": {
                             "text": {
                                 "text": "  EXPECT_EQ(OK, callback.GetResult(auth_handler->GenerateAuthToken("
                             }, 
-                            "first_line_number": 273
+                            "first_line_number": 275, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": false, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }, 
                         "snippet_file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc", 
-                        "node_kind": "METHOD", 
-                        "signature": "cpp:net::class-HttpAuthHandlerNegotiateTest_DisableCnameStandardPort_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def", 
+                        "node_kind": "FUNCTION", 
+                        "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#VfqfOw7DzVIjSOvfAoZkrsRnILsU2svoU3J3QXGEKdE%3D", 
+                        "override": false, 
                         "identifier": "TestBody", 
                         "file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc"
                     }, 
                     {
                         "call_scope_range": {
-                            "start_line": 282, 
-                            "end_line": 282, 
+                            "start_line": 284, 
+                            "end_line": 284, 
                             "start_column": 1, 
-                            "end_column": 1
+                            "end_column": 0
                         }, 
-                        "display_name": "net::HttpAuthHandlerNegotiateTest_DisableCnameNonstandardPort_Test::TestBody()", 
                         "package_name": "chromium", 
                         "snippet_package_name": "chromium", 
                         "call_site_range": {
-                            "start_line": 291, 
-                            "end_line": 291, 
-                            "start_column": 50, 
-                            "end_column": 66
+                            "start_line": 293, 
+                            "end_line": 293, 
+                            "start_column": 3, 
+                            "end_column": 2
                         }, 
                         "snippet": {
                             "text": {
                                 "text": "  EXPECT_EQ(OK, callback.GetResult(auth_handler->GenerateAuthToken("
                             }, 
-                            "first_line_number": 291
+                            "first_line_number": 293, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": false, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }, 
                         "snippet_file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc", 
-                        "node_kind": "METHOD", 
-                        "signature": "cpp:net::class-HttpAuthHandlerNegotiateTest_DisableCnameNonstandardPort_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def", 
+                        "node_kind": "FUNCTION", 
+                        "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#MazmFIKzSqLuiLofsfY1tlOdgXUaTXxd8SccEVJ9HWw%3D", 
+                        "override": false, 
                         "identifier": "TestBody", 
                         "file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc"
                     }, 
                     {
                         "call_scope_range": {
-                            "start_line": 300, 
-                            "end_line": 300, 
+                            "start_line": 302, 
+                            "end_line": 302, 
                             "start_column": 1, 
-                            "end_column": 1
+                            "end_column": 0
                         }, 
-                        "display_name": "net::HttpAuthHandlerNegotiateTest_CnameSync_Test::TestBody()", 
                         "package_name": "chromium", 
                         "snippet_package_name": "chromium", 
                         "call_site_range": {
-                            "start_line": 309, 
-                            "end_line": 309, 
-                            "start_column": 50, 
-                            "end_column": 66
+                            "start_line": 311, 
+                            "end_line": 311, 
+                            "start_column": 3, 
+                            "end_column": 2
                         }, 
                         "snippet": {
                             "text": {
                                 "text": "  EXPECT_EQ(OK, callback.GetResult(auth_handler->GenerateAuthToken("
                             }, 
-                            "first_line_number": 309
+                            "first_line_number": 311, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": false, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }, 
                         "snippet_file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc", 
-                        "node_kind": "METHOD", 
-                        "signature": "cpp:net::class-HttpAuthHandlerNegotiateTest_CnameSync_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def", 
+                        "node_kind": "FUNCTION", 
+                        "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#g7ofIg8EBdx3S%2Bg8ITGeYjzFy5DEXZ4SDF5UPD7BpcI%3D", 
+                        "override": false, 
                         "identifier": "TestBody", 
                         "file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc"
                     }, 
                     {
                         "call_scope_range": {
-                            "start_line": 318, 
-                            "end_line": 318, 
+                            "start_line": 320, 
+                            "end_line": 320, 
                             "start_column": 1, 
-                            "end_column": 1
+                            "end_column": 0
                         }, 
-                        "display_name": "net::HttpAuthHandlerNegotiateTest_CnameAsync_Test::TestBody()", 
                         "package_name": "chromium", 
                         "snippet_package_name": "chromium", 
                         "call_site_range": {
-                            "start_line": 327, 
-                            "end_line": 327, 
-                            "start_column": 43, 
-                            "end_column": 59
+                            "start_line": 329, 
+                            "end_line": 329, 
+                            "start_column": 3, 
+                            "end_column": 2
                         }, 
                         "snippet": {
                             "text": {
                                 "text": "  EXPECT_EQ(ERR_IO_PENDING, auth_handler->GenerateAuthToken("
                             }, 
-                            "first_line_number": 327
+                            "first_line_number": 329, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": false, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }, 
                         "snippet_file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc", 
-                        "node_kind": "METHOD", 
-                        "signature": "cpp:net::class-HttpAuthHandlerNegotiateTest_CnameAsync_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def", 
+                        "node_kind": "FUNCTION", 
+                        "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#7FHB99jS0bE%2BoVdt265ONAIqYAdc4DR5kppiAcF0YSE%3D", 
+                        "override": false, 
                         "identifier": "TestBody", 
                         "file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc"
                     }, 
                     {
                         "call_scope_range": {
-                            "start_line": 341, 
-                            "end_line": 341, 
+                            "start_line": 343, 
+                            "end_line": 343, 
                             "start_column": 1, 
-                            "end_column": 1
+                            "end_column": 0
                         }, 
-                        "display_name": "net::HttpAuthHandlerNegotiateTest_ServerNotInKerberosDatabase_Test::TestBody()", 
                         "package_name": "chromium", 
                         "snippet_package_name": "chromium", 
                         "call_site_range": {
-                            "start_line": 350, 
-                            "end_line": 350, 
-                            "start_column": 43, 
-                            "end_column": 59
+                            "start_line": 352, 
+                            "end_line": 352, 
+                            "start_column": 3, 
+                            "end_column": 2
                         }, 
                         "snippet": {
                             "text": {
                                 "text": "  EXPECT_EQ(ERR_IO_PENDING, auth_handler->GenerateAuthToken("
                             }, 
-                            "first_line_number": 350
+                            "first_line_number": 352, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": false, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }, 
                         "snippet_file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc", 
-                        "node_kind": "METHOD", 
-                        "signature": "cpp:net::class-HttpAuthHandlerNegotiateTest_ServerNotInKerberosDatabase_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def", 
+                        "node_kind": "FUNCTION", 
+                        "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#Rrtf%2FzL8yfwFbA8Xf%2B5Q6%2FnOxpoky4ikgHiK7MnTTVE%3D", 
+                        "override": false, 
                         "identifier": "TestBody", 
                         "file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc"
                     }, 
                     {
                         "call_scope_range": {
-                            "start_line": 357, 
-                            "end_line": 357, 
+                            "start_line": 359, 
+                            "end_line": 359, 
                             "start_column": 1, 
-                            "end_column": 1
+                            "end_column": 0
                         }, 
-                        "display_name": "net::HttpAuthHandlerNegotiateTest_NoKerberosCredentials_Test::TestBody()", 
                         "package_name": "chromium", 
                         "snippet_package_name": "chromium", 
                         "call_site_range": {
-                            "start_line": 366, 
-                            "end_line": 366, 
-                            "start_column": 43, 
-                            "end_column": 59
+                            "start_line": 368, 
+                            "end_line": 368, 
+                            "start_column": 3, 
+                            "end_column": 2
                         }, 
                         "snippet": {
                             "text": {
                                 "text": "  EXPECT_EQ(ERR_IO_PENDING, auth_handler->GenerateAuthToken("
                             }, 
-                            "first_line_number": 366
+                            "first_line_number": 368, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": false, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }, 
                         "snippet_file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc", 
-                        "node_kind": "METHOD", 
-                        "signature": "cpp:net::class-HttpAuthHandlerNegotiateTest_NoKerberosCredentials_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def", 
+                        "node_kind": "FUNCTION", 
+                        "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#d7IMoCLUefiYaXMDOaxLMz2FMx7QtVnkwNSfvTNNtxc%3D", 
+                        "override": false, 
                         "identifier": "TestBody", 
                         "file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc"
                     }, 
                     {
                         "call_scope_range": {
-                            "start_line": 24, 
-                            "end_line": 24, 
-                            "start_column": 1, 
-                            "end_column": 1
+                            "start_line": 79, 
+                            "end_line": 79, 
+                            "start_column": 7, 
+                            "end_column": 23
                         }, 
-                        "display_name": "net::HttpAuthHandlerTest_NetLog_Test::TestBody()", 
                         "package_name": "chromium", 
                         "snippet_package_name": "chromium", 
                         "call_site_range": {
-                            "start_line": 53, 
-                            "end_line": 53, 
-                            "start_column": 22, 
-                            "end_column": 38
+                            "start_line": 82, 
+                            "end_line": 83, 
+                            "start_column": 31, 
+                            "end_column": 62
+                        }, 
+                        "snippet": {
+                            "text": {
+                                "text": "    return callback.GetResult(GetAuthHandler()->GenerateAuthToken("
+                            }, 
+                            "first_line_number": 82, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": false, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }, 
+                        "snippet_file_path": "src/net/http/http_auth_handler_ntlm_portable_unittest.cc", 
+                        "node_kind": "FUNCTION", 
+                        "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_ntlm_portable_unittest.cc#MLDmQc3F5wGTwKNVa06Shcenysy7X%2FMfsWLA3KgPVt4%3D", 
+                        "override": false, 
+                        "params": [
+                            "token"
+                        ], 
+                        "identifier": "GenerateAuthToken", 
+                        "file_path": "src/net/http/http_auth_handler_ntlm_portable_unittest.cc"
+                    }, 
+                    {
+                        "call_scope_range": {
+                            "start_line": 25, 
+                            "end_line": 25, 
+                            "start_column": 1, 
+                            "end_column": 0
+                        }, 
+                        "package_name": "chromium", 
+                        "snippet_package_name": "chromium", 
+                        "call_site_range": {
+                            "start_line": 56, 
+                            "end_line": 57, 
+                            "start_column": 9, 
+                            "end_column": 77
                         }, 
                         "snippet": {
                             "text": {
                                 "text": "        mock_handler.GenerateAuthToken(&credentials, &request,"
                             }, 
-                            "first_line_number": 53
+                            "first_line_number": 56, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": false, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }, 
                         "snippet_file_path": "src/net/http/http_auth_handler_unittest.cc", 
-                        "node_kind": "METHOD", 
-                        "signature": "cpp:net::class-HttpAuthHandlerTest_NetLog_Test::TestBody()@chromium/../../net/http/http_auth_handler_unittest.cc|def", 
+                        "node_kind": "FUNCTION", 
+                        "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_unittest.cc#GA%2Bgg3Wjb9br4%2BfIxRALnWq0B%2BIzV4PD4r7%2FPajlk9Y%3D", 
+                        "override": false, 
                         "identifier": "TestBody", 
                         "file_path": "src/net/http/http_auth_handler_unittest.cc"
                     }
-                ], 
-                "call_site_range": {
-                    "start_line": 76, 
-                    "end_line": 76, 
-                    "start_column": 7, 
-                    "end_column": 23
-                }, 
-                "snippet": {
-                    "text": {
-                        "text": "  int GenerateAuthToken(const AuthCredentials* credentials,"
-                    }
-                }, 
-                "node_kind": "METHOD", 
-                "signature": "cpp:net::class-HttpAuthHandler::GenerateAuthToken(const net::AuthCredentials *, const net::HttpRequestInfo *, const base::Callback<void (int), base::internal::CopyMode::Copyable, base::internal::RepeatMode::Repeating> &, std::basic_string<char, std::char_traits<char>, std::allocator<char> > *)@chromium/../../net/http/http_auth_handler.h|decl", 
-                "params": [
-                    "credentials", 
-                    "request", 
-                    "callback", 
-                    "auth_token"
-                ], 
-                "identifier": "GenerateAuthToken", 
-                "file_path": "src/net/http/http_auth_handler.h"
+                ]
             }, 
-            "estimated_total_number_results": 11, 
-            "is_call_graph": true, 
+            "is_from_kythe": true, 
             "return_code": 1, 
-            "results_offset": 0
+            "results_offset": 0, 
+            "estimated_total_number_results": 12, 
+            "is_call_graph": true
         }
     ]
 }

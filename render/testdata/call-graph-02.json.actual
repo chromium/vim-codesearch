@@ -5,8 +5,8 @@ will be inserted into the vim buffer at that line. The immediately following
 line contains an object representing associated metadata.
 -------------------------------------------------------------------------------
 
-001|^N{[+] ^S{net::HttpAuthHandlerNegotiateTest_NoKerberosCredentials_Test::TestBody()}S_
-   |{'s': 'cpp:net::class-HttpAuthHandlerNegotiateTest_NoKerberosCredentials_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 356, 10)}
+001|^N{[+] 
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#K4ikCIS9mEQ2mHfCRGMW5LQewkaTRwkdAaRECIIEiX8%3D'}
 002|
    |{}
 003|}N_

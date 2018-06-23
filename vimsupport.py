@@ -10,17 +10,22 @@ import os
 import sys
 import vim
 from ssl import SSLError
-try:
+
+if sys.version_info.major == 3:
   from urllib.error import URLError, HTTPError
-except ImportError:
+else:
   from urllib2 import URLError, HTTPError
 
 sys.path.append(os.path.join(CR_CS_PYTHON_ROOT, 'third_party', 'codesearch-py'))
 sys.path.append(CR_CS_PYTHON_ROOT)
 
+def EscapeVimString(s):
+  assert isinstance(s, str)
+  return '"{}"'.format(s.replace('\\', '\\\\').replace("'", "\\'").replace('\n', r'\n'))
+
 def EchoVimError(s):
-  es = s.replace('\\', '\\\\').replace('"', r'\"').replace('\n', r'\n')
-  vim.command('echohl WarningMsg | echo "{}" | echohl None'.format(es))
+  vim.command('echohl WarningMsg | echo {} | echohl None'.format(
+      EscapeVimString(s)))
 
 try:
   from codesearch import \
@@ -120,7 +125,7 @@ def _GetCodeSearch(base_filename=None):
   if g_codesearch:
     return g_codesearch
 
-  arguments = {'user_agent_string': 'Vim-CodeSearch-Client'}
+  arguments = {'user_agent_string': 'Vim-CodeSearch-Client (https://github.com/chromium/vim-codesearch)'}
 
   if 'codesearch_source_root' in vim.vars:
     arguments['source_root'] = vim.vars['codesearch_source_root']
@@ -140,6 +145,9 @@ def _GetCodeSearch(base_filename=None):
   if 'codesearch_cache_timeout_in_seconds' in vim.vars:
       arguments['cache_timeout_in_seconds'] = int(vim.vars['codesearch_cache_timeout_in_seconds'])
 
+  if 'codesearch_timeout_in_seconds' in vim.vars:
+    arguments['request_timeout_in_seconds'] = int(vim.vars['codesearch_timeout_in_seconds'])
+
   g_codesearch = CodeSearch(**arguments)
 
   if 'codesearch_source_root' not in vim.vars:
@@ -152,8 +160,10 @@ def _SetupVimBuffer(t, name):
   assert g_codesearch
 
   buffer_num = vim.eval(
-      "crcs#SetupCodesearchBuffer('{name}', '{source_root}', '{type}')".format(
-          name=name, source_root=_GetCodeSearch().GetSourceRoot(), type=t))
+      "crcs#SetupCodesearchBuffer({name}, {source_root}, {type})".format(
+          name=EscapeVimString(name),
+          source_root=EscapeVimString(_GetCodeSearch().GetSourceRoot()),
+          type=EscapeVimString(t)))
   buffer_num = int(buffer_num)
   g_buffer_map_[buffer_num] = None
   return buffer_num
@@ -224,11 +234,7 @@ def _GetSignatureAtSource():
   buffer_num = vim.current.buffer.number
   if buffer_num in g_buffer_map_:
     location_map = g_buffer_map_[buffer_num]
-    try:
-      signature = location_map.SignatureAt(int(vim.eval("line('.')")))
-    except:
-      signature = None
-    return signature
+    return location_map.SignatureAt(int(vim.eval("line('.')")))
 
   _, line, column, _ = vim.eval("getpos('.')")
   line = int(line)
@@ -251,13 +257,14 @@ def RunCodeSearch(q):
       CompoundRequest(search_request=[
           SearchRequest(
               query=q,
-              return_all_snippets=True,
+              return_all_snippets=False,
               return_snippets=True,
+              max_num_results=100,
               lines_context=3,
               return_decorated_snippets=True)
       ]))
 
-  location_map = RenderCompoundResponse(response)
+  location_map = RenderCompoundResponse(response, q)
   g_buffer_map_[buffer_num] = location_map
   vim.command('setlocal modifiable')
   vim.current.buffer[:] = location_map.Lines()
@@ -267,7 +274,7 @@ def RunCodeSearch(q):
 @CalledFromVim()
 def RunXrefSearch():
   signature = _GetSignatureAtSource()
-  if signature is None:
+  if not signature:
     return
 
   buffer_num = _SetupVimBuffer('xref', 'Crossreferences')
@@ -278,7 +285,7 @@ def RunXrefSearch():
               query=signature, file_spec=cs.GetFileSpec(), max_num_results=100)
       ]))
 
-  location_map = RenderCompoundResponse(response)
+  location_map = RenderCompoundResponse(response, signature)
   g_buffer_map_[buffer_num] = location_map
   vim.command('setlocal modifiable')
   vim.current.buffer[:] = location_map.Lines()
@@ -288,11 +295,10 @@ def RunXrefSearch():
 def _FindNodeForSignature(node, signature):
   if node.signature == signature:
     return node
-  if hasattr(node, 'children'):
-    for child in node.children:
-      n = _FindNodeForSignature(child, signature)
-      if n is not None:
-        return n
+  for child in node.children:
+    n = _FindNodeForSignature(child, signature)
+    if n is not None:
+      return n
   return None
 
 
@@ -314,11 +320,11 @@ def RunCallgraphSearch():
   else:
     signature = _GetSignatureAtSource()
 
-  if signature is None:
+  if not signature:
     return
 
   # Children of parent node have already been resolved.
-  if parent_node is not None and hasattr(parent_node, 'children'):
+  if parent_node is not None and parent_node.children:
     return
 
   cs = _GetCodeSearch()
@@ -336,8 +342,7 @@ def RunCallgraphSearch():
   if parent_node is not None:
     assert root_node is not None
 
-    if not hasattr(response, 'call_graph_response') or \
-            not hasattr(response.call_graph_response[0], 'node'):
+    if not response.call_graph_response:
       # |parent_node| has no children known to the server.
       setattr(parent_node, 'children', [])
     else:
@@ -346,7 +351,7 @@ def RunCallgraphSearch():
       new_node = response.call_graph_response[0].node
 
       assert parent_node.signature == new_node.signature
-      if hasattr(new_node, 'children'):
+      if new_node.children:
         setattr(parent_node, 'children', new_node.children)
       else:
         setattr(parent_node, 'children', [])
@@ -377,15 +382,17 @@ def CloseCallgraphFold():
 
   location_map = g_buffer_map_[vim.current.buffer.number]
   signature = location_map.SignatureAt(int(vim.eval("line('.')")))
+  if not signature:
+    return
   root_node = location_map.root_node
   parent_node = _FindNodeForSignature(root_node, signature)
   assert parent_node is not None
 
-  if not hasattr(parent_node, 'children') or len(parent_node.children) == 0:
+  if not parent_node.children:
     # Nothing to do.
     return
 
-  delattr(parent_node, 'children')
+  parent_node.children = []
 
   RenderCallGraphInBuffer(root_node, vim.current.buffer.number)
 
@@ -393,23 +400,21 @@ def CloseCallgraphFold():
 @CalledFromVim(default='')
 def GetCallers():
   signature = _GetSignatureAtSource()
-  if signature is None or signature == '':
+  if not signature:
     return ''
 
   cs = _GetCodeSearch()
   response = cs.GetCallGraph(signature)
-  if response is None or not hasattr(
-      response, 'call_graph_response') or not hasattr(
-          response.call_graph_response[0], 'node'):
+  if response is None or not response.call_graph_response:
     return ''
 
   node = response.call_graph_response[0].node
-  if not hasattr(node, 'children'):
+  if not node.children:
     return ''
 
   lines = []
   for c in node.children:
-    if not hasattr(c, 'file_path') or not hasattr(c, 'call_site_range') or not hasattr(c, 'snippet'):
+    if not c.file_path or c.call_site_range.Empty() or c.snippet.Empty():
       continue
     lines.append('{}:{}:{}: {}'.format(
         os.path.join(cs.GetSourceRoot(), c.file_path),
@@ -424,7 +429,7 @@ def _XrefSearchResultsToQuickFixList(cs, results):
   assert isinstance(results, list)
   for r in results:
       assert isinstance(r, XrefNode)
-      if not hasattr(r.single_match, 'line_number') or not hasattr(r.single_match, 'line_text'):
+      if not r.single_match.line_number or not r.single_match.line_text:
           continue
       filepath = os.path.join(cs.GetSourceRoot(), r.filespec.name)
       lines.append('{}:{}:1: {}'.format(
@@ -533,9 +538,11 @@ def ShowSignature():
   if signature is None:
     return
 
-  vim.command('echo \'Signature: {}\''.format(signature))
+  vim.command('echo {}'.format(
+      EscapeVimString('Signature: {}'.format(signature))))
 
 @CalledFromVim()
 def PrepareForTesting():
-    InstallTestRequestHandler(test_data_dir=vim.eval('g:codesearch_test_data_dir'))
+    InstallTestRequestHandler(
+        test_data_dir=vim.eval('g:codesearch_test_data_dir'))
 

@@ -1,0 +1,1353 @@
+{
+  "elapsed_ms": 62, 
+  "xref_search_response": [
+    {
+      "status": 0, 
+      "estimated_total_type_count": [
+        {
+          "count": 2, 
+          "type": "DEFINITION", 
+          "type_id": 1
+        }, 
+        {
+          "count": 1, 
+          "type": "DECLARATION", 
+          "type_id": 2
+        }, 
+        {
+          "count": 277, 
+          "type": "REFERENCE", 
+          "type_id": 3
+        }
+      ], 
+      "kythe_next_page_token": "CiQiCAoEc2tpcBBk", 
+      "search_result": [
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/ash/assistant/ui/main_stage/ui_element_container_view.cc#%403926%3A3938", 
+              "line_number": 116, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(card_element->html(), &encoded_html);"
+            }
+          ], 
+          "file": {
+            "name": "src/ash/assistant/ui/main_stage/ui_element_container_view.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/base/base64.cc#%40284%3A296%40MZBL6wjnQzRflIU41%2BL764L7bAX7Ryai%2BPu64O6Cdys%3D%23chromium%23src%2Fbase%2Fbase64.cc", 
+              "line_number": 13, 
+              "type_id": 1, 
+              "type": "DEFINITION", 
+              "line_text": "void Base64Encode(const StringPiece& input, std::string* output) {"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/base/base64.cc#%40284%3A296%40MZBL6wjnQzRflIU41%2BL764L7bAX7Ryai%2BPu64O6Cdys%3D%23chromium%23src%2Fbase%2Fbase64.cc", 
+              "line_number": 13, 
+              "type_id": 1, 
+              "type": "DEFINITION", 
+              "line_text": "void Base64Encode(const StringPiece& input, std::string* output) {"
+            }
+          ], 
+          "file": {
+            "name": "src/base/base64.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/base/base64.h#%40415%3A427%409OcXczXwrVBko3oLDfnb6mtBMIIPxzM1dxiId2o2LPs%3D%23chromium%23src%2Fbase%2Fbase64.h", 
+              "line_number": 16, 
+              "type_id": 2, 
+              "type": "DECLARATION", 
+              "line_text": "BASE_EXPORT void Base64Encode(const StringPiece& input, std::string* output);"
+            }
+          ], 
+          "file": {
+            "name": "src/base/base64.h", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/base/base64_encode_fuzzer.cc#%40539%3A551", 
+              "line_number": 16, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(data_piece, &encode_output);"
+            }
+          ], 
+          "file": {
+            "name": "src/base/base64_encode_fuzzer.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/base/base64_unittest.cc#%40446%3A458", 
+              "line_number": 19, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  Base64Encode(kText, &encoded);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/base/base64_unittest.cc#%40759%3A771", 
+              "line_number": 32, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  Base64Encode(text, &text);"
+            }
+          ], 
+          "file": {
+            "name": "src/base/base64_unittest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/base/base64url.cc#%40814%3A826", 
+              "line_number": 27, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  Base64Encode(input, output);"
+            }
+          ], 
+          "file": {
+            "name": "src/base/base64url.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/base/test/gtest_xml_unittest_result_printer.cc#%405195%3A5207", 
+              "line_number": 150, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  Base64Encode(summary, &summary_encoded);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/base/test/gtest_xml_unittest_result_printer.cc#%405269%3A5281", 
+              "line_number": 152, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  Base64Encode(message, &message_encoded);"
+            }
+          ], 
+          "file": {
+            "name": "src/base/test/gtest_xml_unittest_result_printer.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/base/test/launcher/test_results_tracker.cc#%4013855%3A13867", 
+              "line_number": 376, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "        Base64Encode(test_result.output_snippet, &base64_output_snippet);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/base/test/launcher/test_results_tracker.cc#%4014979%3A14991", 
+              "line_number": 399, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "          Base64Encode(result_part.summary, &encoded_summary);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/base/test/launcher/test_results_tracker.cc#%4015558%3A15570", 
+              "line_number": 412, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "          Base64Encode(result_part.message, &encoded_message);"
+            }
+          ], 
+          "file": {
+            "name": "src/base/test/launcher/test_results_tracker.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/cc/debug/picture_debug_util.cc#%40712%3A724", 
+              "line_number": 25, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode("
+            }
+          ], 
+          "file": {
+            "name": "src/cc/debug/picture_debug_util.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/cc/test/pixel_test_utils.cc#%401242%3A1254", 
+              "line_number": 37, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(data_url, &data_url);"
+            }
+          ], 
+          "file": {
+            "name": "src/cc/test/pixel_test_utils.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/autofill/risk_util.cc#%401666%3A1678", 
+              "line_number": 45, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(proto_data, &risk_data);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/autofill/risk_util.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/bookmarks/bookmark_html_writer.cc#%408934%3A8946", 
+              "line_number": 278, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "        base::Base64Encode("
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/bookmarks/bookmark_html_writer.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/app_mode/kiosk_crash_restore_browsertest.cc#%403969%3A3981", 
+              "line_number": 111, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(policy_data_string, &encoded);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/app_mode/kiosk_crash_restore_browsertest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/arc/enterprise/arc_cert_store_bridge.cc#%403100%3A3112", 
+              "line_number": 85, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(spki_der, &public_key_spki_der_b64);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/arc/enterprise/arc_cert_store_bridge.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/extensions/file_manager/file_manager_private_apitest.cc#%4020487%3A20499", 
+              "line_number": 518, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(\"[linuxhost]:2222 \", &known_hosts);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/extensions/file_manager/file_manager_private_apitest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/extensions/file_manager/private_api_drive.cc#%4030067%3A30079", 
+              "line_number": 761, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode("
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/extensions/file_manager/private_api_drive.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/extensions/file_manager/private_api_misc.cc#%4027324%3A27336", 
+              "line_number": 724, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(host_private_key, &base64_identity);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/extensions/file_manager/private_api_misc.cc#%4027382%3A27394", 
+              "line_number": 725, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode("
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/extensions/file_manager/private_api_misc.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/lock_screen_apps/state_controller.cc#%406714%3A6726", 
+              "line_number": 203, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(*key, &base64_encoded_key);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/lock_screen_apps/state_controller.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/lock_screen_apps/state_controller_unittest.cc#%4032199%3A32211", 
+              "line_number": 926, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(crypto_key_in_prefs, &crypto_key_in_prefs_encoded);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/lock_screen_apps/state_controller_unittest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/login/auto_launched_kiosk_browsertest.cc#%4015552%3A15564", 
+              "line_number": 414, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(policy_data_str, &policy_data_encoded);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/login/auto_launched_kiosk_browsertest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/login/easy_unlock/easy_unlock_tpm_key_manager.cc#%4011451%3A11463", 
+              "line_number": 308, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(value, &encoded);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/login/easy_unlock/easy_unlock_tpm_key_manager.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/login/easy_unlock/easy_unlock_tpm_key_manager_unittest.cc#%4017475%3A17487", 
+              "line_number": 330, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(value, &encoded);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/login/easy_unlock/easy_unlock_tpm_key_manager_unittest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/login/quick_unlock/pin_backend.cc#%401834%3A1846", 
+              "line_number": 55, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(salt, &salt);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/login/quick_unlock/pin_backend.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/login/supervised/supervised_user_authentication.cc#%401727%3A1739", 
+              "line_number": 51, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(key->key(), &result);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/login/supervised/supervised_user_authentication.cc#%4011832%3A11844", 
+              "line_number": 316, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(raw_result, &result);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/login/supervised/supervised_user_authentication.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/platform_keys/key_permissions.cc#%407227%3A7239", 
+              "line_number": 204, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(public_key_spki_der, &public_key_spki_der_b64);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/platform_keys/key_permissions.cc#%408602%3A8614", 
+              "line_number": 237, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(public_key_spki_der, &public_key_spki_der_b64);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/platform_keys/key_permissions.cc#%409263%3A9275", 
+              "line_number": 260, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(public_key_spki_der, &public_key_spki_der_b64);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/platform_keys/key_permissions.cc#%4011180%3A11192", 
+              "line_number": 307, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(public_key_spki_der, &public_key_spki_der_b64);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/platform_keys/key_permissions.cc#%4016178%3A16190", 
+              "line_number": 439, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(public_key_spki_der, &public_key_spki_der_b64);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/platform_keys/key_permissions.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/policy/device_status_collector.cc#%4025526%3A25538", 
+              "line_number": 636, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(user_email, &encoded_email);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/policy/device_status_collector.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/chromeos/settings/device_settings_cache.cc#%401644%3A1656", 
+              "line_number": 54, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(policy_string, &encoded);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/chromeos/settings/device_settings_cache.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/devtools/device/usb/android_rsa.cc#%405517%3A5529", 
+              "line_number": 209, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(key_string, &encoded_key);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/devtools/device/usb/android_rsa.cc#%406993%3A7005", 
+              "line_number": 267, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(input, &output);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/devtools/device/usb/android_rsa.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/devtools/devtools_ui_bindings.cc#%409849%3A9861", 
+              "line_number": 253, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(chunk, &chunk);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/devtools/devtools_ui_bindings.cc#%4016443%3A16455", 
+              "line_number": 434, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "      base::Base64Encode(chunk, &encoded_string);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/devtools/devtools_ui_bindings.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/api/declarative_content/content_action_unittest.cc#%406165%3A6177", 
+              "line_number": 176, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(binary_data, &data64);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/extensions/api/declarative_content/content_action_unittest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/api/developer_private/extension_info_generator.cc#%4024069%3A24081", 
+              "line_number": 609, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(base::StringPiece(data->front_as<char>(), data->size()),"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/extensions/api/developer_private/extension_info_generator.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/api/enterprise_platform_keys_private/enterprise_platform_keys_private_api.cc#%4024057%3A24069", 
+              "line_number": 643, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(data, &encoded_response);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/api/enterprise_platform_keys_private/enterprise_platform_keys_private_api.cc#%4025817%3A25829", 
+              "line_number": 686, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(data, &encoded_response);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/extensions/api/enterprise_platform_keys_private/enterprise_platform_keys_private_api.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/api/identity/web_auth_flow.cc#%402992%3A3004", 
+              "line_number": 87, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(random_bytes, &app_window_key_);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/extensions/api/identity/web_auth_flow.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/api/networking_cast_private/chrome_networking_cast_private_delegate.cc#%403537%3A3549", 
+              "line_number": 95, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode("
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/extensions/api/networking_cast_private/chrome_networking_cast_private_delegate.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/api/proxy/proxy_api_helpers.cc#%401410%3A1422", 
+              "line_number": 39, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(pac_script, &pac_script_base64_encoded);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/extensions/api/proxy/proxy_api_helpers.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/api/webstore_private/webstore_private_api.cc#%4027526%3A27538", 
+              "line_number": 724, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(serialized_referrer_proto, &serialized_referrer_proto);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/extensions/api/webstore_private/webstore_private_api.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/convert_user_script.cc#%402927%3A2939", 
+              "line_number": 85, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(base::StringPiece(raw, crypto::kSHA256Length), &key);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/extensions/convert_user_script.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/convert_web_app.cc#%402260%3A2272", 
+              "line_number": 66, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(base::StringPiece(raw, crypto::kSHA256Length), &key);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/extensions/convert_web_app.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/extension_action_storage_manager.cc#%403115%3A3127", 
+              "line_number": 91, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(raw_str, &base64_str);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/extensions/extension_action_storage_manager.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/install_signer.cc#%403618%3A3630", 
+              "line_number": 105, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(result_bytes, result);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/install_signer.cc#%405811%3A5823", 
+              "line_number": 176, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(salt, &salt_base64);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/extensions/install_signer.cc#%405853%3A5865", 
+              "line_number": 177, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(signature, &signature_base64);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/extensions/install_signer.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/internal_auth.cc#%406118%3A6130", 
+              "line_number": 176, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(hmac, &hmac_base64);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/internal_auth.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/media/router/test/test_helper.cc#%401015%3A1027", 
+              "line_number": 32, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(src, &result);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/media/router/test/test_helper.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/media/webrtc/desktop_streams_registry.cc#%40672%3A684", 
+              "line_number": 24, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(base::StringPiece(buffer, arraysize(buffer)),"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/media/webrtc/desktop_streams_registry.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/net/predictor_browsertest.cc#%4023578%3A23590", 
+              "line_number": 632, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(content, &encoded_content);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/net/predictor_browsertest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/safe_browsing/safe_browsing_service_browsertest.cc#%407228%3A7240", 
+              "line_number": 170, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode("
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/safe_browsing/safe_browsing_service_browsertest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/search/local_ntp_source.cc#%4013033%3A13045", 
+              "line_number": 294, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(logo.encoded_image->data(), &base64);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/search/local_ntp_source.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/signin/local_auth.cc#%404932%3A4944", 
+              "line_number": 135, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(encoded, &encoded64);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/signin/local_auth.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/ssl/chrome_ssl_host_state_delegate.cc#%408515%3A8527", 
+              "line_number": 200, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode("
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/ssl/chrome_ssl_host_state_delegate.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/ssl/security_state_tab_helper_browsertest.cc#%4052763%3A52775", 
+              "line_number": 1236, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(base::StringPiece(reinterpret_cast<char*>(hash.data),"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/ssl/security_state_tab_helper_browsertest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/ssl/ssl_browsertest.cc#%4050312%3A50324", 
+              "line_number": 1207, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode("
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/ssl/ssl_browsertest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/thumbnails/thumbnail_list_source.cc#%405520%3A5532", 
+              "line_number": 154, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "      base::Base64Encode("
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/thumbnails/thumbnail_list_source.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/ui/ash/chrome_screenshot_grabber.cc#%403025%3A3037", 
+              "line_number": 79, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(png_data->data(), &encoded);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/ui/ash/chrome_screenshot_grabber.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/ui/certificate_dialogs.cc#%401833%3A1845", 
+              "line_number": 64, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(der_cert, &base64);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/ui/certificate_dialogs.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/ui/webui/print_preview/print_preview_handler.cc#%4041456%3A41468", 
+              "line_number": 1129, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(raw_data, &base64_data);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/ui/webui/print_preview/print_preview_handler.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/browser/ui/webui/print_preview/print_preview_handler_unittest.cc#%4022895%3A22907", 
+              "line_number": 568, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "      base::Base64Encode(printing::kTestData, &expected_data);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/browser/ui/webui/print_preview/print_preview_handler_unittest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/common/component_flash_hint_file_linux.cc#%403179%3A3191", 
+              "line_number": 94, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(hash, &encoded_hash);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/common/component_flash_hint_file_linux.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/renderer/plugins/plugin_preroller.cc#%401973%3A1985", 
+              "line_number": 52, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(png_as_string, &data_url_body);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/renderer/plugins/plugin_preroller.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/test/chromedriver/chrome_launcher.cc#%4028112%3A28124", 
+              "line_number": 689, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(public_key, &public_key_base64);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/test/chromedriver/chrome_launcher.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/test/chromedriver/chrome_launcher_unittest.cc#%401662%3A1674", 
+              "line_number": 47, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(crx_contents, &crx_encoded);"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/test/chromedriver/chrome_launcher_unittest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/test/chromedriver/net/websocket.cc#%404448%3A4460", 
+              "line_number": 142, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(base::RandBytesAsString(16), &sec_key_);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chrome/test/chromedriver/net/websocket.cc#%407380%3A7392", 
+              "line_number": 240, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(base::SHA1HashString(sec_key_ + kMagicKey),"
+            }
+          ], 
+          "file": {
+            "name": "src/chrome/test/chromedriver/net/websocket.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chromeos/components/tether/connection_preserver_impl_unittest.cc#%406186%3A6198", 
+              "line_number": 172, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(kDeviceId1, &encoded_device_id);"
+            }
+          ], 
+          "file": {
+            "name": "src/chromeos/components/tether/connection_preserver_impl_unittest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chromeos/dbus/fake_session_manager_client.cc#%4019849%3A19861", 
+              "line_number": 526, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(kFakeContainerInstanceId, &container_instance_id_);"
+            }
+          ], 
+          "file": {
+            "name": "src/chromeos/dbus/fake_session_manager_client.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chromeos/login/auth/key.cc#%402478%3A2490", 
+              "line_number": 91, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "      base::Base64Encode(key->key(), &secret_);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/chromeos/login/auth/key.cc#%402578%3A2590", 
+              "line_number": 95, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "      base::Base64Encode(crypto::SHA256HashString(salt + secret_), &secret_);"
+            }
+          ], 
+          "file": {
+            "name": "src/chromeos/login/auth/key.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/arc/intent_helper/activity_icon_loader.cc#%403383%3A3395", 
+              "line_number": 92, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode("
+            }
+          ], 
+          "file": {
+            "name": "src/components/arc/intent_helper/activity_icon_loader.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/autofill/core/browser/webdata/autofill_wallet_metadata_syncable_service.cc#%403309%3A3321", 
+              "line_number": 79, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(local_card.billing_address_id(), &billing_address_id);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/autofill/core/browser/webdata/autofill_wallet_metadata_syncable_service.cc#%4012612%3A12624", 
+              "line_number": 325, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(data.server_id(), &server_id);"
+            }
+          ], 
+          "file": {
+            "name": "src/components/autofill/core/browser/webdata/autofill_wallet_metadata_syncable_service.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/autofill/core/browser/webdata/autofill_wallet_metadata_syncable_service_unittest.cc#%402508%3A2520", 
+              "line_number": 72, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(profile.server_id(), &utf8_server_id);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/autofill/core/browser/webdata/autofill_wallet_metadata_syncable_service_unittest.cc#%402717%3A2729", 
+              "line_number": 78, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(card.server_id(), &utf8_server_id);"
+            }
+          ], 
+          "file": {
+            "name": "src/components/autofill/core/browser/webdata/autofill_wallet_metadata_syncable_service_unittest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/autofill/core/common/form_data.cc#%404947%3A4959", 
+              "line_number": 159, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  Base64Encode("
+            }
+          ], 
+          "file": {
+            "name": "src/components/autofill/core/common/form_data.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/bookmarks/browser/bookmark_codec.cc#%403910%3A3922", 
+              "line_number": 101, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(sync_metadata_str, &sync_metadata_str_base64);"
+            }
+          ], 
+          "file": {
+            "name": "src/components/bookmarks/browser/bookmark_codec.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/crx_file/crx_creator_unittest.cc#%401110%3A1122", 
+              "line_number": 39, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(std::string(public_key.begin(), public_key.end()),"
+            }
+          ], 
+          "file": {
+            "name": "src/components/crx_file/crx_creator_unittest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/crx_file/crx_verifier.cc#%407538%3A7550", 
+              "line_number": 183, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(public_key_bytes, public_key);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/crx_file/crx_verifier.cc#%409525%3A9537", 
+              "line_number": 230, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(public_key_bytes, public_key);"
+            }
+          ], 
+          "file": {
+            "name": "src/components/crx_file/crx_verifier.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/cryptauth/remote_device.cc#%401078%3A1090", 
+              "line_number": 38, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(public_key, &device_id);"
+            }
+          ], 
+          "file": {
+            "name": "src/components/cryptauth/remote_device.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/data_reduction_proxy/core/browser/data_reduction_proxy_config_service_client.cc#%4021701%3A21713", 
+              "line_number": 560, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(config_data, &encoded_config);"
+            }
+          ], 
+          "file": {
+            "name": "src/components/data_reduction_proxy/core/browser/data_reduction_proxy_config_service_client.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/data_reduction_proxy/core/browser/data_reduction_proxy_config_service_client_unittest.cc#%405780%3A5792", 
+              "line_number": 132, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(config_data, &encoded_data);"
+            }, 
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/data_reduction_proxy/core/browser/data_reduction_proxy_config_service_client_unittest.cc#%4051375%3A51387", 
+              "line_number": 1274, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(encoded_config, &encoded_config);"
+            }
+          ], 
+          "file": {
+            "name": "src/components/data_reduction_proxy/core/browser/data_reduction_proxy_config_service_client_unittest.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/data_reduction_proxy/core/browser/network_properties_manager.cc#%402716%3A2728", 
+              "line_number": 86, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(serialized_network_properties, &base64_encoded);"
+            }
+          ], 
+          "file": {
+            "name": "src/components/data_reduction_proxy/core/browser/network_properties_manager.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/gcm_driver/instance_id/instance_id_impl.cc#%408084%3A8096", 
+              "line_number": 244, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode("
+            }
+          ], 
+          "file": {
+            "name": "src/components/gcm_driver/instance_id/instance_id_impl.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/invalidation/impl/invalidation_service_util.cc#%401447%3A1459", 
+              "line_number": 41, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(base::RandBytesAsString(kGuidBytes), &guid);"
+            }
+          ], 
+          "file": {
+            "name": "src/components/invalidation/impl/invalidation_service_util.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/invalidation/impl/invalidator_storage.cc#%403462%3A3474", 
+              "line_number": 100, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "  base::Base64Encode(data, &base64_data);"
+            }
+          ], 
+          "file": {
+            "name": "src/components/invalidation/impl/invalidator_storage.cc", 
+            "package_name": "chromium"
+          }
+        }, 
+        {
+          "match": [
+            {
+              "signature": "kythe://chromium?lang=c%2B%2B?path=src/components/metrics/environment_recorder.cc#%401382%3A1394", 
+              "line_number": 39, 
+              "type_id": 3, 
+              "type": "REFERENCE", 
+              "line_text": "    base::Base64Encode(serialized_system_profile, &base64_system_profile);"
+            }
+          ], 
+          "file": {
+            "name": "src/components/metrics/environment_recorder.cc", 
+            "package_name": "chromium"
+          }
+        }
+      ], 
+      "from_kythe": true
+    }
+  ]
+}

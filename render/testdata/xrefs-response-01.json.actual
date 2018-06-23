@@ -11,53 +11,51 @@ line contains an object representing associated metadata.
    |{'j': ('src/net/http/http_basic_state.cc', 0, 7)}
 003|    20:  ^>{HttpBasicState::HttpBasicState(std::unique_ptr<ClientSocketHandle> connection,}>_
    |{'j': ('src/net/http/http_basic_state.cc', 19, 9)}
-004|
+004|    20:  ^>{HttpBasicState::HttpBasicState(std::unique_ptr<ClientSocketHandle> connection,}>_
+   |{'j': ('src/net/http/http_basic_state.cc', 19, 9)}
+005|
    |{}
-005|^Cat{Declaration:
+006|^Cat{Declaration:
    |{}
-006|}Cat_  ^F{src/net/http/http_basic_state.h}F_
+007|}Cat_  ^F{src/net/http/http_basic_state.h}F_
    |{'j': ('src/net/http/http_basic_state.h', 0, 7)}
-007|    31:  ^>{  HttpBasicState(std::unique_ptr<ClientSocketHandle> connection,}>_
+008|    31:  ^>{  HttpBasicState(std::unique_ptr<ClientSocketHandle> connection,}>_
    |{'j': ('src/net/http/http_basic_state.h', 30, 9)}
-008|
+009|
    |{}
-009|^Cat{Calls:
+010|^Cat{References:
    |{}
-010|}Cat_  ^F{src/net/http/http_basic_state_unittest.cc}F_
+011|}Cat_  ^F{src/net/http/http_basic_state_unittest.cc}F_
    |{'j': ('src/net/http/http_basic_state_unittest.cc', 0, 7)}
-011|    21:  ^>{  const HttpBasicState state(base::WrapUnique(handle), true /* using_proxy */,}>_
+012|    21:  ^>{  const HttpBasicState state(base::WrapUnique(handle), true /* using_proxy */,}>_
    |{'j': ('src/net/http/http_basic_state_unittest.cc', 20, 9)}
-012|    29:  ^>{  const HttpBasicState state(base::MakeUnique<ClientSocketHandle>(),}>_
+013|    29:  ^>{  const HttpBasicState state(std::make_unique<ClientSocketHandle>(),}>_
    |{'j': ('src/net/http/http_basic_state_unittest.cc', 28, 9)}
-013|    39:  ^>{  HttpBasicState state(base::WrapUnique(handle), false, false);}>_
+014|    39:  ^>{  HttpBasicState state(base::WrapUnique(handle), false, false);}>_
    |{'j': ('src/net/http/http_basic_state_unittest.cc', 38, 9)}
-014|    47:  ^>{  HttpBasicState state(base::MakeUnique<ClientSocketHandle>(), false, false);}>_
+015|    47:  ^>{  HttpBasicState state(std::make_unique<ClientSocketHandle>(), false, false);}>_
    |{'j': ('src/net/http/http_basic_state_unittest.cc', 46, 9)}
-015|    55:  ^>{  HttpBasicState state(base::MakeUnique<ClientSocketHandle>(), false, false);}>_
-   |{'j': ('src/net/http/http_basic_state_unittest.cc', 54, 9)}
-016|    66:  ^>{  HttpBasicState state(base::MakeUnique<ClientSocketHandle>(), use_proxy,}>_
-   |{'j': ('src/net/http/http_basic_state_unittest.cc', 65, 9)}
-017|    78:  ^>{  HttpBasicState state(base::MakeUnique<ClientSocketHandle>(), use_proxy,}>_
-   |{'j': ('src/net/http/http_basic_state_unittest.cc', 77, 9)}
-018|
+016|    54:  ^>{  HttpBasicState state(std::make_unique<ClientSocketHandle>(), false, false);}>_
+   |{'j': ('src/net/http/http_basic_state_unittest.cc', 53, 9)}
+017|    64:  ^>{  HttpBasicState state(std::make_unique<ClientSocketHandle>(), false, false);}>_
+   |{'j': ('src/net/http/http_basic_state_unittest.cc', 63, 9)}
+018|    74:  ^>{  HttpBasicState state(std::make_unique<ClientSocketHandle>(), use_proxy,}>_
+   |{'j': ('src/net/http/http_basic_state_unittest.cc', 73, 9)}
+019|    85:  ^>{  HttpBasicState state(std::make_unique<ClientSocketHandle>(), use_proxy,}>_
+   |{'j': ('src/net/http/http_basic_state_unittest.cc', 84, 9)}
+020|
    |{}
-019|  ^F{src/net/http/http_basic_stream.cc}F_
+021|  ^F{src/net/http/http_basic_stream.cc}F_
    |{'j': ('src/net/http/http_basic_stream.cc', 0, 2)}
-020|    19:  ^>{    : state_(std::move(connection),}>_
-   |{'j': ('src/net/http/http_basic_stream.cc', 18, 9)}
-021|
+022|    20:  ^>{    : state_(std::move(connection),}>_
+   |{'j': ('src/net/http/http_basic_stream.cc', 19, 9)}
+023|
    |{}
-022|  ^F{src/net/http/http_network_transaction_unittest.cc}F_
-   |{'j': ('src/net/http/http_network_transaction_unittest.cc', 0, 2)}
-023|    15149:  ^>{      : state_(std::move(connection), using_proxy, false) {}}>_
-   |{'j': ('src/net/http/http_network_transaction_unittest.cc', 15148, 12)}
-024|
-   |{}
-025|  ^F{src/net/websockets/websocket_basic_handshake_stream.cc}F_
+024|  ^F{src/net/websockets/websocket_basic_handshake_stream.cc}F_
    |{'j': ('src/net/websockets/websocket_basic_handshake_stream.cc', 0, 2)}
-026|    298:  ^>{    : state_(std::move(connection),}>_
-   |{'j': ('src/net/websockets/websocket_basic_handshake_stream.cc', 297, 10)}
-027|
+025|    175:  ^>{      state_(std::move(connection),}>_
+   |{'j': ('src/net/websockets/websocket_basic_handshake_stream.cc', 174, 10)}
+026|
    |{}
-028|
+027|
    |{}

@@ -5,117 +5,391 @@ will be inserted into the vim buffer at that line. The immediately following
 line contains an object representing associated metadata.
 -------------------------------------------------------------------------------
 
-001|1. src/base/at_exit.cc^>{
-   |{'j': ('src/base/at_exit.cc', 0, 0)}
-002|    20 ^c{// version of the constructor, and if we are building a dynamic library we may}c_
-   |{'j': ('src/base/at_exit.cc', 19, 7)}
-003|    21 ^c{// end up with multiple AtExitManagers on the same process.  We don't protect}c_
-   |{'j': ('src/base/at_exit.cc', 20, 7)}
-004|    22 ^c{// this for thread-safe access, since it will only be modified in testing.}c_
-   |{'j': ('src/base/at_exit.cc', 21, 7)}
-005|    23 ^k{static}k_ AtExitManager* ^${g_top_manager}$_ = NULL;
-   |{'j': ('src/base/at_exit.cc', 22, 7)}
-006|    24 
-   |{'j': ('src/base/at_exit.cc', 23, 7)}
-007|    25 ^k{static}k_ ^k{bool}k_ g_disable_managers = ^k{false}k_;
-   |{'j': ('src/base/at_exit.cc', 24, 7)}
-008|    26 
-   |{'j': ('src/base/at_exit.cc', 25, 7)}
-009|    27 }>_^>{
-   |{'j': ('src/base/at_exit.cc', 26, 7)}
-010|    [...]
-   |{'j': ('src/base/at_exit.cc', 61, 9)}
-011|    62   AutoLock lock(^${g_top_manager}$_->lock_);
-   |{'j': ('src/base/at_exit.cc', 61, 7)}
-012|    63   DCHECK(!^${g_top_manager}$_->processing_callbacks_);
-   |{'j': ('src/base/at_exit.cc', 62, 7)}
-013|    64   ^${g_top_manager}$_->stack_.push(std::move(task));
-   |{'j': ('src/base/at_exit.cc', 63, 7)}
-014|    65 }
-   |{'j': ('src/base/at_exit.cc', 64, 7)}
-015|    66 
-   |{'j': ('src/base/at_exit.cc', 65, 7)}
-016|    67 ^c{// static}c_
-   |{'j': ('src/base/at_exit.cc', 66, 7)}
-017|    68 }>_
-   |{'j': ('src/base/at_exit.cc', 67, 7)}
-018|
+001|CodeSearch results for ^q{unspecified}q_
    |{}
-019|2. src/base/at_exit.cc^>{
-   |{'j': ('src/base/at_exit.cc', 0, 0)}
-020|    20 ^c{// version of the constructor, and if we are building a dynamic library we may}c_
-   |{'j': ('src/base/at_exit.cc', 19, 7)}
-021|    21 ^c{// end up with multiple AtExitManagers on the same process.  We don't protect}c_
-   |{'j': ('src/base/at_exit.cc', 20, 7)}
-022|    22 ^c{// this for thread-safe access, since it will only be modified in testing.}c_
-   |{'j': ('src/base/at_exit.cc', 21, 7)}
-023|    23 ^k{static}k_ AtExitManager* ^${g_top_manager}$_ = NULL;
-   |{'j': ('src/base/at_exit.cc', 22, 7)}
-024|    24 
-   |{'j': ('src/base/at_exit.cc', 23, 7)}
-025|    25 ^k{static}k_ ^k{bool}k_ g_disable_managers = ^k{false}k_;
-   |{'j': ('src/base/at_exit.cc', 24, 7)}
-026|    26 
-   |{'j': ('src/base/at_exit.cc', 25, 7)}
-027|    27 }>_^>{
-   |{'j': ('src/base/at_exit.cc', 26, 7)}
-028|    [...]
-   |{'j': ('src/base/at_exit.cc', 61, 9)}
-029|    62   AutoLock lock(^${g_top_manager}$_->lock_);
-   |{'j': ('src/base/at_exit.cc', 61, 7)}
-030|    63   DCHECK(!^${g_top_manager}$_->processing_callbacks_);
-   |{'j': ('src/base/at_exit.cc', 62, 7)}
-031|    64   ^${g_top_manager}$_->stack_.push(std::move(task));
-   |{'j': ('src/base/at_exit.cc', 63, 7)}
-032|    65 }
-   |{'j': ('src/base/at_exit.cc', 64, 7)}
-033|    66 
-   |{'j': ('src/base/at_exit.cc', 65, 7)}
-034|    67 ^c{// static}c_
-   |{'j': ('src/base/at_exit.cc', 66, 7)}
-035|    68 }>_
-   |{'j': ('src/base/at_exit.cc', 67, 7)}
-036|
+002|
    |{}
-037|3. src/build/sanitizers/tsan_suppressions.cc^>{
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 0, 0)}
-038|    118 ^s{"race:base::Thread::StopSoon\n"}s_
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 117, 8)}
-039|    119 
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 118, 8)}
-040|    120 ^c{// http://crbug.com/272095}c_
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 119, 8)}
-041|    121 ^s{"race:base::^${g_top_manager}$_\n"}s_
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 120, 8)}
-042|    122 
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 121, 8)}
-043|    123 ^c{// http://crbug.com/308590}c_
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 122, 8)}
-044|    124 ^s{"race:CustomThreadWatcher::~CustomThreadWatcher\n"}s_
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 123, 8)}
-045|    125 }>_
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 124, 8)}
-046|
+003|1. src/third_party/blink/renderer/modules/credentialmanager/credentials_container.h^>{
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.h', 0, 0)}
+004|    5 ^D{#ifndef}D_ THIRD_PARTY_BLINK_RENDERER_MODULES_CREDENTIALMANAGER_^${CREDENTIALS_CONTAINER}$__H_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.h', 4, 6)}
+005|    6 ^D{#define}D_ THIRD_PARTY_BLINK_RENDERER_MODULES_CREDENTIALMANAGER_^${CREDENTIALS_CONTAINER}$__H_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.h', 5, 6)}
+006|    7 }>_^>{
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.h', 6, 6)}
+007|    [...]
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.h', 38, 9)}
+008|    39 }  ^c{// namespace blink}c_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.h', 38, 7)}
+009|    40 
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.h', 39, 7)}
+010|    41 ^D{#endif}D_  ^c{// THIRD_PARTY_BLINK_RENDERER_MODULES_CREDENTIALMANAGER_^${CREDENTIALS_CONTAINER}$__H_}c_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.h', 40, 7)}
+011|    42 }>_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.h', 41, 7)}
+012|
    |{}
-047|4. src/build/sanitizers/tsan_suppressions.cc^>{
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 0, 0)}
-048|    118 ^s{"race:base::Thread::StopSoon\n"}s_
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 117, 8)}
-049|    119 
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 118, 8)}
-050|    120 ^c{// http://crbug.com/272095}c_
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 119, 8)}
-051|    121 ^s{"race:base::^${g_top_manager}$_\n"}s_
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 120, 8)}
-052|    122 
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 121, 8)}
-053|    123 ^c{// http://crbug.com/308590}c_
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 122, 8)}
-054|    124 ^s{"race:CustomThreadWatcher::~CustomThreadWatcher\n"}s_
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 123, 8)}
-055|    125 }>_
-   |{'j': ('src/build/sanitizers/tsan_suppressions.cc', 124, 8)}
-056|
+013|2. src/third_party/blink/renderer/modules/credentialmanager/credentials_container.cc^>{
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.cc', 0, 0)}
+014|    2 ^c{// Use of this source code is governed by a BSD-style license that can be}c_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.cc', 1, 6)}
+015|    3 ^c{// found in the LICENSE file.}c_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.cc', 2, 6)}
+016|    4 
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.cc', 3, 6)}
+017|    5 ^D{#include}D_ ^s{"third_party/blink/renderer/modules/credentialmanager/^${credentials_container}$_.h"}s_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.cc', 4, 6)}
+018|    6 
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.cc', 5, 6)}
+019|    7 ^D{#include}D_ <memory>
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.cc', 6, 6)}
+020|    8 ^D{#include}D_ <utility>
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.cc', 7, 6)}
+021|    9 }>_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.cc', 8, 6)}
+022|
    |{}
-057|
+023|3. src/third_party/blink/renderer/modules/credentialmanager/credentials_container.idl^>{
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.idl', 0, 0)}
+024|    1 // Copyright 2014 The Chromium Authors. All rights reserved.
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.idl', 0, 6)}
+025|    2 // Use of this source code is governed by a BSD-style license that can be
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.idl', 1, 6)}
+026|    3 // found in the LICENSE file.
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.idl', 2, 6)}
+027|    4 
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.idl', 3, 6)}
+028|    5 // https://w3c.github.io/webappsec-credential-management/#credentialscontainer
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.idl', 4, 6)}
+029|    6 
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.idl', 5, 6)}
+030|    7 [Exposed=Window, SecureContext]
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.idl', 6, 6)}
+031|    8 }>_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container.idl', 7, 6)}
+032|
+   |{}
+033|4. src/third_party/blink/renderer/modules/credentialmanager/credentials_container_test.cc^>{
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container_test.cc', 0, 0)}
+034|    2 ^c{// Use of this source code is governed by a BSD-style license that can be}c_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container_test.cc', 1, 6)}
+035|    3 ^c{// found in the LICENSE file.}c_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container_test.cc', 2, 6)}
+036|    4 
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container_test.cc', 3, 6)}
+037|    5 ^D{#include}D_ ^s{"third_party/blink/renderer/modules/credentialmanager/^${credentials_container}$_.h"}s_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container_test.cc', 4, 6)}
+038|    6 
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container_test.cc', 5, 6)}
+039|    7 ^D{#include}D_ <memory>
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container_test.cc', 6, 6)}
+040|    8 ^D{#include}D_ <utility>
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container_test.cc', 7, 6)}
+041|    9 }>_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/credentials_container_test.cc', 8, 6)}
+042|
+   |{}
+043|5. src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h^>{
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 0, 0)}
+044|    15 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/core/v8/native_value_traits.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 14, 7)}
+045|    16 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/core/v8/to_v8_for_core.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 15, 7)}
+046|    17 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/core/v8/v8_binding_for_core.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 16, 7)}
+047|    18 ^D{#include}D_ ^s{"third_party/blink/renderer/modules/credentialmanager/^${credentials_container}$_.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 17, 7)}
+048|    19 ^D{#include}D_ ^s{"third_party/blink/renderer/modules/modules_export.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 18, 7)}
+049|    20 ^D{#include}D_ ^s{"third_party/blink/renderer/platform/bindings/script_wrappable.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 19, 7)}
+050|    21 ^D{#include}D_ ^s{"third_party/blink/renderer/platform/bindings/v8_dom_wrapper.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 20, 7)}
+051|    22 }>_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 21, 7)}
+052|
+   |{}
+053|6. src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.h^>{
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.h', 0, 0)}
+054|    32   ^k{explicit}k_ NavigatorCredentials(Navigator&);
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.h', 31, 7)}
+055|    33   CredentialsContainer* credentials();
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.h', 32, 7)}
+056|    34 
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.h', 33, 7)}
+057|    35   Member<CredentialsContainer> ^${credentials_container}$__;
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.h', 34, 7)}
+058|    36 };
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.h', 35, 7)}
+059|    37 
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.h', 36, 7)}
+060|    38 }  ^c{// namespace blink}c_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.h', 37, 7)}
+061|    39 }>_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.h', 38, 7)}
+062|
+   |{}
+063|7. src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc^>{
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 0, 0)}
+064|     8 ^c{// DO NOT MODIFY!}c_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 7, 7)}
+065|     9 
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 8, 7)}
+066|    10 ^c{// clang-format off}c_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 9, 7)}
+067|    11 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_^${credentials_container}$_.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 10, 7)}
+068|    12 
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 11, 7)}
+069|    13 ^D{#include}D_ ^s{"base/memory/scoped_refptr.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 12, 7)}
+070|    14 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/core/v8/script_promise.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 13, 7)}
+071|    15 }>_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 14, 7)}
+072|
+   |{}
+073|8. src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h^>{
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 0, 0)}
+074|    15 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/core/v8/native_value_traits.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 14, 7)}
+075|    16 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/core/v8/to_v8_for_core.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 15, 7)}
+076|    17 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/core/v8/v8_binding_for_core.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 16, 7)}
+077|    18 ^D{#include}D_ ^s{"third_party/blink/renderer/modules/credentialmanager/^${credentials_container}$_.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 17, 7)}
+078|    19 ^D{#include}D_ ^s{"third_party/blink/renderer/modules/modules_export.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 18, 7)}
+079|    20 ^D{#include}D_ ^s{"third_party/blink/renderer/platform/bindings/script_wrappable.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 19, 7)}
+080|    21 ^D{#include}D_ ^s{"third_party/blink/renderer/platform/bindings/v8_dom_wrapper.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 20, 7)}
+081|    22 }>_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h', 21, 7)}
+082|
+   |{}
+083|9. src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.cc^>{
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.cc', 0, 0)}
+084|     8 ^D{#include}D_ ^s{"third_party/blink/renderer/core/frame/local_dom_window.h"}s_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.cc', 7, 7)}
+085|     9 ^D{#include}D_ ^s{"third_party/blink/renderer/core/frame/local_frame.h"}s_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.cc', 8, 7)}
+086|    10 ^D{#include}D_ ^s{"third_party/blink/renderer/core/frame/navigator.h"}s_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.cc', 9, 7)}
+087|    11 ^D{#include}D_ ^s{"third_party/blink/renderer/modules/credentialmanager/^${credentials_container}$_.h"}s_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.cc', 10, 7)}
+088|    12 
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.cc', 11, 7)}
+089|    13 ^k{namespace}k_ blink {
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.cc', 12, 7)}
+090|    14 
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.cc', 13, 7)}
+091|    15 }>_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.cc', 14, 7)}
+092|
+   |{}
+093|10. src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc^>{
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 0, 0)}
+094|     8 ^c{// DO NOT MODIFY!}c_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 7, 7)}
+095|     9 
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 8, 7)}
+096|    10 ^c{// clang-format off}c_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 9, 7)}
+097|    11 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_^${credentials_container}$_.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 10, 7)}
+098|    12 
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 11, 7)}
+099|    13 ^D{#include}D_ ^s{"base/memory/scoped_refptr.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 12, 7)}
+100|    14 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/core/v8/script_promise.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 13, 7)}
+101|    15 }>_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc', 14, 7)}
+102|
+   |{}
+103|11. src/third_party/blink/renderer/modules/credentialmanager/BUILD.gn^>{
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/BUILD.gn', 0, 0)}
+104|    18     ^s{"credential_manager_proxy.h"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/BUILD.gn', 17, 7)}
+105|    19     ^s{"credential_manager_type_converters.cc"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/BUILD.gn', 18, 7)}
+106|    20     ^s{"credential_manager_type_converters.h"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/BUILD.gn', 19, 7)}
+107|    21     ^s{"^${credentials_container}$_.cc"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/BUILD.gn', 20, 7)}
+108|    22     ^s{"^${credentials_container}$_.h"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/BUILD.gn', 21, 7)}
+109|    23     ^s{"federated_credential.cc"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/BUILD.gn', 22, 7)}
+110|    24     ^s{"federated_credential.h"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/BUILD.gn', 23, 7)}
+111|    25     ^s{"navigator_credentials.cc"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/BUILD.gn', 24, 7)}
+112|    26 }>_
+   |{'j': ('src/third_party/blink/renderer/modules/credentialmanager/BUILD.gn', 25, 7)}
+113|
+   |{}
+114|12. src/third_party/blink/renderer/modules/BUILD.gn^>{
+   |{'j': ('src/third_party/blink/renderer/modules/BUILD.gn', 0, 0)}
+115|    246     ^s{"canvas/canvas2d/canvas_rendering_context_2d_test.cc"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/BUILD.gn', 245, 8)}
+116|    247     ^s{"canvas/htmlcanvas/html_canvas_element_module_test.cc"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/BUILD.gn', 246, 8)}
+117|    248     ^s{"canvas/offscreencanvas/offscreen_canvas_test.cc"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/BUILD.gn', 247, 8)}
+118|    249     ^s{"credentialmanager/^${credentials_container}$__test.cc"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/BUILD.gn', 248, 8)}
+119|    250     ^s{"credentialmanager/password_credential_test.cc"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/BUILD.gn', 249, 8)}
+120|    251     ^s{"csspaint/paint_rendering_context_2d_test.cc"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/BUILD.gn', 250, 8)}
+121|    252     ^s{"csspaint/paint_worklet_test.cc"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/BUILD.gn', 251, 8)}
+122|    253 }>_
+   |{'j': ('src/third_party/blink/renderer/modules/BUILD.gn', 252, 8)}
+123|
+   |{}
+124|13. src/third_party/blink/renderer/modules/modules_idl_files.gni^>{
+   |{'j': ('src/third_party/blink/renderer/modules/modules_idl_files.gni', 0, 0)}
+125|    102           ^s{"credentialmanager/authenticator_attestation_response.idl"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/modules_idl_files.gni', 101, 8)}
+126|    103           ^s{"credentialmanager/authenticator_response.idl"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/modules_idl_files.gni', 102, 8)}
+127|    104           ^s{"credentialmanager/credential.idl"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/modules_idl_files.gni', 103, 8)}
+128|    105           ^s{"credentialmanager/^${credentials_container}$_.idl"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/modules_idl_files.gni', 104, 8)}
+129|    106           ^s{"credentialmanager/federated_credential.idl"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/modules_idl_files.gni', 105, 8)}
+130|    107           ^s{"credentialmanager/password_credential.idl"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/modules_idl_files.gni', 106, 8)}
+131|    108           ^s{"credentialmanager/public_key_credential.idl"}s_,
+   |{'j': ('src/third_party/blink/renderer/modules/modules_idl_files.gni', 107, 8)}
+132|    109 }>_
+   |{'j': ('src/third_party/blink/renderer/modules/modules_idl_files.gni', 108, 8)}
+133|
+   |{}
+134|14. src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc^>{
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 0, 0)}
+135|    73 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_cookie_change_event.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 72, 7)}
+136|    74 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_cookie_store.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 73, 7)}
+137|    75 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_credential.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 74, 7)}
+138|    76 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_^${credentials_container}$_.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 75, 7)}
+139|    77 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_crypto.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 76, 7)}
+140|    78 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_crypto_key.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 77, 7)}
+141|    79 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_database.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 78, 7)}
+142|    80 }>_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 79, 7)}
+143|
+   |{}
+144|15. src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc^>{
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 0, 0)}
+145|    445 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_convolver_node.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 444, 8)}
+146|    446 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_coordinates.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 445, 8)}
+147|    447 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_credential.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 446, 8)}
+148|    448 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_^${credentials_container}$_.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 447, 8)}
+149|    449 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_crypto.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 448, 8)}
+150|    450 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_crypto_key.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 449, 8)}
+151|    451 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_css_partial.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 450, 8)}
+152|    452 }>_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 451, 8)}
+153|
+   |{}
+154|16. src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc^>{
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 0, 0)}
+155|    22 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_bluetooth.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 21, 7)}
+156|    23 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_budget_service.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 22, 7)}
+157|    24 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_clipboard.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 23, 7)}
+158|    25 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_^${credentials_container}$_.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 24, 7)}
+159|    26 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_deprecated_storage_quota.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 25, 7)}
+160|    27 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_gamepad_list.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 26, 7)}
+161|    28 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_geolocation.h"}s_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 27, 7)}
+162|    29 }>_
+   |{'j': ('src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 28, 7)}
+163|
+   |{}
+164|17. src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc^>{
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 0, 0)}
+165|    73 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_cookie_change_event.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 72, 7)}
+166|    74 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_cookie_store.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 73, 7)}
+167|    75 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_credential.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 74, 7)}
+168|    76 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_^${credentials_container}$_.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 75, 7)}
+169|    77 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_crypto.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 76, 7)}
+170|    78 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_crypto_key.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 77, 7)}
+171|    79 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_database.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 78, 7)}
+172|    80 }>_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc', 79, 7)}
+173|
+   |{}
+174|18. src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc^>{
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 0, 0)}
+175|    445 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_convolver_node.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 444, 8)}
+176|    446 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_coordinates.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 445, 8)}
+177|    447 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_credential.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 446, 8)}
+178|    448 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_^${credentials_container}$_.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 447, 8)}
+179|    449 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_crypto.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 448, 8)}
+180|    450 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_crypto_key.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 449, 8)}
+181|    451 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_css_partial.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 450, 8)}
+182|    452 }>_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc', 451, 8)}
+183|
+   |{}
+184|19. src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc^>{
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 0, 0)}
+185|    22 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_bluetooth.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 21, 7)}
+186|    23 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_budget_service.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 22, 7)}
+187|    24 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_clipboard.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 23, 7)}
+188|    25 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_^${credentials_container}$_.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 24, 7)}
+189|    26 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_deprecated_storage_quota.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 25, 7)}
+190|    27 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_gamepad_list.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 26, 7)}
+191|    28 ^D{#include}D_ ^s{"third_party/blink/renderer/bindings/modules/v8/v8_geolocation.h"}s_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 27, 7)}
+192|    29 }>_
+   |{'j': ('src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc', 28, 7)}
+193|
+   |{}
+194|
    |{}

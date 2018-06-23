@@ -1,8 +1,16 @@
+First lets open up a file that's inside a fake directory that looks like a
+Chromium checkout.
+
+  :e testdata/src/base/base64.cc
+
 In the beginning, we search for 'hello world'. Fortunately there are lots of
 instances of this in the Chromium tree.
 
   :CrSearch hello world
+  CodeSearch results for ^q{hello\ world}q_
+  &
   *hello_world.js* (glob)
+  * (glob)
   *found in the LICENSE file* (glob)
 
 That should be it for a basic test case.
