@@ -193,19 +193,17 @@ def RenderAnnotatedText(mapper,
 
   insertions = []
 
-  if hasattr(annotated_text, 'range'):
-    ranges = annotated_text.range
-    for r in ranges:
-      block_type = GetBlockTypeFromFormatType(r.type)
-      if block_type is None:
-        continue
-      if r.range.end_column == 1 and r.range.start_line != r.range.end_line:
-        r.range.end_line -= 1
-        r.range.end_column = len(text_lines[r.range.end_line - 1]) + 1
-      insertions.append((r.range.end_line, r.range.end_column,
-                         EndTag(block_type)))
-      insertions.append((r.range.start_line, r.range.start_column,
-                         StartTag(block_type)))
+  for r in annotated_text.range:
+    block_type = GetBlockTypeFromFormatType(r.type)
+    if block_type is None:
+      continue
+    if r.range.end_column == 1 and r.range.start_line != r.range.end_line:
+      r.range.end_line -= 1
+      r.range.end_column = len(text_lines[r.range.end_line - 1]) + 1
+    insertions.append((r.range.end_line, r.range.end_column,
+                       EndTag(block_type)))
+    insertions.append((r.range.start_line, r.range.start_column,
+                       StartTag(block_type)))
 
   insertions.sort(
       lambda i1, i2: i2[0] - i1[0] if i2[0] != i1[0] else i2[1] - i1[1])
@@ -232,8 +230,7 @@ def RenderSnippet(mapper,
                   filename,
                   level=1,
                   aux_first_line_number=1):
-  first_line_number = snippet.first_line_number if hasattr(
-      snippet, 'first_line_number') else aux_first_line_number
+  first_line_number = snippet.first_line_number if snippet.first_line_number else aux_first_line_number
   if s_index != 0:
     mapper.newline()
     mapper.write(' ' * SNIPPET_INDENT * level)
@@ -375,20 +372,20 @@ def RenderNode(mapper, node, level):
     # Widget
     mapper.SetSignatureForLine(node.signature)
 
-    if hasattr(node, 'children'):
-      expander = '-' if len(node.children) > 0 else '*'
+    if node.children:
+      expander = '[-]' if len(node.children) > 0 else ' * '
     else:
-      expander = '+'
+      expander = '[+]'
 
-    mapper.write('{indent}[{expander}] '.format(
+    mapper.write('{indent}{expander} '.format(
         indent=' ' * (level * NODE_INDENT), expander=expander))
 
     # Symbol
-    if hasattr(node, 'file_path') and hasattr(node, 'identifier'):
+    if node.file_path and node.identifier:
         with TaggedBlock(mapper, 'S'):
-          if hasattr(node, 'call_scope_range'):
+          if node.call_scope_range.start_line:
             start_line = node.call_scope_range.start_line
-          elif hasattr(node, 'call_site_range'):
+          elif node.call_site_range.start_line:
             start_line = node.call_site_range.start_line
           else:
             start_line = 1
@@ -399,9 +396,9 @@ def RenderNode(mapper, node, level):
             mapper.write(node.file_path)
 
     # Render snippet
-    if hasattr(node, 'snippet') and hasattr(node, 'snippet_file_path'):
-      aux_first_line_number = node.call_site_range.start_line if hasattr(
-          node, 'call_site_range') else 1
+    if node.snippet_file_path:
+      aux_first_line_number = node.call_site_range.start_line \
+          if node.call_site_range.start_line else 1
       with TaggedBlock(mapper, '>'):
         RenderSnippet(mapper, 0, node.snippet, node.snippet_file_path,
                       level + 1, aux_first_line_number)
@@ -412,28 +409,30 @@ def RenderNode(mapper, node, level):
     # Add some padding. Otherwise it looks too "busy".
     mapper.newline()
 
-    if hasattr(node, 'children'):
-      for c in node.children:
-        RenderNode(mapper, c, level + 1)
+    for c in node.children:
+      RenderNode(mapper, c, level + 1)
 
 
-def RenderCompoundResponse(compound_response):
+def RenderCompoundResponse(compound_response, query):
   mapper = LocationMapper()
 
-  if hasattr(compound_response, 'search_response'):
+  if compound_response.search_response:
     assert isinstance(compound_response.search_response, list)
     assert len(compound_response.search_response) == 1
-    RenderSearchResponse(mapper, compound_response.search_response[0])
+    RenderSearchResponse(mapper, query, compound_response.search_response[0])
 
-  if hasattr(compound_response, 'xref_search_response'):
+  elif compound_response.xref_search_response:
     assert isinstance(compound_response.xref_search_response, list)
     assert len(compound_response.xref_search_response) == 1
     RenderXrefSearchResponse(mapper, compound_response.xref_search_response[0])
 
-  if hasattr(compound_response, 'call_graph_response'):
+  elif compound_response.call_graph_response:
     assert isinstance(compound_response.call_graph_response, list)
     assert len(compound_response.call_graph_response) == 1
     RenderNode(mapper, compound_response.call_graph_response[0].node, 0)
+
+  else:
+    raise Exception("Unknown response type")
 
   return mapper
 
