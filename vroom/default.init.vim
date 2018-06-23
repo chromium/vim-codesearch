@@ -7,7 +7,6 @@
 exec 'set rtp+=' . fnameescape(fnamemodify(getcwd(), ':p:h:h'))
 set hidden
 
-let g:codesearch_source_root = '/src/chrome'
 let g:codesearch_test_data_dir = fnamemodify(getcwd(), ':p')
 
 call crcs#PrepareForTesting()

@@ -1,30 +1,39 @@
 {
-    "elapsed_ms": 114, 
     "call_graph_response": [
         {
             "node": {
-                "display_name": "net::HttpAuthHandlerNegotiateTest_NoKerberosCredentials_Test::TestBody()", 
-                "package_name": "chromium", 
+                "call_scope_range": {
+                    "start_line": 0, 
+                    "end_line": 0, 
+                    "start_column": 0, 
+                    "end_column": 0
+                }, 
                 "call_site_range": {
-                    "start_line": 357, 
-                    "end_line": 357, 
-                    "start_column": 1, 
-                    "end_column": 1
+                    "start_line": 0, 
+                    "end_line": 0, 
+                    "start_column": 0, 
+                    "end_column": 0
                 }, 
                 "snippet": {
-                    "text": {
-                        "text": "TEST_F(HttpAuthHandlerNegotiateTest, NoKerberosCredentials) {"
+                    "text": {}, 
+                    "first_line_number": 0, 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": false, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
                     }
                 }, 
-                "node_kind": "METHOD", 
-                "signature": "cpp:net::class-HttpAuthHandlerNegotiateTest_NoKerberosCredentials_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def", 
-                "identifier": "TestBody", 
-                "file_path": "src/net/http/http_auth_handler_negotiate_unittest.cc"
+                "node_kind": "FUNCTION", 
+                "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#K4ikCIS9mEQ2mHfCRGMW5LQewkaTRwkdAaRECIIEiX8%3D", 
+                "override": false
             }, 
-            "estimated_total_number_results": 0, 
-            "is_call_graph": true, 
+            "is_from_kythe": true, 
             "return_code": 1, 
-            "results_offset": 0
+            "results_offset": 0, 
+            "estimated_total_number_results": 0, 
+            "is_call_graph": true
         }
     ]
 }

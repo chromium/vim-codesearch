@@ -4,26 +4,32 @@ Test basic CodeSearch searches via :CrSearch
 Run this via ./run_tests.sh in the root of the source tree. Requires Vroom and
 Python3. See https://github.com/google/vroom.
 
+First lets open up a file that's inside a fake directory that looks like a
+Chromium checkout.
+
+  :e testdata/src/base/path_service.cc
+
 Try a simple search. This should result in a search results page:
 
   :CrSearch hello world
+  CodeSearch results for ^q{hello\ world}q_
+  &
   1. src/gin/shell/hello_world.js^>{
+      2 ^c{//^c{}c_ Use of this source code is governed by a BSD-style license that can be}c_
       3 ^c{//^c{}c_ found in the LICENSE file.}c_
       4 
-      5 define([^s{"console"}s_], ^k{function}k_(console) {
-      6   console.log(^s{"^${Hello World}$_"}s_);
-      7 });
-      8 }>_
+      5 log(^s{"^${Hello World}$_"}s_);
+      6 }>_
   &
   2. src/v8/samples/hello-world.cc^>{
-      33     ^c{// Create a new context.}c_
-      34     Local<Context> context = Context::New(isolate);
-      35 
-      36     ^c{// Enter the context for compiling and running the ^${hello world}$_ script.}c_
-      37     Context::Scope context_scope(context);
-      38 
-      39     ^c{// Create a string containing the JavaScript source code.}c_
-      40 }>_
+      31     ^c{// Create a new context.}c_
+      32     v8::Local<v8::Context> context = v8::Context::New(isolate);
+      33 
+      34     ^c{// Enter the context for compiling and running the ^${hello world}$_ script.}c_
+      35     v8::Context::Scope context_scope(context);
+      36 
+      37     {
+      38 }>_
 
 Now let's try moving to a line containing code and then hitting <CR>.:
 
@@ -45,13 +51,13 @@ And try to navigate to the results from the second file:
 
   > [[
   :echomsg line(".")
-  ~ 9
+  ~ 3
 
 And the next file:
 
   > [[
   :echomsg line(".")
-  ~ 19
+  ~ 10
 
 Try to navigate back:
 
@@ -60,7 +66,7 @@ Try to navigate back:
   ~ 58
   > ]]
   :echomsg line(".")
-  ~ 19
+  ~ 39
 
 Navigation should work at the top and the bottom of the buffer.
 
@@ -69,5 +75,5 @@ Navigation should work at the top and the bottom of the buffer.
   ~ 1
   > G[[
   :echomsg line(".")
-  ~ 881
+  ~ 964
 

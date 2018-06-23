@@ -1,0 +1,67 @@
+{
+  "elapsed_ms": 133, 
+  "file_info_response": [
+    {
+      "file_info": {
+        "gob_info": {
+          "repo": "chromium/chromium/src", 
+          "commit": "72f6a9c759b4a4063c228ba10b615fb4379aa772", 
+          "path": "base/base64.cc"
+        }, 
+        "name": "src/base/base64.cc", 
+        "language": "c++", 
+        "changelist_num": "72f6a9c759b4a4063c228ba10b615fb4379aa772", 
+        "package_name": "chromium", 
+        "lines": "39", 
+        "content": {
+          "text": "// Copyright (c) 2012 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n#include \"base/base64.h\"\n\n#include <stddef.h>\n\n#include \"third_party/modp_b64/modp_b64.h\"\n\nnamespace base {\n\nvoid Base64Encode(const StringPiece& input, std::string* output) {\n  std::string temp;\n  temp.resize(modp_b64_encode_len(input.size()));  // makes room for null byte\n\n  // modp_b64_encode_len() returns at least 1, so temp[0] is safe to use.\n  size_t output_size = modp_b64_encode(&(temp[0]), input.data(), input.size());\n\n  temp.resize(output_size);  // strips off null byte\n  output->swap(temp);\n}\n\nbool Base64Decode(const StringPiece& input, std::string* output) {\n  std::string temp;\n  temp.resize(modp_b64_decode_len(input.size()));\n\n  // does not null terminate result since result is binary data!\n  size_t input_size = input.size();\n  size_t output_size = modp_b64_decode(&(temp[0]), input.data(), input_size);\n  if (output_size == MODP_B64_ERROR)\n    return false;\n\n  temp.resize(output_size);\n  output->swap(temp);\n  return true;\n}\n\n}  // namespace base\n"
+        }, 
+        "generated": false, 
+        "mime_type": "text/plain", 
+        "size": "1141", 
+        "type": 1, 
+        "md5": "68109517d58d4617a193d705643f7ec9", 
+        "codeblock": [
+          {
+            "child": [
+              {
+                "name_prefix": "", 
+                "type": 8, 
+                "name": "Base64Encode", 
+                "text_range": {
+                  "start_line": 13, 
+                  "end_line": 22, 
+                  "start_column": 1, 
+                  "end_column": 2
+                }, 
+                "signature": "(const StringPiece& input, std::string* output)"
+              }, 
+              {
+                "name_prefix": "", 
+                "type": 8, 
+                "name": "Base64Decode", 
+                "text_range": {
+                  "start_line": 24, 
+                  "end_line": 37, 
+                  "start_column": 1, 
+                  "end_column": 2
+                }, 
+                "signature": "(const StringPiece& input, std::string* output)"
+              }
+            ], 
+            "type": 11, 
+            "name": "base", 
+            "text_range": {
+              "start_line": 11, 
+              "end_line": 39, 
+              "start_column": 1, 
+              "end_column": 2
+            }, 
+            "signature": ""
+          }
+        ]
+      }, 
+      "return_code": 1
+    }
+  ]
+}

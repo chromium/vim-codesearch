@@ -1,0 +1,1045 @@
+This file contains the rendered output per line and its associated metadata.
+
+Lines that begin with a line number contains (after the '|') the contents that
+will be inserted into the vim buffer at that line. The immediately following
+line contains an object representing associated metadata.
+-------------------------------------------------------------------------------
+
+001|CodeSearch results for ^q{unspecified}q_
+   |{}
+002|
+   |{}
+003|1. src/v8/samples/hello-world.cc^>{
+   |{'j': ('src/v8/samples/hello-world.cc', 0, 0)}
+004|    31     ^c{// Create a new context.}c_
+   |{'j': ('src/v8/samples/hello-world.cc', 30, 7)}
+005|    32     v8::Local<v8::Context> context = v8::Context::New(isolate);
+   |{'j': ('src/v8/samples/hello-world.cc', 31, 7)}
+006|    33 
+   |{'j': ('src/v8/samples/hello-world.cc', 32, 7)}
+007|    34     ^c{// Enter the context for compiling and running the ^${hello}$_ ^${world}$_ script.}c_
+   |{'j': ('src/v8/samples/hello-world.cc', 33, 7)}
+008|    35     v8::Context::Scope context_scope(context);
+   |{'j': ('src/v8/samples/hello-world.cc', 34, 7)}
+009|    36 
+   |{'j': ('src/v8/samples/hello-world.cc', 35, 7)}
+010|    37     {
+   |{'j': ('src/v8/samples/hello-world.cc', 36, 7)}
+011|    38       ^c{// Create a string containing the JavaScript source code.}c_
+   |{'j': ('src/v8/samples/hello-world.cc', 37, 7)}
+012|    39       v8::Local<v8::String> source =
+   |{'j': ('src/v8/samples/hello-world.cc', 38, 7)}
+013|    40           v8::String::NewFromUtf8(isolate, ^s{"'^${Hello}$_' + ', ^${World}$_!'"}s_,
+   |{'j': ('src/v8/samples/hello-world.cc', 39, 7)}
+014|    41 }>_
+   |{'j': ('src/v8/samples/hello-world.cc', 40, 7)}
+015|
+   |{}
+016|2. src/gin/shell/hello_world.js^>{
+   |{'j': ('src/gin/shell/hello_world.js', 0, 0)}
+017|    2 ^c{//^c{}c_ Use of this source code is governed by a BSD-style license that can be}c_
+   |{'j': ('src/gin/shell/hello_world.js', 1, 6)}
+018|    3 ^c{//^c{}c_ found in the LICENSE file.}c_
+   |{'j': ('src/gin/shell/hello_world.js', 2, 6)}
+019|    4 
+   |{'j': ('src/gin/shell/hello_world.js', 3, 6)}
+020|    5 log(^s{"^${Hello}$_ ^${World}$_"}s_);
+   |{'j': ('src/gin/shell/hello_world.js', 4, 6)}
+021|    6 }>_
+   |{'j': ('src/gin/shell/hello_world.js', 5, 6)}
+022|
+   |{}
+023|3. src/v8/test/fuzzer/parser/hello-world^>{
+   |{'j': ('src/v8/test/fuzzer/parser/hello-world', 0, 0)}
+024|    1 console.log('^${hello}$_ ^${world}$_');
+   |{'j': ('src/v8/test/fuzzer/parser/hello-world', 0, 6)}
+025|    2 }>_
+   |{'j': ('src/v8/test/fuzzer/parser/hello-world', 1, 6)}
+026|
+   |{}
+027|4. src/native_client/tests/hello_world/hello_world.c^>{
+   |{'j': ('src/native_client/tests/hello_world/hello_world.c', 0, 0)}
+028|    11 ^D{#include}D_ <stdio.h>
+   |{'j': ('src/native_client/tests/hello_world/hello_world.c', 10, 7)}
+029|    12 
+   |{'j': ('src/native_client/tests/hello_world/hello_world.c', 11, 7)}
+030|    13 ^k{void}k_ ^${hello}$__^${world}$_(^k{void}k_) {
+   |{'j': ('src/native_client/tests/hello_world/hello_world.c', 12, 7)}
+031|    14   printf(^s{"^${Hello}$_, ^${World}$_!\n"}s_);
+   |{'j': ('src/native_client/tests/hello_world/hello_world.c', 13, 7)}
+032|    15 }
+   |{'j': ('src/native_client/tests/hello_world/hello_world.c', 14, 7)}
+033|    16 
+   |{'j': ('src/native_client/tests/hello_world/hello_world.c', 15, 7)}
+034|    17 ^k{int}k_ main(^k{int}k_ argc, ^k{char}k_* argv[]) {
+   |{'j': ('src/native_client/tests/hello_world/hello_world.c', 16, 7)}
+035|    18   ^${hello}$__^${world}$_();
+   |{'j': ('src/native_client/tests/hello_world/hello_world.c', 17, 7)}
+036|    19   ^k{return}k_ ^0{0}0_;
+   |{'j': ('src/native_client/tests/hello_world/hello_world.c', 18, 7)}
+037|    20 }
+   |{'j': ('src/native_client/tests/hello_world/hello_world.c', 19, 7)}
+038|    21 }>_
+   |{'j': ('src/native_client/tests/hello_world/hello_world.c', 20, 7)}
+039|
+   |{}
+040|5. src/tools/gyp/test/hello/hello.c^>{
+   |{'j': ('src/tools/gyp/test/hello/hello.c', 0, 0)}
+041|     7 ^k{int}k_ main(^k{void}k_)
+   |{'j': ('src/tools/gyp/test/hello/hello.c', 6, 7)}
+042|     8 {
+   |{'j': ('src/tools/gyp/test/hello/hello.c', 7, 7)}
+043|     9   printf(^s{"^${Hello}$_, ^${world}$_!\n"}s_);
+   |{'j': ('src/tools/gyp/test/hello/hello.c', 8, 7)}
+044|    10   ^k{return}k_ ^0{0}0_;
+   |{'j': ('src/tools/gyp/test/hello/hello.c', 9, 7)}
+045|    11 }
+   |{'j': ('src/tools/gyp/test/hello/hello.c', 10, 7)}
+046|    12 }>_
+   |{'j': ('src/tools/gyp/test/hello/hello.c', 11, 7)}
+047|
+   |{}
+048|6. src/tools/gn/tutorial/hello_world.cc^>{
+   |{'j': ('src/tools/gn/tutorial/hello_world.cc', 0, 0)}
+049|     5 ^D{#include}D_ <stdio.h>
+   |{'j': ('src/tools/gn/tutorial/hello_world.cc', 4, 7)}
+050|     6 
+   |{'j': ('src/tools/gn/tutorial/hello_world.cc', 5, 7)}
+051|     7 ^k{int}k_ main() {
+   |{'j': ('src/tools/gn/tutorial/hello_world.cc', 6, 7)}
+052|     8   printf(^s{"^${Hello}$_, ^${world}$_.\n"}s_);
+   |{'j': ('src/tools/gn/tutorial/hello_world.cc', 7, 7)}
+053|     9   ^k{return}k_ ^0{0}0_;
+   |{'j': ('src/tools/gn/tutorial/hello_world.cc', 8, 7)}
+054|    10 }
+   |{'j': ('src/tools/gn/tutorial/hello_world.cc', 9, 7)}
+055|    11 }>_
+   |{'j': ('src/tools/gn/tutorial/hello_world.cc', 10, 7)}
+056|
+   |{}
+057|7. infra/go/src/go.chromium.org/luci/grpc/prpc/e2etest/helloworld_test.proto^>{
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/e2etest/helloworld_test.proto', 0, 0)}
+058|    12 }
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/e2etest/helloworld_test.proto', 11, 7)}
+059|    13 
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/e2etest/helloworld_test.proto', 12, 7)}
+060|    14 ^c{// The response message containing the greetings}c_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/e2etest/helloworld_test.proto', 13, 7)}
+061|    15 ^k{message}k_ ^${Hello}$_Reply {
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/e2etest/helloworld_test.proto', 14, 7)}
+062|    16   ^k{string}k_ ^k{message}k_ = ^0{1}0_;
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/e2etest/helloworld_test.proto', 15, 7)}
+063|    17 }
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/e2etest/helloworld_test.proto', 16, 7)}
+064|    18 
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/e2etest/helloworld_test.proto', 17, 7)}
+065|    19 ^k{service}k_ ^${Hello}$_ {
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/e2etest/helloworld_test.proto', 18, 7)}
+066|    20   ^k{rpc}k_ Greet(^${Hello}$_Request) ^k{returns}k_ (^${Hello}$_Reply);
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/e2etest/helloworld_test.proto', 19, 7)}
+067|    21 }
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/e2etest/helloworld_test.proto', 20, 7)}
+068|    22 }>_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/e2etest/helloworld_test.proto', 21, 7)}
+069|
+   |{}
+070|8. infra/doc/users/services/hello_world.md^>{
+   |{'j': ('infra/doc/users/services/hello_world.md', 0, 0)}
+071|    1 # ^${Hello}$_ ^${World}$_ service
+   |{'j': ('infra/doc/users/services/hello_world.md', 0, 6)}
+072|    2 
+   |{'j': ('infra/doc/users/services/hello_world.md', 1, 6)}
+073|    3 Can generate a greeting string in different tones and languages.
+   |{'j': ('infra/doc/users/services/hello_world.md', 2, 6)}
+074|    4 
+   |{'j': ('infra/doc/users/services/hello_world.md', 3, 6)}
+075|    5 }>_^>{
+   |{'j': ('infra/doc/users/services/hello_world.md', 4, 6)}
+076|    [...]
+   |{'j': ('infra/doc/users/services/hello_world.md', 26, 9)}
+077|    27 ## Security
+   |{'j': ('infra/doc/users/services/hello_world.md', 26, 7)}
+078|    28 
+   |{'j': ('infra/doc/users/services/hello_world.md', 27, 7)}
+079|    29 ^${Hello}$_ ^${World}$_ service is safe to use for internal projects.
+   |{'j': ('infra/doc/users/services/hello_world.md', 28, 7)}
+080|    30 It uses [standard "access" project metadata field](project_registry.md#access).
+   |{'j': ('infra/doc/users/services/hello_world.md', 29, 7)}
+081|    31 
+   |{'j': ('infra/doc/users/services/hello_world.md', 30, 7)}
+082|    32 ## Limitations
+   |{'j': ('infra/doc/users/services/hello_world.md', 31, 7)}
+083|    33 }>_
+   |{'j': ('infra/doc/users/services/hello_world.md', 32, 7)}
+084|
+   |{}
+085|9. src/BUILD.gn^>{
+   |{'j': ('src/BUILD.gn', 0, 0)}
+086|    287       ^s{"//base:base_junit_tests"}s_,
+   |{'j': ('src/BUILD.gn', 286, 8)}
+087|    288       ^s{"//base/android/jni_generator:jni_generator_tests"}s_,
+   |{'j': ('src/BUILD.gn', 287, 8)}
+088|    289       ^s{"//base/android/linker:chromium_android_linker"}s_,
+   |{'j': ('src/BUILD.gn', 288, 8)}
+089|    290       ^s{"//build/android/gyp/test:^${hello}$__^${world}$_"}s_,
+   |{'j': ('src/BUILD.gn', 289, 8)}
+090|    291       ^s{"//build/android/gyp/test:^${hello}$__^${world}$_"}s_,
+   |{'j': ('src/BUILD.gn', 290, 8)}
+091|    292       ^s{"//build/android/stacktrace:java_deobfuscate"}s_,
+   |{'j': ('src/BUILD.gn', 291, 8)}
+092|    293       ^s{"//chrome/android/webapk/shell_apk:maps_go_webapk"}s_,
+   |{'j': ('src/BUILD.gn', 292, 8)}
+093|    294       ^s{"//chrome/android/webapk/shell_apk:webapk"}s_,
+   |{'j': ('src/BUILD.gn', 293, 8)}
+094|    295 }>_
+   |{'j': ('src/BUILD.gn', 294, 8)}
+095|
+   |{}
+096|10. src/third_party/skia/example/HelloWorld.h^>{
+   |{'j': ('src/third_party/skia/example/HelloWorld.h', 0, 0)}
+097|    14 ^k{class}k_ SkCanvas;
+   |{'j': ('src/third_party/skia/example/HelloWorld.h', 13, 7)}
+098|    15 
+   |{'j': ('src/third_party/skia/example/HelloWorld.h', 14, 7)}
+099|    16 ^k{class}k_ ^${HelloWorld}$_ : ^k{public}k_ sk_app::Application, sk_app::Window::Layer {
+   |{'j': ('src/third_party/skia/example/HelloWorld.h', 15, 7)}
+100|    17 ^k{public}k_:
+   |{'j': ('src/third_party/skia/example/HelloWorld.h', 16, 7)}
+101|    18     ^${HelloWorld}$_(^k{int}k_ argc, ^k{char}k_** argv, ^k{void}k_* platformData);
+   |{'j': ('src/third_party/skia/example/HelloWorld.h', 17, 7)}
+102|    19     ~^${HelloWorld}$_() ^k{override}k_;
+   |{'j': ('src/third_party/skia/example/HelloWorld.h', 18, 7)}
+103|    20 
+   |{'j': ('src/third_party/skia/example/HelloWorld.h', 19, 7)}
+104|    21     ^k{void}k_ onIdle() ^k{override}k_;
+   |{'j': ('src/third_party/skia/example/HelloWorld.h', 20, 7)}
+105|    22 
+   |{'j': ('src/third_party/skia/example/HelloWorld.h', 21, 7)}
+106|    23 }>_
+   |{'j': ('src/third_party/skia/example/HelloWorld.h', 22, 7)}
+107|
+   |{}
+108|11. src/native_client/tests/hello_world/at_exit.c^>{
+   |{'j': ('src/native_client/tests/hello_world/at_exit.c', 0, 0)}
+109|    10 ^k{void}k_ ^${hello}$__^${world}$_(^k{void}k_) {
+   |{'j': ('src/native_client/tests/hello_world/at_exit.c', 9, 7)}
+110|    11   printf(^s{"^${Hello}$_, ^${World}$_!\n"}s_);
+   |{'j': ('src/native_client/tests/hello_world/at_exit.c', 10, 7)}
+111|    12 }
+   |{'j': ('src/native_client/tests/hello_world/at_exit.c', 11, 7)}
+112|    13 
+   |{'j': ('src/native_client/tests/hello_world/at_exit.c', 12, 7)}
+113|    14 ^k{int}k_ main(^k{int}k_ argc, ^k{char}k_* argv[]) {
+   |{'j': ('src/native_client/tests/hello_world/at_exit.c', 13, 7)}
+114|    15   ^k{int}k_ i;
+   |{'j': ('src/native_client/tests/hello_world/at_exit.c', 14, 7)}
+115|    16   ^k{for}k_ (i=^0{0}0_; i< ^0{10}0_; ++i) {
+   |{'j': ('src/native_client/tests/hello_world/at_exit.c', 15, 7)}
+116|    17     atexit(^${hello}$__^${world}$_);
+   |{'j': ('src/native_client/tests/hello_world/at_exit.c', 16, 7)}
+117|    18 }>_
+   |{'j': ('src/native_client/tests/hello_world/at_exit.c', 17, 7)}
+118|
+   |{}
+119|12. src/pdf/test/data/hello_world2.pdf^>{
+   |{'j': ('src/pdf/test/data/hello_world2.pdf', 0, 0)}
+120|    42 BT
+   |{'j': ('src/pdf/test/data/hello_world2.pdf', 41, 7)}
+121|    43 20 50 Td
+   |{'j': ('src/pdf/test/data/hello_world2.pdf', 42, 7)}
+122|    44 /F1 12 Tf
+   |{'j': ('src/pdf/test/data/hello_world2.pdf', 43, 7)}
+123|    45 (^${Hello}$_, ^${world}$_!) Tj
+   |{'j': ('src/pdf/test/data/hello_world2.pdf', 44, 7)}
+124|    46 0 50 Td
+   |{'j': ('src/pdf/test/data/hello_world2.pdf', 45, 7)}
+125|    47 /F2 16 Tf
+   |{'j': ('src/pdf/test/data/hello_world2.pdf', 46, 7)}
+126|    48 (Goodbye, ^${world}$_!) Tj
+   |{'j': ('src/pdf/test/data/hello_world2.pdf', 47, 7)}
+127|    49 ET
+   |{'j': ('src/pdf/test/data/hello_world2.pdf', 48, 7)}
+128|    50 endstream
+   |{'j': ('src/pdf/test/data/hello_world2.pdf', 49, 7)}
+129|    51 endobj
+   |{'j': ('src/pdf/test/data/hello_world2.pdf', 50, 7)}
+130|    52 }>_
+   |{'j': ('src/pdf/test/data/hello_world2.pdf', 51, 7)}
+131|
+   |{}
+132|13. src/third_party/skia/example/HelloWorld.cpp^>{
+   |{'j': ('src/third_party/skia/example/HelloWorld.cpp', 0, 0)}
+133|    18     ^k{return}k_ ^k{new}k_ ^${HelloWorld}$_(argc, argv, platformData);
+   |{'j': ('src/third_party/skia/example/HelloWorld.cpp', 17, 7)}
+134|    19 }
+   |{'j': ('src/third_party/skia/example/HelloWorld.cpp', 18, 7)}
+135|    20 
+   |{'j': ('src/third_party/skia/example/HelloWorld.cpp', 19, 7)}
+136|    21 ^${HelloWorld}$_::^${HelloWorld}$_(^k{int}k_ argc, ^k{char}k_** argv, ^k{void}k_* platformData)
+   |{'j': ('src/third_party/skia/example/HelloWorld.cpp', 20, 7)}
+137|    22         : fBackendType(Window::kNativeGL_BackendType)
+   |{'j': ('src/third_party/skia/example/HelloWorld.cpp', 21, 7)}
+138|    23         , fRotationAngle(^0{0}0_) {
+   |{'j': ('src/third_party/skia/example/HelloWorld.cpp', 22, 7)}
+139|    24     SkGraphics::Init();
+   |{'j': ('src/third_party/skia/example/HelloWorld.cpp', 23, 7)}
+140|    25 }>_
+   |{'j': ('src/third_party/skia/example/HelloWorld.cpp', 24, 7)}
+141|
+   |{}
+142|14. tools/depot_tools/third_party/boto/pyami/helloworld.py^>{
+   |{'j': ('tools/depot_tools/third_party/boto/pyami/helloworld.py', 0, 0)}
+143|    21 ^c{#}c_
+   |{'j': ('tools/depot_tools/third_party/boto/pyami/helloworld.py', 20, 7)}
+144|    22 ^k{from}k_ boto.pyami.scriptbase ^k{import}k_ ScriptBase
+   |{'j': ('tools/depot_tools/third_party/boto/pyami/helloworld.py', 21, 7)}
+145|    23 
+   |{'j': ('tools/depot_tools/third_party/boto/pyami/helloworld.py', 22, 7)}
+146|    24 ^k{class}k_ ^${HelloWorld}$_(ScriptBase):
+   |{'j': ('tools/depot_tools/third_party/boto/pyami/helloworld.py', 23, 7)}
+147|    25 
+   |{'j': ('tools/depot_tools/third_party/boto/pyami/helloworld.py', 24, 7)}
+148|    26     ^k{def}k_ main(self):
+   |{'j': ('tools/depot_tools/third_party/boto/pyami/helloworld.py', 25, 7)}
+149|    27         self.log(^s{'^${Hello}$_ ^${World}$_!!!'}s_)
+   |{'j': ('tools/depot_tools/third_party/boto/pyami/helloworld.py', 26, 7)}
+150|    28         
+   |{'j': ('tools/depot_tools/third_party/boto/pyami/helloworld.py', 27, 7)}
+151|    29 }>_
+   |{'j': ('tools/depot_tools/third_party/boto/pyami/helloworld.py', 28, 7)}
+152|
+   |{}
+153|15. infra/go/src/go.chromium.org/luci/grpc/prpc/talk/helloworld/proto/helloworld.proto^>{
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/helloworld/proto/helloworld.proto', 0, 0)}
+154|    15 ^c{// ^${Hello}$_Request contains the user's name.}c_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/helloworld/proto/helloworld.proto', 14, 7)}
+155|    16 ^k{message}k_ ^${Hello}$_Request {
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/helloworld/proto/helloworld.proto', 15, 7)}
+156|    17   ^c{// Name is the name of the person to greet.}c_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/helloworld/proto/helloworld.proto', 16, 7)}
+157|    18   ^k{string}k_ name = ^0{1}0_;
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/helloworld/proto/helloworld.proto', 17, 7)}
+158|    19 }
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/helloworld/proto/helloworld.proto', 18, 7)}
+159|    20 
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/helloworld/proto/helloworld.proto', 19, 7)}
+160|    21 ^c{// ^${Hello}$_Reply contains a greeting.}c_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/helloworld/proto/helloworld.proto', 20, 7)}
+161|    22 ^k{message}k_ ^${Hello}$_Reply {
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/helloworld/proto/helloworld.proto', 21, 7)}
+162|    23   ^c{// Message is the greeting text.}c_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/helloworld/proto/helloworld.proto', 22, 7)}
+163|    24   ^k{string}k_ ^k{message}k_ = ^0{1}0_;
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/helloworld/proto/helloworld.proto', 23, 7)}
+164|    25 }>_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/helloworld/proto/helloworld.proto', 24, 7)}
+165|
+   |{}
+166|16. src/v8/BUILD.gn^>{
+   |{'j': ('src/v8/BUILD.gn', 0, 0)}
+167|    3362   }
+   |{'j': ('src/v8/BUILD.gn', 3361, 9)}
+168|    3363 }
+   |{'j': ('src/v8/BUILD.gn', 3362, 9)}
+169|    3364 
+   |{'j': ('src/v8/BUILD.gn', 3363, 9)}
+170|    3365 v8_executable(^s{"v8_^${hello}$__^${world}$_"}s_) {
+   |{'j': ('src/v8/BUILD.gn', 3364, 9)}
+171|    3366   ^k{sources}k_ = [
+   |{'j': ('src/v8/BUILD.gn', 3365, 9)}
+172|    3367     ^s{"samples/^${hello}$_-^${world}$_.cc"}s_,
+   |{'j': ('src/v8/BUILD.gn', 3366, 9)}
+173|    3368   ]
+   |{'j': ('src/v8/BUILD.gn', 3367, 9)}
+174|    3369 
+   |{'j': ('src/v8/BUILD.gn', 3368, 9)}
+175|    3370   ^k{configs}k_ = [
+   |{'j': ('src/v8/BUILD.gn', 3369, 9)}
+176|    3371 }>_
+   |{'j': ('src/v8/BUILD.gn', 3370, 9)}
+177|
+   |{}
+178|17. src/native_client/tests/hello_world/abi.c^>{
+   |{'j': ('src/native_client/tests/hello_world/abi.c', 0, 0)}
+179|    1 ^c{/*
+   |{'j': ('src/native_client/tests/hello_world/abi.c', 0, 6)}
+180|    2  * Copyright (c) 2012 The Native Client Authors. All rights reserved.
+   |{'j': ('src/native_client/tests/hello_world/abi.c', 1, 6)}
+181|    3  * Use of this source code is governed by a BSD-style license that can be
+   |{'j': ('src/native_client/tests/hello_world/abi.c', 2, 6)}
+182|    4  * found in the LICENSE file.
+   |{'j': ('src/native_client/tests/hello_world/abi.c', 3, 6)}
+183|    5  */}c_
+   |{'j': ('src/native_client/tests/hello_world/abi.c', 4, 6)}
+184|    6 
+   |{'j': ('src/native_client/tests/hello_world/abi.c', 5, 6)}
+185|    7 ^c{/*}c_
+   |{'j': ('src/native_client/tests/hello_world/abi.c', 6, 6)}
+186|    8 }>_
+   |{'j': ('src/native_client/tests/hello_world/abi.c', 7, 6)}
+187|
+   |{}
+188|18. src/tools/gyp/test/target/hello.c^>{
+   |{'j': ('src/tools/gyp/test/target/hello.c', 0, 0)}
+189|    3 ^c{ * found in the LICENSE file. */}c_
+   |{'j': ('src/tools/gyp/test/target/hello.c', 2, 6)}
+190|    4 
+   |{'j': ('src/tools/gyp/test/target/hello.c', 3, 6)}
+191|    5 ^k{void}k_ main(^k{void}k_) {
+   |{'j': ('src/tools/gyp/test/target/hello.c', 4, 6)}
+192|    6   printf(^s{"^${Hello}$_, ^${world}$_!\n"}s_);
+   |{'j': ('src/tools/gyp/test/target/hello.c', 5, 6)}
+193|    7 }
+   |{'j': ('src/tools/gyp/test/target/hello.c', 6, 6)}
+194|    8 }>_
+   |{'j': ('src/tools/gyp/test/target/hello.c', 7, 6)}
+195|
+   |{}
+196|19. src/tools/gyp/test/msvs/uldi2010/hello.c^>{
+   |{'j': ('src/tools/gyp/test/msvs/uldi2010/hello.c', 0, 0)}
+197|     5 ^D{#include}D_ <stdio.h>
+   |{'j': ('src/tools/gyp/test/msvs/uldi2010/hello.c', 4, 7)}
+198|     6 
+   |{'j': ('src/tools/gyp/test/msvs/uldi2010/hello.c', 5, 7)}
+199|     7 ^k{extern}k_ ^k{int}k_ ^${hello}$_2();
+   |{'j': ('src/tools/gyp/test/msvs/uldi2010/hello.c', 6, 7)}
+200|     8 
+   |{'j': ('src/tools/gyp/test/msvs/uldi2010/hello.c', 7, 7)}
+201|     9 ^k{int}k_ main(^k{void}k_) {
+   |{'j': ('src/tools/gyp/test/msvs/uldi2010/hello.c', 8, 7)}
+202|    10   printf(^s{"^${Hello}$_, ^${world}$_!\n"}s_);
+   |{'j': ('src/tools/gyp/test/msvs/uldi2010/hello.c', 9, 7)}
+203|    11   ^${hello}$_2();
+   |{'j': ('src/tools/gyp/test/msvs/uldi2010/hello.c', 10, 7)}
+204|    12   ^k{return}k_ ^0{0}0_;
+   |{'j': ('src/tools/gyp/test/msvs/uldi2010/hello.c', 11, 7)}
+205|    13 }
+   |{'j': ('src/tools/gyp/test/msvs/uldi2010/hello.c', 12, 7)}
+206|    14 }>_
+   |{'j': ('src/tools/gyp/test/msvs/uldi2010/hello.c', 13, 7)}
+207|
+   |{}
+208|20. src/native_client/tests/hello_world/float.c^>{
+   |{'j': ('src/native_client/tests/hello_world/float.c', 0, 0)}
+209|    1 ^c{/*
+   |{'j': ('src/native_client/tests/hello_world/float.c', 0, 6)}
+210|    2  * Copyright 2009 The Native Client Authors. All rights reserved.
+   |{'j': ('src/native_client/tests/hello_world/float.c', 1, 6)}
+211|    3  * Use of this source code is governed by a BSD-style license that can be
+   |{'j': ('src/native_client/tests/hello_world/float.c', 2, 6)}
+212|    4  * found in the LICENSE file.
+   |{'j': ('src/native_client/tests/hello_world/float.c', 3, 6)}
+213|    5  */}c_
+   |{'j': ('src/native_client/tests/hello_world/float.c', 4, 6)}
+214|    6 
+   |{'j': ('src/native_client/tests/hello_world/float.c', 5, 6)}
+215|    7 ^c{/*}c_
+   |{'j': ('src/native_client/tests/hello_world/float.c', 6, 6)}
+216|    8 }>_
+   |{'j': ('src/native_client/tests/hello_world/float.c', 7, 6)}
+217|
+   |{}
+218|21. src/native_client/tests/hello_world/hello_world.stdout^>{
+   |{'j': ('src/native_client/tests/hello_world/hello_world.stdout', 0, 0)}
+219|    1 ^${Hello}$_, ^${World}$_!
+   |{'j': ('src/native_client/tests/hello_world/hello_world.stdout', 0, 6)}
+220|    2 }>_
+   |{'j': ('src/native_client/tests/hello_world/hello_world.stdout', 1, 6)}
+221|
+   |{}
+222|22. src/native_client/tests/hello_world/exit.c^>{
+   |{'j': ('src/native_client/tests/hello_world/exit.c', 0, 0)}
+223|    1 ^c{/*
+   |{'j': ('src/native_client/tests/hello_world/exit.c', 0, 6)}
+224|    2  * Copyright 2009 The Native Client Authors. All rights reserved.
+   |{'j': ('src/native_client/tests/hello_world/exit.c', 1, 6)}
+225|    3  * Use of this source code is governed by a BSD-style license that can be
+   |{'j': ('src/native_client/tests/hello_world/exit.c', 2, 6)}
+226|    4  * found in the LICENSE file.
+   |{'j': ('src/native_client/tests/hello_world/exit.c', 3, 6)}
+227|    5  */}c_
+   |{'j': ('src/native_client/tests/hello_world/exit.c', 4, 6)}
+228|    6 
+   |{'j': ('src/native_client/tests/hello_world/exit.c', 5, 6)}
+229|    7 ^c{/*}c_
+   |{'j': ('src/native_client/tests/hello_world/exit.c', 6, 6)}
+230|    8 }>_
+   |{'j': ('src/native_client/tests/hello_world/exit.c', 7, 6)}
+231|
+   |{}
+232|23. src/chrome/test/data/devtools/indexer/hello_world.js^>{
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.js', 0, 0)}
+233|     2 +^c{//^c{}c_ Use of this source code is governed by a BSD-style license that can be}c_
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.js', 1, 7)}
+234|     3 +^c{//^c{}c_ found in the LICENSE file.}c_
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.js', 2, 7)}
+235|     4 
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.js', 3, 7)}
+236|     5 ^k{function}k_ ^${hello}$__^${world}$_() {
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.js', 4, 7)}
+237|     6   ^k{var}k_ div = document.createElement(^s{'div'}s_);
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.js', 5, 7)}
+238|     7   document.body.appendChild(div);
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.js', 6, 7)}
+239|     8   div.textContent = ^s{'^${Hello}$_, ^${World}$_!'}s_;
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.js', 7, 7)}
+240|     9 }
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.js', 8, 7)}
+241|    10 
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.js', 9, 7)}
+242|    11 ^${hello}$__^${world}$_();
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.js', 10, 7)}
+243|    12 }>_
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.js', 11, 7)}
+244|
+   |{}
+245|24. src/headless/test/data/hello.html^>{
+   |{'j': ('src/headless/test/data/hello.html', 0, 0)}
+246|    1 <!doctype html>
+   |{'j': ('src/headless/test/data/hello.html', 0, 6)}
+247|    2 <^k{h1}k_>^${Hello}$_ headless ^${world}$_!</^k{h1}k_>
+   |{'j': ('src/headless/test/data/hello.html', 1, 6)}
+248|    3 }>_
+   |{'j': ('src/headless/test/data/hello.html', 2, 6)}
+249|
+   |{}
+250|25. src/tools/gyp/test/product/hello.c^>{
+   |{'j': ('src/tools/gyp/test/product/hello.c', 0, 0)}
+251|     9 }
+   |{'j': ('src/tools/gyp/test/product/hello.c', 8, 7)}
+252|    10 
+   |{'j': ('src/tools/gyp/test/product/hello.c', 9, 7)}
+253|    11 ^k{int}k_ main(^k{void}k_) {
+   |{'j': ('src/tools/gyp/test/product/hello.c', 10, 7)}
+254|    12   printf(^s{"^${Hello}$_, ^${world}$_!\n"}s_);
+   |{'j': ('src/tools/gyp/test/product/hello.c', 11, 7)}
+255|    13   printf(^s{"%d\n"}s_, func1());
+   |{'j': ('src/tools/gyp/test/product/hello.c', 12, 7)}
+256|    14   ^k{return}k_ ^0{0}0_;
+   |{'j': ('src/tools/gyp/test/product/hello.c', 13, 7)}
+257|    15 }
+   |{'j': ('src/tools/gyp/test/product/hello.c', 14, 7)}
+258|    16 }>_
+   |{'j': ('src/tools/gyp/test/product/hello.c', 15, 7)}
+259|
+   |{}
+260|26. src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp^>{
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 0, 0)}
+261|    26   ^k{struct}k_ ^${Hello}$_ : ^k{public}k_ FunctionPass {
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 25, 7)}
+262|    27     ^k{static}k_ ^k{char}k_ ID; ^c{// Pass identification, replacement for typeid}c_
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 26, 7)}
+263|    28     ^${Hello}$_() : FunctionPass(ID) {}
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 27, 7)}
+264|    29 
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 28, 7)}
+265|    30     ^k{virtual}k_ ^k{bool}k_ runOnFunction(Function &F) {
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 29, 7)}
+266|    31       ++^${Hello}$_Counter;
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 30, 7)}
+267|    32       errs() << ^s{"^${Hello}$_: "}s_;
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 31, 7)}
+268|    33 }>_^>{
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 32, 7)}
+269|    [...]
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 61, 9)}
+270|    62 ^k{char}k_ ^${Hello}$_2::ID = ^0{0}0_;
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 61, 7)}
+271|    63 ^k{static}k_ RegisterPass<^${Hello}$_2>
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 62, 7)}
+272|    64 Y(^s{"^${hello}$_2"}s_, ^s{"^${Hello}$_ ^${World}$_ Pass (with getAnalysisUsage implemented)"}s_);
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 63, 7)}
+273|    65 }>_
+   |{'j': ('src/third_party/swiftshader/third_party/LLVM/lib/Transforms/Hello/Hello.cpp', 64, 7)}
+274|
+   |{}
+275|27. infra/go/src/go.chromium.org/luci/grpc/prpc/talk/slides/helloworld.proto^>{
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/slides/helloworld.proto', 0, 0)}
+276|    11 ^c{// ^${Hello}$_Request contains the user's name.}c_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/slides/helloworld.proto', 10, 7)}
+277|    12 ^k{message}k_ ^${Hello}$_Request {
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/slides/helloworld.proto', 11, 7)}
+278|    13   ^c{// Name is the name of the person to greet.}c_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/slides/helloworld.proto', 12, 7)}
+279|    14   ^k{string}k_ name = ^0{1}0_;
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/slides/helloworld.proto', 13, 7)}
+280|    15 }
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/slides/helloworld.proto', 14, 7)}
+281|    16 
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/slides/helloworld.proto', 15, 7)}
+282|    17 ^c{// ^${Hello}$_Reply contains a greeting.}c_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/slides/helloworld.proto', 16, 7)}
+283|    18 ^k{message}k_ ^${Hello}$_Reply {
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/slides/helloworld.proto', 17, 7)}
+284|    19   ^c{// Message is the greeting text.}c_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/slides/helloworld.proto', 18, 7)}
+285|    20   ^k{string}k_ ^k{message}k_ = ^0{1}0_;
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/slides/helloworld.proto', 19, 7)}
+286|    21 }>_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/talk/slides/helloworld.proto', 20, 7)}
+287|
+   |{}
+288|28. infra/luci/client/example/payload/hello_world.py^>{
+   |{'j': ('infra/luci/client/example/payload/hello_world.py', 0, 0)}
+289|    13 ^k{def}k_ main():
+   |{'j': ('infra/luci/client/example/payload/hello_world.py', 12, 7)}
+290|    14   ^k{print}k_(^s{'^${Hello}$_ ^${world}$_: '}s_ + sys.argv[^0{1}0_])
+   |{'j': ('infra/luci/client/example/payload/hello_world.py', 13, 7)}
+291|    15   ^k{if}k_ len(sys.argv) == ^0{3}0_:
+   |{'j': ('infra/luci/client/example/payload/hello_world.py', 14, 7)}
+292|    16 ^c{    # Write a file in ${ISOLATED_OUTDIR}.}c_
+   |{'j': ('infra/luci/client/example/payload/hello_world.py', 15, 7)}
+293|    17     p = os.path.join(sys.argv[^0{2}0_].decode(^s{'utf-8'}s_), ^s{u'da &#1281}s_63;.txt')^s{.encode}s_('utf-8')
+   |{'j': ('infra/luci/client/example/payload/hello_world.py', 16, 7)}
+294|    18 }>_
+   |{'j': ('infra/luci/client/example/payload/hello_world.py', 17, 7)}
+295|
+   |{}
+296|29. infra/recipes/recipes/goma_hello_world.py^>{
+   |{'j': ('infra/recipes/recipes/goma_hello_world.py', 0, 0)}
+297|    21 ]
+   |{'j': ('infra/recipes/recipes/goma_hello_world.py', 20, 7)}
+298|    22 
+   |{'j': ('infra/recipes/recipes/goma_hello_world.py', 21, 7)}
+299|    23 
+   |{'j': ('infra/recipes/recipes/goma_hello_world.py', 22, 7)}
+300|    24 ^${HELLO}$__^${WORLD}$__CPP = ^s{"""
+   |{'j': ('infra/recipes/recipes/goma_hello_world.py', 23, 7)}
+301|    25 #include <iostream>
+   |{'j': ('infra/recipes/recipes/goma_hello_world.py', 24, 7)}
+302|    26 
+   |{'j': ('infra/recipes/recipes/goma_hello_world.py', 25, 7)}
+303|    27 int get_number();
+   |{'j': ('infra/recipes/recipes/goma_hello_world.py', 26, 7)}
+304|    28 
+   |{'j': ('infra/recipes/recipes/goma_hello_world.py', 27, 7)}
+305|    29 int main() {
+   |{'j': ('infra/recipes/recipes/goma_hello_world.py', 28, 7)}
+306|    30   std::cout << "^${Hello}$_, ^${world}$_!" << std::endl;}s_
+   |{'j': ('infra/recipes/recipes/goma_hello_world.py', 29, 7)}
+307|    31 }>_
+   |{'j': ('infra/recipes/recipes/goma_hello_world.py', 30, 7)}
+308|
+   |{}
+309|30. src/tools/gyp/test/symlinks/hello.c^>{
+   |{'j': ('src/tools/gyp/test/symlinks/hello.c', 0, 0)}
+310|     8 ^k{int}k_ main(^k{void}k_)
+   |{'j': ('src/tools/gyp/test/symlinks/hello.c', 7, 7)}
+311|     9 {
+   |{'j': ('src/tools/gyp/test/symlinks/hello.c', 8, 7)}
+312|    10   printf(^s{"^${Hello}$_, ^${world}$_!\n"}s_);
+   |{'j': ('src/tools/gyp/test/symlinks/hello.c', 9, 7)}
+313|    11   ^k{return}k_ ^0{0}0_;
+   |{'j': ('src/tools/gyp/test/symlinks/hello.c', 10, 7)}
+314|    12 }
+   |{'j': ('src/tools/gyp/test/symlinks/hello.c', 11, 7)}
+315|    13 }>_
+   |{'j': ('src/tools/gyp/test/symlinks/hello.c', 12, 7)}
+316|
+   |{}
+317|31. src/native_client/tests/hello_world/printf.c^>{
+   |{'j': ('src/native_client/tests/hello_world/printf.c', 0, 0)}
+318|    1 ^c{/*
+   |{'j': ('src/native_client/tests/hello_world/printf.c', 0, 6)}
+319|    2  * Copyright 2009 The Native Client Authors. All rights reserved.
+   |{'j': ('src/native_client/tests/hello_world/printf.c', 1, 6)}
+320|    3  * Use of this source code is governed by a BSD-style license that can be
+   |{'j': ('src/native_client/tests/hello_world/printf.c', 2, 6)}
+321|    4  * found in the LICENSE file.
+   |{'j': ('src/native_client/tests/hello_world/printf.c', 3, 6)}
+322|    5  */}c_
+   |{'j': ('src/native_client/tests/hello_world/printf.c', 4, 6)}
+323|    6 
+   |{'j': ('src/native_client/tests/hello_world/printf.c', 5, 6)}
+324|    7 ^c{/*}c_
+   |{'j': ('src/native_client/tests/hello_world/printf.c', 6, 6)}
+325|    8 }>_
+   |{'j': ('src/native_client/tests/hello_world/printf.c', 7, 6)}
+326|
+   |{}
+327|32. src/tools/gyp/test/build-option/hello.c^>{
+   |{'j': ('src/tools/gyp/test/build-option/hello.c', 0, 0)}
+328|     9 ^k{int}k_ main(^k{void}k_)
+   |{'j': ('src/tools/gyp/test/build-option/hello.c', 8, 7)}
+329|    10 {
+   |{'j': ('src/tools/gyp/test/build-option/hello.c', 9, 7)}
+330|    11   printf(^s{"^${Hello}$_, ^${world}$_!\n"}s_);
+   |{'j': ('src/tools/gyp/test/build-option/hello.c', 10, 7)}
+331|    12   ^k{return}k_ ^0{0}0_;
+   |{'j': ('src/tools/gyp/test/build-option/hello.c', 11, 7)}
+332|    13 }
+   |{'j': ('src/tools/gyp/test/build-option/hello.c', 12, 7)}
+333|    14 }>_
+   |{'j': ('src/tools/gyp/test/build-option/hello.c', 13, 7)}
+334|
+   |{}
+335|33. src/tools/gyp/test/exclusion/hello.c^>{
+   |{'j': ('src/tools/gyp/test/exclusion/hello.c', 0, 0)}
+336|     9 }
+   |{'j': ('src/tools/gyp/test/exclusion/hello.c', 8, 7)}
+337|    10 
+   |{'j': ('src/tools/gyp/test/exclusion/hello.c', 9, 7)}
+338|    11 ^k{int}k_ main(^k{void}k_) {
+   |{'j': ('src/tools/gyp/test/exclusion/hello.c', 10, 7)}
+339|    12   printf(^s{"^${Hello}$_, ^${world}$_!\n"}s_);
+   |{'j': ('src/tools/gyp/test/exclusion/hello.c', 11, 7)}
+340|    13   printf(^s{"%d\n"}s_, func1());
+   |{'j': ('src/tools/gyp/test/exclusion/hello.c', 12, 7)}
+341|    14   ^k{return}k_ ^0{0}0_;
+   |{'j': ('src/tools/gyp/test/exclusion/hello.c', 13, 7)}
+342|    15 }
+   |{'j': ('src/tools/gyp/test/exclusion/hello.c', 14, 7)}
+343|    16 }>_
+   |{'j': ('src/tools/gyp/test/exclusion/hello.c', 15, 7)}
+344|
+   |{}
+345|34. src/tools/gyp/test/hello/gyptest-all.py^>{
+   |{'j': ('src/tools/gyp/test/hello/gyptest-all.py', 0, 0)}
+346|     5 ^c{# found in the LICENSE file.}c_
+   |{'j': ('src/tools/gyp/test/hello/gyptest-all.py', 4, 7)}
+347|     6 
+   |{'j': ('src/tools/gyp/test/hello/gyptest-all.py', 5, 7)}
+348|     7 ^s{"""
+   |{'j': ('src/tools/gyp/test/hello/gyptest-all.py', 6, 7)}
+349|     8 Verifies simplest-possible build of a "^${Hello}$_, ^${world}$_!" program
+   |{'j': ('src/tools/gyp/test/hello/gyptest-all.py', 7, 7)}
+350|     9 using an explicit build target of 'all'.
+   |{'j': ('src/tools/gyp/test/hello/gyptest-all.py', 8, 7)}
+351|    10 """}s_
+   |{'j': ('src/tools/gyp/test/hello/gyptest-all.py', 9, 7)}
+352|    11 
+   |{'j': ('src/tools/gyp/test/hello/gyptest-all.py', 10, 7)}
+353|    12 }>_
+   |{'j': ('src/tools/gyp/test/hello/gyptest-all.py', 11, 7)}
+354|
+   |{}
+355|35. src/android_webview/test/data/hello_world.html^>{
+   |{'j': ('src/android_webview/test/data/hello_world.html', 0, 0)}
+356|    1 <^k{html}k_>
+   |{'j': ('src/android_webview/test/data/hello_world.html', 0, 6)}
+357|    2   <^k{head}k_>
+   |{'j': ('src/android_webview/test/data/hello_world.html', 1, 6)}
+358|    3     <^k{title}k_>^${Hello}$_, ^${World}$_!</^k{title}k_>
+   |{'j': ('src/android_webview/test/data/hello_world.html', 2, 6)}
+359|    4   </^k{head}k_>
+   |{'j': ('src/android_webview/test/data/hello_world.html', 3, 6)}
+360|    5   <^k{body}k_>
+   |{'j': ('src/android_webview/test/data/hello_world.html', 4, 6)}
+361|    6     ^${Hello}$_, ^${World}$_!
+   |{'j': ('src/android_webview/test/data/hello_world.html', 5, 6)}
+362|    7   </^k{body}k_>
+   |{'j': ('src/android_webview/test/data/hello_world.html', 6, 6)}
+363|    8 </^k{html}k_>
+   |{'j': ('src/android_webview/test/data/hello_world.html', 7, 6)}
+364|    9 }>_
+   |{'j': ('src/android_webview/test/data/hello_world.html', 8, 6)}
+365|
+   |{}
+366|36. infra/go/src/go.chromium.org/luci/grpc/prpc/helloworld_test.proto^>{
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/helloworld_test.proto', 0, 0)}
+367|    16 ^k{message}k_ ^${Hello}$_Request {
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/helloworld_test.proto', 15, 7)}
+368|    17   ^k{string}k_ name = ^0{1}0_;
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/helloworld_test.proto', 16, 7)}
+369|    18 }
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/helloworld_test.proto', 17, 7)}
+370|    19 
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/helloworld_test.proto', 18, 7)}
+371|    20 ^c{// The response message containing the greetings}c_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/helloworld_test.proto', 19, 7)}
+372|    21 ^k{message}k_ ^${Hello}$_Reply {
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/helloworld_test.proto', 20, 7)}
+373|    22 }>_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/prpc/helloworld_test.proto', 21, 7)}
+374|
+   |{}
+375|37. infra/go/src/go.chromium.org/luci/examples/appengine/helloworld_standard/proto/helloworld.proto^>{
+   |{'j': ('infra/go/src/go.chromium.org/luci/examples/appengine/helloworld_standard/proto/helloworld.proto', 0, 0)}
+376|    16 ^k{message}k_ ^${Hello}$_Request {
+   |{'j': ('infra/go/src/go.chromium.org/luci/examples/appengine/helloworld_standard/proto/helloworld.proto', 15, 7)}
+377|    17   ^k{string}k_ name = ^0{1}0_;
+   |{'j': ('infra/go/src/go.chromium.org/luci/examples/appengine/helloworld_standard/proto/helloworld.proto', 16, 7)}
+378|    18 }
+   |{'j': ('infra/go/src/go.chromium.org/luci/examples/appengine/helloworld_standard/proto/helloworld.proto', 17, 7)}
+379|    19 
+   |{'j': ('infra/go/src/go.chromium.org/luci/examples/appengine/helloworld_standard/proto/helloworld.proto', 18, 7)}
+380|    20 ^c{// The response message containing the greetings}c_
+   |{'j': ('infra/go/src/go.chromium.org/luci/examples/appengine/helloworld_standard/proto/helloworld.proto', 19, 7)}
+381|    21 ^k{message}k_ ^${Hello}$_Reply {
+   |{'j': ('infra/go/src/go.chromium.org/luci/examples/appengine/helloworld_standard/proto/helloworld.proto', 20, 7)}
+382|    22 }>_
+   |{'j': ('infra/go/src/go.chromium.org/luci/examples/appengine/helloworld_standard/proto/helloworld.proto', 21, 7)}
+383|
+   |{}
+384|38. src/chrome/test/data/devtools/indexer/hello_world.c^>{
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.c', 0, 0)}
+385|     5 ^D{#include}D_ <stdio.h>
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.c', 4, 7)}
+386|     6 
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.c', 5, 7)}
+387|     7 ^k{int}k_ main(^k{int}k_ argc, ^k{char}k_* argv[]) {
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.c', 6, 7)}
+388|     8   printf(^s{"^${Hello}$_, ^${World}$_!\n"}s_);
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.c', 7, 7)}
+389|     9   ^k{return}k_ ^0{0}0_;
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.c', 8, 7)}
+390|    10 }
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.c', 9, 7)}
+391|    11 }>_
+   |{'j': ('src/chrome/test/data/devtools/indexer/hello_world.c', 10, 7)}
+392|
+   |{}
+393|39. src/gin/shell/gin_shell_unittest.cc^>{
+   |{'j': ('src/gin/shell/gin_shell_unittest.cc', 0, 0)}
+394|    28     .AppendASCII(^s{"^${hello}$__^${world}$_.js"}s_);
+   |{'j': ('src/gin/shell/gin_shell_unittest.cc', 27, 7)}
+395|    29 }
+   |{'j': ('src/gin/shell/gin_shell_unittest.cc', 28, 7)}
+396|    30 
+   |{'j': ('src/gin/shell/gin_shell_unittest.cc', 29, 7)}
+397|    31 TEST(GinShellTest, ^${HelloWorld}$_) {
+   |{'j': ('src/gin/shell/gin_shell_unittest.cc', 30, 7)}
+398|    32   base::FilePath gin_shell_path(GinShellPath());
+   |{'j': ('src/gin/shell/gin_shell_unittest.cc', 31, 7)}
+399|    33   base::FilePath ^${hello}$__^${world}$__path(^${HelloWorld}$_Path());
+   |{'j': ('src/gin/shell/gin_shell_unittest.cc', 32, 7)}
+400|    34   ASSERT_TRUE(base::PathExists(gin_shell_path));
+   |{'j': ('src/gin/shell/gin_shell_unittest.cc', 33, 7)}
+401|    35   ASSERT_TRUE(base::PathExists(^${hello}$__^${world}$__path));
+   |{'j': ('src/gin/shell/gin_shell_unittest.cc', 34, 7)}
+402|    36 }>_
+   |{'j': ('src/gin/shell/gin_shell_unittest.cc', 35, 7)}
+403|
+   |{}
+404|40. src/tools/gyp/test/msvs/props/hello.c^>{
+   |{'j': ('src/tools/gyp/test/msvs/props/hello.c', 0, 0)}
+405|     7 ^k{int}k_ main(^k{void}k_)
+   |{'j': ('src/tools/gyp/test/msvs/props/hello.c', 6, 7)}
+406|     8 {
+   |{'j': ('src/tools/gyp/test/msvs/props/hello.c', 7, 7)}
+407|     9   printf(^s{"^${Hello}$_, ^${world}$_!\n"}s_);
+   |{'j': ('src/tools/gyp/test/msvs/props/hello.c', 8, 7)}
+408|    10   ^k{return}k_ ^0{0}0_;
+   |{'j': ('src/tools/gyp/test/msvs/props/hello.c', 9, 7)}
+409|    11 }
+   |{'j': ('src/tools/gyp/test/msvs/props/hello.c', 10, 7)}
+410|    12 }>_
+   |{'j': ('src/tools/gyp/test/msvs/props/hello.c', 11, 7)}
+411|
+   |{}
+412|41. src/gin/BUILD.gn^>{
+   |{'j': ('src/gin/BUILD.gn', 0, 0)}
+413|    165     ^k{sources}k_ += [ ^s{"shell/gin_shell_unittest.cc"}s_ ]
+   |{'j': ('src/gin/BUILD.gn', 164, 8)}
+414|    166     ^k{deps}k_ += [ ^s{":gin_shell"}s_ ]
+   |{'j': ('src/gin/BUILD.gn', 165, 8)}
+415|    167     ^k{data_deps}k_ += [ ^s{":gin_shell"}s_ ]
+   |{'j': ('src/gin/BUILD.gn', 166, 8)}
+416|    168     ^k{data}k_ += [ ^s{"shell/^${hello}$__^${world}$_.js"}s_ ]
+   |{'j': ('src/gin/BUILD.gn', 167, 8)}
+417|    169   }
+   |{'j': ('src/gin/BUILD.gn', 168, 8)}
+418|    170 
+   |{'j': ('src/gin/BUILD.gn', 169, 8)}
+419|    171   ^c{# On Android, the APK must bundle the startup data.}c_
+   |{'j': ('src/gin/BUILD.gn', 170, 8)}
+420|    172 }>_
+   |{'j': ('src/gin/BUILD.gn', 171, 8)}
+421|
+   |{}
+422|42. src/native_client/tests/hello_world/dump_env.c^>{
+   |{'j': ('src/native_client/tests/hello_world/dump_env.c', 0, 0)}
+423|    1 ^c{/*
+   |{'j': ('src/native_client/tests/hello_world/dump_env.c', 0, 6)}
+424|    2  * Copyright 2010 The Native Client Authors. All rights reserved.
+   |{'j': ('src/native_client/tests/hello_world/dump_env.c', 1, 6)}
+425|    3  * Use of this source code is governed by a BSD-style license that can be
+   |{'j': ('src/native_client/tests/hello_world/dump_env.c', 2, 6)}
+426|    4  * found in the LICENSE file.
+   |{'j': ('src/native_client/tests/hello_world/dump_env.c', 3, 6)}
+427|    5  */}c_
+   |{'j': ('src/native_client/tests/hello_world/dump_env.c', 4, 6)}
+428|    6 
+   |{'j': ('src/native_client/tests/hello_world/dump_env.c', 5, 6)}
+429|    7 
+   |{'j': ('src/native_client/tests/hello_world/dump_env.c', 6, 6)}
+430|    8 }>_
+   |{'j': ('src/native_client/tests/hello_world/dump_env.c', 7, 6)}
+431|
+   |{}
+432|43. src/native_client/tests/hello_world/BUILD.gn^>{
+   |{'j': ('src/native_client/tests/hello_world/BUILD.gn', 0, 0)}
+433|     2 ^c{# Use of this source code is governed by a BSD-style license that can be}c_
+   |{'j': ('src/native_client/tests/hello_world/BUILD.gn', 1, 7)}
+434|     3 ^c{# found in the LICENSE file.}c_
+   |{'j': ('src/native_client/tests/hello_world/BUILD.gn', 2, 7)}
+435|     4 
+   |{'j': ('src/native_client/tests/hello_world/BUILD.gn', 3, 7)}
+436|     5 ^k{executable}k_(^s{"^${hello}$__^${world}$_"}s_) {
+   |{'j': ('src/native_client/tests/hello_world/BUILD.gn', 4, 7)}
+437|     6   ^k{sources}k_ = [
+   |{'j': ('src/native_client/tests/hello_world/BUILD.gn', 5, 7)}
+438|     7     ^s{"^${hello}$__^${world}$_.c"}s_,
+   |{'j': ('src/native_client/tests/hello_world/BUILD.gn', 6, 7)}
+439|     8   ]
+   |{'j': ('src/native_client/tests/hello_world/BUILD.gn', 7, 7)}
+440|     9   ^k{deps}k_ = [
+   |{'j': ('src/native_client/tests/hello_world/BUILD.gn', 8, 7)}
+441|    10     ^s{"//build/config/nacl:nacl_base"}s_,
+   |{'j': ('src/native_client/tests/hello_world/BUILD.gn', 9, 7)}
+442|    11 }>_
+   |{'j': ('src/native_client/tests/hello_world/BUILD.gn', 10, 7)}
+443|
+   |{}
+444|44. src/build/android/gyp/test/java/org/chromium/helloworld/HelloWorldMain.java^>{
+   |{'j': ('src/build/android/gyp/test/java/org/chromium/helloworld/HelloWorldMain.java', 0, 0)}
+445|     5 ^k{package}k_ org.chromium.^${helloworld}$_;
+   |{'j': ('src/build/android/gyp/test/java/org/chromium/helloworld/HelloWorldMain.java', 4, 7)}
+446|     6 
+   |{'j': ('src/build/android/gyp/test/java/org/chromium/helloworld/HelloWorldMain.java', 5, 7)}
+447|     7 ^k{public}k_ ^k{class}k_ ^C{^${HelloWorld}$_Main}C_ {
+   |{'j': ('src/build/android/gyp/test/java/org/chromium/helloworld/HelloWorldMain.java', 6, 7)}
+448|     8     ^k{public}k_ ^k{static}k_ ^k{void}k_ main(^C{String}C_[] args) {
+   |{'j': ('src/build/android/gyp/test/java/org/chromium/helloworld/HelloWorldMain.java', 7, 7)}
+449|     9         ^k{if}k_ (args.length > ^0{0}0_) {
+   |{'j': ('src/build/android/gyp/test/java/org/chromium/helloworld/HelloWorldMain.java', 8, 7)}
+450|    10             ^C{System}C_.exit(^C{Integer}C_.parseInt(args[^0{0}0_]));
+   |{'j': ('src/build/android/gyp/test/java/org/chromium/helloworld/HelloWorldMain.java', 9, 7)}
+451|    11         }
+   |{'j': ('src/build/android/gyp/test/java/org/chromium/helloworld/HelloWorldMain.java', 10, 7)}
+452|    12         ^${^C{HelloWorld}$_Printer}C_.print();
+   |{'j': ('src/build/android/gyp/test/java/org/chromium/helloworld/HelloWorldMain.java', 11, 7)}
+453|    13 }>_
+   |{'j': ('src/build/android/gyp/test/java/org/chromium/helloworld/HelloWorldMain.java', 12, 7)}
+454|
+   |{}
+455|45. src/third_party/depot_tools/third_party/boto/pyami/helloworld.py^>{
+   |{'j': ('src/third_party/depot_tools/third_party/boto/pyami/helloworld.py', 0, 0)}
+456|    21 ^c{#}c_
+   |{'j': ('src/third_party/depot_tools/third_party/boto/pyami/helloworld.py', 20, 7)}
+457|    22 ^k{from}k_ boto.pyami.scriptbase ^k{import}k_ ScriptBase
+   |{'j': ('src/third_party/depot_tools/third_party/boto/pyami/helloworld.py', 21, 7)}
+458|    23 
+   |{'j': ('src/third_party/depot_tools/third_party/boto/pyami/helloworld.py', 22, 7)}
+459|    24 ^k{class}k_ ^${HelloWorld}$_(ScriptBase):
+   |{'j': ('src/third_party/depot_tools/third_party/boto/pyami/helloworld.py', 23, 7)}
+460|    25 
+   |{'j': ('src/third_party/depot_tools/third_party/boto/pyami/helloworld.py', 24, 7)}
+461|    26     ^k{def}k_ main(self):
+   |{'j': ('src/third_party/depot_tools/third_party/boto/pyami/helloworld.py', 25, 7)}
+462|    27         self.log(^s{'^${Hello}$_ ^${World}$_!!!'}s_)
+   |{'j': ('src/third_party/depot_tools/third_party/boto/pyami/helloworld.py', 26, 7)}
+463|    28         
+   |{'j': ('src/third_party/depot_tools/third_party/boto/pyami/helloworld.py', 27, 7)}
+464|    29 }>_
+   |{'j': ('src/third_party/depot_tools/third_party/boto/pyami/helloworld.py', 28, 7)}
+465|
+   |{}
+466|46. infra/go/src/go.chromium.org/luci/grpc/cmd/cproto/testdata/helloworld/test.proto^>{
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/cmd/cproto/testdata/helloworld/test.proto', 0, 0)}
+467|    16 ^k{message}k_ ^${Hello}$_Request {
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/cmd/cproto/testdata/helloworld/test.proto', 15, 7)}
+468|    17   ^k{string}k_ name = ^0{1}0_;
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/cmd/cproto/testdata/helloworld/test.proto', 16, 7)}
+469|    18 }
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/cmd/cproto/testdata/helloworld/test.proto', 17, 7)}
+470|    19 
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/cmd/cproto/testdata/helloworld/test.proto', 18, 7)}
+471|    20 ^c{// The response message containing the greetings}c_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/cmd/cproto/testdata/helloworld/test.proto', 19, 7)}
+472|    21 ^k{message}k_ ^${Hello}$_Reply {
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/cmd/cproto/testdata/helloworld/test.proto', 20, 7)}
+473|    22 }>_
+   |{'j': ('infra/go/src/go.chromium.org/luci/grpc/cmd/cproto/testdata/helloworld/test.proto', 21, 7)}
+474|
+   |{}
+475|47. src/third_party/WebKit/LayoutTests/http/tests/xmlhttprequest/hello-world.cgi^>{
+   |{'j': ('src/third_party/WebKit/LayoutTests/http/tests/xmlhttprequest/hello-world.cgi', 0, 0)}
+476|    1 ^c{#!/usr/bin/perl -wT}c_
+   |{'j': ('src/third_party/WebKit/LayoutTests/http/tests/xmlhttprequest/hello-world.cgi', 0, 6)}
+477|    2 
+   |{'j': ('src/third_party/WebKit/LayoutTests/http/tests/xmlhttprequest/hello-world.cgi', 1, 6)}
+478|    3 ^k{print}k_ ^s{"Content-type: text/plain\n\n"}s_;
+   |{'j': ('src/third_party/WebKit/LayoutTests/http/tests/xmlhttprequest/hello-world.cgi', 2, 6)}
+479|    4 ^k{print}k_ ^s{"^${Hello}$_ ^${World}$_!"}s_;
+   |{'j': ('src/third_party/WebKit/LayoutTests/http/tests/xmlhttprequest/hello-world.cgi', 3, 6)}
+480|    5 }>_
+   |{'j': ('src/third_party/WebKit/LayoutTests/http/tests/xmlhttprequest/hello-world.cgi', 4, 6)}
+481|
+   |{}
+482|48. src/tools/gyp/test/win/precompiled/hello.c^>{
+   |{'j': ('src/tools/gyp/test/win/precompiled/hello.c', 0, 0)}
+483|     5 ^c{// Note the abscence of a stdio.h include.  This will be inserted because of the}c_
+   |{'j': ('src/tools/gyp/test/win/precompiled/hello.c', 4, 7)}
+484|     6 ^c{// precompiled header.}c_
+   |{'j': ('src/tools/gyp/test/win/precompiled/hello.c', 5, 7)}
+485|     7 
+   |{'j': ('src/tools/gyp/test/win/precompiled/hello.c', 6, 7)}
+486|     8 ^k{extern}k_ ^k{int}k_ ^${hello}$_2();
+   |{'j': ('src/tools/gyp/test/win/precompiled/hello.c', 7, 7)}
+487|     9 
+   |{'j': ('src/tools/gyp/test/win/precompiled/hello.c', 8, 7)}
+488|    10 ^k{int}k_ main(^k{void}k_) {
+   |{'j': ('src/tools/gyp/test/win/precompiled/hello.c', 9, 7)}
+489|    11   printf(^s{"^${Hello}$_, ^${world}$_!\n"}s_);
+   |{'j': ('src/tools/gyp/test/win/precompiled/hello.c', 10, 7)}
+490|    12   ^${hello}$_2();
+   |{'j': ('src/tools/gyp/test/win/precompiled/hello.c', 11, 7)}
+491|    13   ^k{return}k_ ^0{0}0_;
+   |{'j': ('src/tools/gyp/test/win/precompiled/hello.c', 12, 7)}
+492|    14 }
+   |{'j': ('src/tools/gyp/test/win/precompiled/hello.c', 13, 7)}
+493|    15 }>_
+   |{'j': ('src/tools/gyp/test/win/precompiled/hello.c', 14, 7)}
+494|
+   |{}
+495|49. src/native_client/tests/hello_world/misc_math.c^>{
+   |{'j': ('src/native_client/tests/hello_world/misc_math.c', 0, 0)}
+496|    1 ^c{/*
+   |{'j': ('src/native_client/tests/hello_world/misc_math.c', 0, 6)}
+497|    2  * Copyright 2010 The Native Client Authors. All rights reserved.
+   |{'j': ('src/native_client/tests/hello_world/misc_math.c', 1, 6)}
+498|    3  * Use of this source code is governed by a BSD-style license that can be
+   |{'j': ('src/native_client/tests/hello_world/misc_math.c', 2, 6)}
+499|    4  * found in the LICENSE file.
+   |{'j': ('src/native_client/tests/hello_world/misc_math.c', 3, 6)}
+500|    5  */}c_
+   |{'j': ('src/native_client/tests/hello_world/misc_math.c', 4, 6)}
+501|    6 
+   |{'j': ('src/native_client/tests/hello_world/misc_math.c', 5, 6)}
+502|    7 ^c{/*}c_
+   |{'j': ('src/native_client/tests/hello_world/misc_math.c', 6, 6)}
+503|    8 }>_
+   |{'j': ('src/native_client/tests/hello_world/misc_math.c', 7, 6)}
+504|
+   |{}
+505|50. infra/go/bootstrap.py^>{
+   |{'j': ('infra/go/bootstrap.py', 0, 0)}
+506|    210 ^k{def}k_ check_^${hello}$__^${world}$_(toolset_root):
+   |{'j': ('infra/go/bootstrap.py', 209, 8)}
+507|    211   ^s{"""Compiles and runs '^${hello}$_ ^${world}$_' program to verify that toolset works."""}s_
+   |{'j': ('infra/go/bootstrap.py', 210, 8)}
+508|    212   ^k{with}k_ temp_dir(toolset_root) ^k{as}k_ tmp:
+   |{'j': ('infra/go/bootstrap.py', 211, 8)}
+509|    213     path = os.path.join(tmp, ^s{'^${hello}$_.go'}s_)
+   |{'j': ('infra/go/bootstrap.py', 212, 8)}
+510|    214     write_file([path], ^s{r"""
+   |{'j': ('infra/go/bootstrap.py', 213, 8)}
+511|    215         package main
+   |{'j': ('infra/go/bootstrap.py', 214, 8)}
+512|    216         func main() { println("^${hello}$_, ^${world}$_\n") }
+   |{'j': ('infra/go/bootstrap.py', 215, 8)}
+513|    217     """}s_)
+   |{'j': ('infra/go/bootstrap.py', 216, 8)}
+514|    218     layout = _EMPTY_LAYOUT._replace(
+   |{'j': ('infra/go/bootstrap.py', 217, 8)}
+515|    219         toolset_root=toolset_root,
+   |{'j': ('infra/go/bootstrap.py', 218, 8)}
+516|    220 }>_
+   |{'j': ('infra/go/bootstrap.py', 219, 8)}
+517|
+   |{}
+518|Search results are truncated. Showing 50 results out of an estimated 3481.
+   |{}
+519|
+   |{}

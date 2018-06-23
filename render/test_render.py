@@ -25,8 +25,8 @@ def TestDataPath(p):
 
 
 def LocationMapToString(l):
-  s = [
-      '''This file contains the rendered output per line and its associated metadata.
+  s = ['''\
+This file contains the rendered output per line and its associated metadata.
 
 Lines that begin with a line number contains (after the '|') the contents that
 will be inserted into the vim buffer at that line. The immediately following
@@ -46,11 +46,11 @@ line contains an object representing associated metadata.
 
 class TestRenderers(unittest.TestCase):
 
-  def run_render_test(self, test_file_name):
+  def run_render_test(self, test_file_name, query='unspecified'):
     with open(TestDataPath(test_file_name), 'r') as f:
       d = json.load(f)
     m = cs.Message.Coerce(d, cs.CompoundResponse)
-    location_map = r.RenderCompoundResponse(m)
+    location_map = r.RenderCompoundResponse(m, query)
     serialized = LocationMapToString(location_map)
     with open(TestDataPath(test_file_name + '.actual'), 'w') as f:
       f.write(serialized)
@@ -62,35 +62,34 @@ class TestRenderers(unittest.TestCase):
   def test_search_response_01(self):
     l_map = self.run_render_test('search-response-01.json')
 
-    fn, l, c = l_map.JumpTargetAt(49, 1)
+    fn, l, c = l_map.JumpTargetAt(50, 1)
     self.assertEqual(
-        'src/chrome/browser/download/download_target_determiner.cc', fn)
-    self.assertEqual(107, l)
+        'src/chrome/browser/download/download_prefs.cc', fn)
+    self.assertEqual(409, l)
     self.assertEqual(1, c)
 
-    fn, l, c = l_map.JumpTargetAt(49, 15)
-    self.assertEqual(7, c)
-
-    fn, l, c = l_map.JumpTargetAt(49, 39)
-    self.assertEqual(31, c)
-
-    fn, l, c = l_map.JumpTargetAt(49, 47)
-    self.assertEqual(36, c)
-
-    fn, l, c = l_map.JumpTargetAt(49, 70)
-    self.assertEqual(56, c)
+    _, _, c = l_map.JumpTargetAt(50, 30)
+    self.assertEqual(16, c)
 
   def test_search_response_02(self):
     l_map = self.run_render_test('search-response-02.json')
 
-    fn, l, c = l_map.JumpTargetAt(105, 1)
-    self.assertEqual('src/chrome/browser/extensions/api/downloads/' +
-                     'downloads_api_browsertest.cc', fn)
-    self.assertEqual(1, l)
+    fn, l, c = l_map.JumpTargetAt(22, 1)
+    self.assertEqual('src/base/at_exit.cc', fn)
+    self.assertEqual(96, l)
     self.assertEqual(1, c)
+
+    self.assertEqual(3, l_map.NextFileLocation(1))
+    self.assertEqual(1, l_map.PreviousFileLocation(1))
+    self.assertEqual(3, l_map.PreviousFileLocation(35))
+    self.assertEqual(35, l_map.PreviousFileLocation(45))
+    self.assertEqual(45, l_map.NextFileLocation(45))
 
   def test_search_response_03(self):
     self.run_render_test('search-response-03.json')
+
+  def test_search_response_04(self):
+    self.run_render_test('search-response-04.json')
 
   def test_xref_search_response_01(self):
     self.run_render_test('xrefs-response-01.json')

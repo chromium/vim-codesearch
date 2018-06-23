@@ -5,283 +5,339 @@ will be inserted into the vim buffer at that line. The immediately following
 line contains an object representing associated metadata.
 -------------------------------------------------------------------------------
 
-001|1. src/chrome/browser/download/download_path_reservation_tracker.h^>{
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.h', 0, 0)}
-002|    21 // Therefore only considering files that exist on the filesystem is
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.h', 20, 7)}
-003|    22 // insufficient. This class tracks files that are assigned to active downloads
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.h', 21, 7)}
-004|    23 // so that uniquification can take those into account as well.
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.h', 22, 7)}
-005|    24 class Download^${PathReservationTracker}$_ {
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.h', 23, 7)}
-006|    25  public:
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.h', 24, 7)}
-007|    26   // Callback used with |GetReservedPath|. |target_path| specifies the target
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.h', 25, 7)}
-008|    27   // path for the download. |target_path_verified| is true if all of the
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.h', 26, 7)}
-009|    28 }>_
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.h', 27, 7)}
-010|
+001|CodeSearch results for ^q{unspecified}q_
    |{}
-011|2. src/chrome/browser/download/download_path_reservation_tracker_unittest.cc^>{
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 0, 0)}
-012|    33 namespace {
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 32, 7)}
-013|    34 
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 33, 7)}
-014|    35 class Download^${PathReservationTracker}$_Test : public testing::Test {
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 34, 7)}
-015|    36  public:
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 35, 7)}
-016|    37   Download^${PathReservationTracker}$_Test();
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 36, 7)}
-017|    38 
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 37, 7)}
-018|    39   // testing::Test
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 38, 7)}
-019|    40   void SetUp() override;
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 39, 7)}
-020|    41 }>_
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 40, 7)}
-021|
+002|
    |{}
-022|3. src/chrome/browser/download/download_path_reservation_tracker.cc^>{
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.cc', 0, 0)}
-023|    162     const base::FilePath& suggested_path,
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.cc', 161, 8)}
-024|    163     const base::FilePath& default_download_path,
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.cc', 162, 8)}
-025|    164     bool create_directory,
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.cc', 163, 8)}
-026|    165     Download^${PathReservationTracker}$_::FilenameConflictAction conflict_action,
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.cc', 164, 8)}
-027|    166     base::FilePath* reserved_path) {
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.cc', 165, 8)}
-028|    167   DCHECK_CURRENTLY_ON(BrowserThread::FILE);
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.cc', 166, 8)}
-029|    168   DCHECK(suggested_path.IsAbsolute());
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.cc', 167, 8)}
-030|    169 }>_
-   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker.cc', 168, 8)}
-031|
-   |{}
-032|4. src/chrome/browser/download/download_target_determiner.h^>{
+003|1. src/chrome/browser/download/download_target_determiner.h^>{
    |{'j': ('src/chrome/browser/download/download_target_determiner.h', 0, 0)}
-033|    170   // |conflict_action_|.
-   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 169, 8)}
-034|    171   void NotifyExtensionsDone(
-   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 170, 8)}
-035|    172       const base::FilePath& new_path,
-   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 171, 8)}
-036|    173       Download^${PathReservationTracker}$_::FilenameConflictAction conflict_action);
-   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 172, 8)}
-037|    174 
-   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 173, 8)}
-038|    175   // Invokes ReserveVirtualPath() on the delegate to acquire a reservation for
-   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 174, 8)}
-039|    176   // the path. See Download^${PathReservationTracker}$_.
-   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 175, 8)}
-040|    177   // Next state:
-   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 176, 8)}
-041|    178   // - STATE_PROMPT_USER_FOR_DOWNLOAD_PATH.
-   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 177, 8)}
-042|    179   Result DoReserveVirtualPath();
-   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 178, 8)}
-043|    180 }>_
-   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 179, 8)}
-044|
+004|    49 ^c{//}c_
+   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 48, 7)}
+005|    50 ^c{// The only public entrypoint is the static Start() method which creates an}c_
+   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 49, 7)}
+006|    51 ^c{// instance of ^${DownloadTargetDeterminer}$_.}c_
+   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 50, 7)}
+007|    52 ^k{class}k_ ^${DownloadTargetDeterminer}$_ : ^k{public}k_ download::DownloadItem::Observer {
+   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 51, 7)}
+008|    53  ^k{public}k_:
+   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 52, 7)}
+009|    54   ^k{using}k_ CompletionCallback =
+   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 53, 7)}
+010|    55       base::Callback<^k{void}k_(std::unique_ptr<DownloadTargetInfo>)>;
+   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 54, 7)}
+011|    56 }>_
+   |{'j': ('src/chrome/browser/download/download_target_determiner.h', 55, 7)}
+012|
    |{}
-045|5. src/chrome/browser/download/download_target_determiner.cc^>{
+013|2. src/chrome/browser/download/download_target_determiner.cc^>{
    |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 0, 0)}
-046|    104       should_prompt_(false),
-   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 103, 8)}
-047|    105       should_notify_extensions_(false),
-   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 104, 8)}
-048|    106       create_target_directory_(false),
-   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 105, 8)}
-049|    107       conflict_action_(Download^${PathReservationTracker}$_::OVERWRITE),
-   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 106, 8)}
-050|    108       danger_type_(download->GetDangerType()),
-   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 107, 8)}
-051|    109       danger_level_(DownloadFileType::NOT_DANGEROUS),
-   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 108, 8)}
-052|    110       virtual_path_(initial_virtual_path),
-   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 109, 8)}
-053|    111 }>_
-   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 110, 8)}
-054|
+014|    86 ^${DownloadTargetDeterminer}$_Delegate::~^${DownloadTargetDeterminer}$_Delegate() {
+   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 85, 7)}
+015|    87 }
+   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 86, 7)}
+016|    88 
+   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 87, 7)}
+017|    89 ^${DownloadTargetDeterminer}$_::^${DownloadTargetDeterminer}$_(
+   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 88, 7)}
+018|    90     DownloadItem* download,
+   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 89, 7)}
+019|    91     ^k{const}k_ base::FilePath& initial_virtual_path,
+   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 90, 7)}
+020|    92     DownloadPathReservationTracker::FilenameConflictAction conflict_action,
+   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 91, 7)}
+021|    93     DownloadPrefs* download_prefs,
+   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 92, 7)}
+022|    94     ^${DownloadTargetDeterminer}$_Delegate* delegate,
+   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 93, 7)}
+023|    95 }>_
+   |{'j': ('src/chrome/browser/download/download_target_determiner.cc', 94, 7)}
+024|
    |{}
-055|6. src/chrome/browser/extensions/api/downloads/downloads_api.h^>{
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.h', 0, 0)}
-056|    303  public:
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.h', 302, 8)}
-057|    304   typedef base::Callback<void(
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.h', 303, 8)}
-058|    305       const base::FilePath& changed_filename,
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.h', 304, 8)}
-059|    306       Download^${PathReservationTracker}$_::FilenameConflictAction)>
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.h', 305, 8)}
-060|    307     FilenameChangedCallback;
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.h', 306, 8)}
-061|    308 
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.h', 307, 8)}
-062|    309   static void SetDetermineFilenameTimeoutSecondsForTesting(int s);
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.h', 308, 8)}
-063|    310 }>_
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.h', 309, 8)}
-064|
-   |{}
-065|7. src/chrome/browser/extensions/api/downloads/downloads_api.cc^>{
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 0, 0)}
-066|    586 Download^${PathReservationTracker}$_::FilenameConflictAction ConvertConflictAction(
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 585, 8)}
-067|    587     downloads::FilenameConflictAction action) {
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 586, 8)}
-068|    588   switch (action) {
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 587, 8)}
-069|    589     case downloads::FILENAME_CONFLICT_ACTION_NONE:
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 588, 8)}
-070|    590     case downloads::FILENAME_CONFLICT_ACTION_UNIQUIFY:
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 589, 8)}
-071|    591       return Download^${PathReservationTracker}$_::UNIQUIFY;
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 590, 8)}
-072|    592     case downloads::FILENAME_CONFLICT_ACTION_OVERWRITE:
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 591, 8)}
-073|    593       return Download^${PathReservationTracker}$_::OVERWRITE;
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 592, 8)}
-074|    594     case downloads::FILENAME_CONFLICT_ACTION_PROMPT:
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 593, 8)}
-075|    595       return Download^${PathReservationTracker}$_::PROMPT;
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 594, 8)}
-076|    596 }>_
-   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 595, 8)}
-077|
-   |{}
-078|8. src/chrome/browser/download/download_target_determiner_delegate.h^>{
+025|3. src/chrome/browser/download/download_target_determiner_delegate.h^>{
    |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 0, 0)}
-079|    30   // ignored.
+026|    21 ^k{class}k_ DownloadItem;
+   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 20, 7)}
+027|    22 }
+   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 21, 7)}
+028|    23 
+   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 22, 7)}
+029|    24 ^c{// Delegate for ^${DownloadTargetDeterminer}$_. The delegate isn't owned by}c_
+   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 23, 7)}
+030|    25 ^c{// ^${DownloadTargetDeterminer}$_ and is expected to outlive it.}c_
+   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 24, 7)}
+031|    26 ^k{class}k_ ^${DownloadTargetDeterminer}$_Delegate {
+   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 25, 7)}
+032|    27  ^k{public}k_:
+   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 26, 7)}
+033|    28   ^c{// Callback to be invoked after NotifyExtensions() completes. The}c_
+   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 27, 7)}
+034|    29   ^c{// |new_virtual_path| should be set to a new path if an extension wishes to}c_
+   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 28, 7)}
+035|    30 }>_
    |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 29, 7)}
-080|    31   typedef base::Callback<void(
-   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 30, 7)}
-081|    32       const base::FilePath& new_virtual_path,
-   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 31, 7)}
-082|    33       Download^${PathReservationTracker}$_::FilenameConflictAction conflict_action)>
-   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 32, 7)}
-083|    34   NotifyExtensionsCallback;
-   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 33, 7)}
-084|    35 
-   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 34, 7)}
-085|    36   // Callback to be invoked when ReserveVirtualPath() completes. If the path
-   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 35, 7)}
-086|    37 }>_
-   |{'j': ('src/chrome/browser/download/download_target_determiner_delegate.h', 36, 7)}
-087|
+036|
    |{}
-088|9. src/chrome/browser/download/chrome_download_manager_delegate.h^>{
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 0, 0)}
-089|    108       content::DownloadItem* download,
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 107, 8)}
-090|    109       const base::FilePath& virtual_path,
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 108, 8)}
-091|    110       bool create_directory,
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 109, 8)}
-092|    111       Download^${PathReservationTracker}$_::FilenameConflictAction conflict_action,
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 110, 8)}
-093|    112       const ReservedPathCallback& callback) override;
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 111, 8)}
-094|    113   void PromptUserForDownloadPath(content::DownloadItem* download,
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 112, 8)}
-095|    114                                  const base::FilePath& suggested_virtual_path,
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 113, 8)}
-096|    115 }>_
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 114, 8)}
-097|
-   |{}
-098|10. src/chrome/browser/download/download_target_determiner_unittest.cc^>{
+037|4. src/chrome/browser/download/download_target_determiner_unittest.cc^>{
    |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 0, 0)}
-099|    164                     const LocalPathCallback&));
-   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 163, 8)}
-100|    165   MOCK_METHOD5(ReserveVirtualPath,
-   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 164, 8)}
-101|    166                void(DownloadItem*, const base::FilePath&, bool,
-   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 165, 8)}
-102|    167                     Download^${PathReservationTracker}$_::FilenameConflictAction,
-   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 166, 8)}
-103|    168                     const ReservedPathCallback&));
-   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 167, 8)}
-104|    169   MOCK_METHOD2(GetFileMimeType,
-   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 168, 8)}
-105|    170                void(const base::FilePath&,
-   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 169, 8)}
-106|    171 }>_
-   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 170, 8)}
-107|
+038|    238       ^k{const}k_ LocalPathCallback& callback);
+   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 237, 8)}
+039|    239 };
+   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 238, 8)}
+040|    240 
+   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 239, 8)}
+041|    241 ^k{class}k_ ^${DownloadTargetDeterminer}$_Test : ^k{public}k_ ChromeRenderViewHostTestHarness {
+   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 240, 8)}
+042|    242  ^k{public}k_:
+   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 241, 8)}
+043|    243   ^${DownloadTargetDeterminer}$_Test() = ^k{default}k_;
+   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 242, 8)}
+044|    244 
+   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 243, 8)}
+045|    245   ^c{// ::testing::Test}c_
+   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 244, 8)}
+046|    246   ^k{void}k_ SetUp() ^k{override}k_;
+   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 245, 8)}
+047|    247 }>_
+   |{'j': ('src/chrome/browser/download/download_target_determiner_unittest.cc', 246, 8)}
+048|
    |{}
-108|11. src/chrome/browser/download/chrome_download_manager_delegate.cc^>{
+049|5. src/chrome/browser/download/download_prefs.cc^>{
+   |{'j': ('src/chrome/browser/download/download_prefs.cc', 0, 0)}
+050|    409 ^k{bool}k_ DownloadPrefs::ShouldOpenPdfInSystemReader() ^k{const}k_ {
+   |{'j': ('src/chrome/browser/download/download_prefs.cc', 408, 8)}
+051|    410 ^D{#if}D_ defined(OS_WIN)
+   |{'j': ('src/chrome/browser/download/download_prefs.cc', 409, 8)}
+052|    411   ^k{if}k_ (IsAdobeReaderDefaultPDFViewer() &&
+   |{'j': ('src/chrome/browser/download/download_prefs.cc', 410, 8)}
+053|    412       !^${DownloadTargetDeterminer}$_::IsAdobeReaderUpToDate()) {
+   |{'j': ('src/chrome/browser/download/download_prefs.cc', 411, 8)}
+054|    413       ^k{return}k_ ^k{false}k_;
+   |{'j': ('src/chrome/browser/download/download_prefs.cc', 412, 8)}
+055|    414   }
+   |{'j': ('src/chrome/browser/download/download_prefs.cc', 413, 8)}
+056|    415 ^D{#endif}D_
+   |{'j': ('src/chrome/browser/download/download_prefs.cc', 414, 8)}
+057|    416 }>_
+   |{'j': ('src/chrome/browser/download/download_prefs.cc', 415, 8)}
+058|
+   |{}
+059|6. src/chrome/browser/download/download_browsertest.cc^>{
+   |{'j': ('src/chrome/browser/download/download_browsertest.cc', 0, 0)}
+060|    1972   ^c{// slow download job.}c_
+   |{'j': ('src/chrome/browser/download/download_browsertest.cc', 1971, 9)}
+061|    1973   history::DownloadRow& row(downloads_in_database->at(^0{0}0_));
+   |{'j': ('src/chrome/browser/download/download_browsertest.cc', 1972, 9)}
+062|    1974   EXPECT_EQ(DestinationFile(browser(), file), row.target_path);
+   |{'j': ('src/chrome/browser/download/download_browsertest.cc', 1973, 9)}
+063|    1975   EXPECT_EQ(^${DownloadTargetDeterminer}$_::GetCrDownloadPath(
+   |{'j': ('src/chrome/browser/download/download_browsertest.cc', 1974, 9)}
+064|    1976                 DestinationFile(browser(), file)),
+   |{'j': ('src/chrome/browser/download/download_browsertest.cc', 1975, 9)}
+065|    1977             row.current_path);
+   |{'j': ('src/chrome/browser/download/download_browsertest.cc', 1976, 9)}
+066|    1978   ASSERT_EQ(^0{2}0_u, row.url_chain.size());
+   |{'j': ('src/chrome/browser/download/download_browsertest.cc', 1977, 9)}
+067|    1979 }>_
+   |{'j': ('src/chrome/browser/download/download_browsertest.cc', 1978, 9)}
+068|
+   |{}
+069|7. src/chrome/browser/download/download_commands.cc^>{
+   |{'j': ('src/chrome/browser/download/download_commands.cc', 0, 0)}
+070|    420   ^k{bool}k_ is_adobe_pdf_reader_up_to_date = ^k{false}k_;
+   |{'j': ('src/chrome/browser/download/download_commands.cc', 419, 8)}
+071|    421   ^k{if}k_ (IsDownloadPdf() && IsAdobeReaderDefaultPDFViewer()) {
+   |{'j': ('src/chrome/browser/download/download_commands.cc', 420, 8)}
+072|    422     is_adobe_pdf_reader_up_to_date =
+   |{'j': ('src/chrome/browser/download/download_commands.cc', 421, 8)}
+073|    423         ^${DownloadTargetDeterminer}$_::IsAdobeReaderUpToDate();
+   |{'j': ('src/chrome/browser/download/download_commands.cc', 422, 8)}
+074|    424   }
+   |{'j': ('src/chrome/browser/download/download_commands.cc', 423, 8)}
+075|    425   ^k{return}k_ IsDownloadPdf() &&
+   |{'j': ('src/chrome/browser/download/download_commands.cc', 424, 8)}
+076|    426          (IsAdobeReaderDefaultPDFViewer() ? is_adobe_pdf_reader_up_to_date
+   |{'j': ('src/chrome/browser/download/download_commands.cc', 425, 8)}
+077|    427 }>_
+   |{'j': ('src/chrome/browser/download/download_commands.cc', 426, 8)}
+078|
+   |{}
+079|8. src/chrome/browser/download/chrome_download_manager_delegate.cc^>{
    |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 0, 0)}
-109|    580                    Download^${PathReservationTracker}$_::UNIQUIFY);
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 579, 8)}
-110|    581     router->OnDeterminingFilename(download, virtual_path.BaseName(),
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 580, 8)}
-111|    582                                   original_path_callback,
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 581, 8)}
-112|    583                                   callback);
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 582, 8)}
-113|    584     return;
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 583, 8)}
-114|    585   }
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 584, 8)}
-115|    586 #endif
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 585, 8)}
-116|    587   callback.Run(base::FilePath(), Download^${PathReservationTracker}$_::UNIQUIFY);
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 586, 8)}
-117|    588 }>_
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 587, 8)}
+080|    132 };
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 131, 8)}
+081|    133 
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 132, 8)}
+082|    134 ^c{// Returns a path in the form that that is expected by platform_util::OpenItem /}c_
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 133, 8)}
+083|    135 ^c{// platform_util::ShowItemInFolder / ^${DownloadTargetDeterminer}$_.}c_
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 134, 8)}
+084|    136 ^c{//}c_
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 135, 8)}
+085|    137 ^c{// DownloadItems corresponding to Drive downloads use a temporary file as the}c_
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 136, 8)}
+086|    138 ^c{// target path. The paths returned by DownloadItem::GetFullPath() /}c_
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 137, 8)}
+087|    139 }>_
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.cc', 138, 8)}
+088|
+   |{}
+089|9. src/chrome/browser/download/download_confirmation_reason.h^>{
+   |{'j': ('src/chrome/browser/download/download_confirmation_reason.h', 0, 0)}
+090|     5 ^D{#ifndef}D_ CHROME_BROWSER_DOWNLOAD_DOWNLOAD_CONFIRMATION_REASON_H_
+   |{'j': ('src/chrome/browser/download/download_confirmation_reason.h', 4, 7)}
+091|     6 ^D{#define}D_ CHROME_BROWSER_DOWNLOAD_DOWNLOAD_CONFIRMATION_REASON_H_
+   |{'j': ('src/chrome/browser/download/download_confirmation_reason.h', 5, 7)}
+092|     7 
+   |{'j': ('src/chrome/browser/download/download_confirmation_reason.h', 6, 7)}
+093|     8 ^c{// Reason why ^${DownloadTargetDeterminer}$_ requested additional confirmation for the}c_
+   |{'j': ('src/chrome/browser/download/download_confirmation_reason.h', 7, 7)}
+094|     9 ^c{// target path via RequestConfirmation delegate method.}c_
+   |{'j': ('src/chrome/browser/download/download_confirmation_reason.h', 8, 7)}
+095|    10 ^k{enum}k_ ^k{class}k_ DownloadConfirmationReason {
+   |{'j': ('src/chrome/browser/download/download_confirmation_reason.h', 9, 7)}
+096|    11   NONE,
+   |{'j': ('src/chrome/browser/download/download_confirmation_reason.h', 10, 7)}
+097|    12 }>_
+   |{'j': ('src/chrome/browser/download/download_confirmation_reason.h', 11, 7)}
+098|
+   |{}
+099|10. src/chrome/browser/download/chrome_download_manager_delegate.h^>{
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 0, 0)}
+100|    51 ^k{class}k_ ChromeDownloadManagerDelegate
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 50, 7)}
+101|    52     : ^k{public}k_ content::DownloadManagerDelegate,
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 51, 7)}
+102|    53       ^k{public}k_ content::NotificationObserver,
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 52, 7)}
+103|    54       ^k{public}k_ ^${DownloadTargetDeterminer}$_Delegate {
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 53, 7)}
+104|    55  ^k{public}k_:
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 54, 7)}
+105|    56   ^k{explicit}k_ ChromeDownloadManagerDelegate(Profile* profile);
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 55, 7)}
+106|    57   ~ChromeDownloadManagerDelegate() ^k{override}k_;
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 56, 7)}
+107|    58 }>_
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate.h', 57, 7)}
+108|
+   |{}
+109|11. src/chrome/browser/extensions/api/downloads/downloads_api.cc^>{
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 0, 0)}
+110|    1691 ^c{// chrome.downloads.onDeterminingFilename.addListener, which adds an}c_
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 1690, 9)}
+111|    1692 ^c{// EventListener object to ExtensionEventRouter::listeners().}c_
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 1691, 9)}
+112|    1693 ^c{//}c_
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 1692, 9)}
+113|    1694 ^c{// When a download's filename is being determined, ^${DownloadTargetDeterminer}$_ (via}c_
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 1693, 9)}
+114|    1695 ^c{// ChromeDownloadManagerDelegate (CDMD) ::NotifyExtensions()) passes 2 callbacks}c_
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 1694, 9)}
+115|    1696 ^c{// to ExtensionDownloadsEventRouter::OnDeterminingFilename (ODF), which stores}c_
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 1695, 9)}
+116|    1697 ^c{// the callbacks in the item's ExtensionDownloadsEventRouterData (EDERD) along}c_
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 1696, 9)}
+117|    1698 }>_
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api.cc', 1697, 9)}
 118|
    |{}
-119|12. src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc^>{
+119|12. src/chrome/browser/download/download_confirmation_result.h^>{
+   |{'j': ('src/chrome/browser/download/download_confirmation_result.h', 0, 0)}
+120|     8 ^D{#include}D_ ^s{"build/build_config.h"}s_
+   |{'j': ('src/chrome/browser/download/download_confirmation_result.h', 7, 7)}
+121|     9 
+   |{'j': ('src/chrome/browser/download/download_confirmation_result.h', 8, 7)}
+122|    10 ^c{// Result of RequestConfirmation delegate method for}c_
+   |{'j': ('src/chrome/browser/download/download_confirmation_result.h', 9, 7)}
+123|    11 ^c{// ^${DownloadTargetDeterminer}$_Delegate.}c_
+   |{'j': ('src/chrome/browser/download/download_confirmation_result.h', 10, 7)}
+124|    12 ^k{enum}k_ ^k{class}k_ DownloadConfirmationResult {
+   |{'j': ('src/chrome/browser/download/download_confirmation_result.h', 11, 7)}
+125|    13   ^c{// The user confirmed the path. Only use this value if the user was explicitly}c_
+   |{'j': ('src/chrome/browser/download/download_confirmation_result.h', 12, 7)}
+126|    14   ^c{// shown the path or at least the filename being downloaded.}c_
+   |{'j': ('src/chrome/browser/download/download_confirmation_result.h', 13, 7)}
+127|    15 }>_
+   |{'j': ('src/chrome/browser/download/download_confirmation_result.h', 14, 7)}
+128|
+   |{}
+129|13. src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc^>{
    |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 0, 0)}
-120|    104                  Download^${PathReservationTracker}$_::UNIQUIFY);
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 103, 8)}
-121|    105   }
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 104, 8)}
-122|    106 
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 105, 8)}
-123|    107   void ReserveVirtualPath(
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 106, 8)}
-124|    108       content::DownloadItem* download,
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 107, 8)}
-125|    109       const base::FilePath& virtual_path,
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 108, 8)}
-126|    110       bool create_directory,
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 109, 8)}
-127|    111       Download^${PathReservationTracker}$_::FilenameConflictAction conflict_action,
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 110, 8)}
-128|    112       const Download^${PathReservationTracker}$_::ReservedPathCallback& callback)
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 111, 8)}
-129|    113 }>_
-   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 112, 8)}
-130|
+130|    150   ^c{// DownloadPathReservationTracker talks to the underlying file system. For}c_
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 149, 8)}
+131|    151   ^c{// tests we are going to mock it out so that we can test how}c_
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 150, 8)}
+132|    152   ^c{// ChromeDownloadManagerDelegate reponds to various ^${DownloadTargetDeterminer}$_}c_
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 151, 8)}
+133|    153   ^c{// results.}c_
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 152, 8)}
+134|    154   ^k{void}k_ ReserveVirtualPath(
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 153, 8)}
+135|    155       download::DownloadItem* download,
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 154, 8)}
+136|    156 }>_
+   |{'j': ('src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc', 155, 8)}
+137|
    |{}
-131|13. src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc^>{
+138|14. src/chrome/browser/extensions/api/downloads/downloads_api_browsertest.cc^>{
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api_browsertest.cc', 0, 0)}
+139|    2928   EXPECT_EQ(^s{""}s_, error);
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api_browsertest.cc', 2927, 9)}
+140|    2929 
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api_browsertest.cc', 2928, 9)}
+141|    2930   ^c{// Calling DetermineFilename again should return an error instead of calling}c_
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api_browsertest.cc', 2929, 9)}
+142|    2931   ^c{// ^${DownloadTargetDeterminer}$_.}c_
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api_browsertest.cc', 2930, 9)}
+143|    2932   ASSERT_FALSE(ExtensionDownloadsEventRouter::DetermineFilename(
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api_browsertest.cc', 2931, 9)}
+144|    2933       current_browser()->profile(), ^k{false}k_, GetExtensionId(), result_id,
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api_browsertest.cc', 2932, 9)}
+145|    2934       base::FilePath(FILE_PATH_LITERAL(^s{"different"}s_)),
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api_browsertest.cc', 2933, 9)}
+146|    2935 }>_
+   |{'j': ('src/chrome/browser/extensions/api/downloads/downloads_api_browsertest.cc', 2934, 9)}
+147|
+   |{}
+148|15. src/chrome/browser/download/download_path_reservation_tracker_unittest.cc^>{
+   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 0, 0)}
+149|    246   ASSERT_EQ(^0{0}0_, base::WriteFile(path, ^s{""}s_, ^0{0}0_));
+   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 245, 8)}
+150|    247   ASSERT_EQ(^0{0}0_,
+   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 246, 8)}
+151|    248             base::WriteFile(
+   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 247, 8)}
+152|    249                 ^${DownloadTargetDeterminer}$_::GetCrDownloadPath(path1), ^s{""}s_, ^0{0}0_));
+   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 248, 8)}
+153|    250   ASSERT_TRUE(IsPathInUse(path));
+   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 249, 8)}
+154|    251 
+   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 250, 8)}
+155|    252   base::FilePath reserved_path;
+   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 251, 8)}
+156|    253 }>_
+   |{'j': ('src/chrome/browser/download/download_path_reservation_tracker_unittest.cc', 252, 8)}
+157|
+   |{}
+158|16. src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc^>{
    |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 0, 0)}
-132|    84   Download^${PathReservationTracker}$_::GetReservedPath(
-   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 83, 7)}
-133|    85       download_item_,
-   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 84, 7)}
-134|    86       file_path_,
-   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 85, 7)}
-135|    87       download_dir,
-   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 86, 7)}
-136|    88       true,
-   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 87, 7)}
-137|    89       Download^${PathReservationTracker}$_::UNIQUIFY,
-   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 88, 7)}
-138|    90 }>_
-   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 89, 7)}
-139|
+159|    21 ^k{namespace}k_ {
+   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 20, 7)}
+160|    22 
+   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 21, 7)}
+161|    23 ^k{void}k_ CreateNewFileDone(
+   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 22, 7)}
+162|    24     ^k{const}k_ ^${DownloadTargetDeterminer}$_Delegate::ConfirmationCallback& callback,
+   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 23, 7)}
+163|    25     PathValidationResult result,
+   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 24, 7)}
+164|    26     ^k{const}k_ base::FilePath& target_path) {
+   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 25, 7)}
+165|    27   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
+   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 26, 7)}
+166|    28 }>_
+   |{'j': ('src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc', 27, 7)}
+167|
    |{}
-140|
+168|
    |{}

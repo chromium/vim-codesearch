@@ -1,346 +1,172 @@
 {
     "search_response": [
         {
-            "maybe_skipped_documents": false, 
-            "estimated_total_number_of_results": 4, 
+            "hit_max_results": false, 
+            "status": 0, 
+            "estimated_total_number_of_results": 19, 
             "search_result": [
                 {
-                    "docid": "dUIcBdtKMsk", 
-                    "language": "c++", 
+                    "docid": "pBvzJDH4d04", 
                     "match_reason": {
+                        "blame": false, 
                         "content": true, 
-                        "scoped_symbol": true
+                        "filename_lineno": false, 
+                        "scoped_symbol": true, 
+                        "filename": false
                     }, 
-                    "best_matching_line_number": 23, 
+                    "language": "c++", 
+                    "best_matching_line_number": 6, 
                     "snippet": [
                         {
+                            "scope": "<global>", 
+                            "first_line_number": 5, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": true, 
+                                "filename": false
+                            }, 
                             "text": {
-                                "text": "// version of the constructor, and if we are building a dynamic library we may\n// end up with multiple AtExitManagers on the same process.  We don't protect\n// this for thread-safe access, since it will only be modified in testing.\nstatic AtExitManager* g_top_manager = NULL;\n\nstatic bool g_disable_managers = false;\n\n", 
+                                "text": "#ifndef THIRD_PARTY_BLINK_RENDERER_MODULES_CREDENTIALMANAGER_CREDENTIALS_CONTAINER_H_\n#define THIRD_PARTY_BLINK_RENDERER_MODULES_CREDENTIALMANAGER_CREDENTIALS_CONTAINER_H_\n", 
                                 "range": [
                                     {
                                         "range": {
                                             "start_line": 1, 
-                                            "end_line": 2, 
+                                            "end_line": 1, 
                                             "start_column": 1, 
-                                            "end_column": 1
+                                            "end_column": 8
                                         }, 
-                                        "type": "SYNTAX_COMMENT"
+                                        "type": "SYNTAX_MACRO"
                                     }, 
                                     {
                                         "range": {
-                                            "start_line": 2, 
-                                            "end_line": 3, 
-                                            "start_column": 1, 
-                                            "end_column": 1
-                                        }, 
-                                        "type": "SYNTAX_COMMENT"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 3, 
-                                            "end_line": 4, 
-                                            "start_column": 1, 
-                                            "end_column": 1
-                                        }, 
-                                        "type": "SYNTAX_COMMENT"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 4, 
-                                            "end_line": 4, 
-                                            "start_column": 1, 
-                                            "end_column": 7
-                                        }, 
-                                        "type": "SYNTAX_KEYWORD"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 4, 
-                                            "end_line": 4, 
-                                            "start_column": 23, 
-                                            "end_column": 36
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 62, 
+                                            "end_column": 83
                                         }, 
                                         "type": "SNIPPET_QUERY_MATCH"
                                     }, 
                                     {
                                         "range": {
-                                            "start_line": 6, 
-                                            "end_line": 6, 
+                                            "start_line": 2, 
+                                            "end_line": 2, 
                                             "start_column": 1, 
-                                            "end_column": 7
+                                            "end_column": 8
                                         }, 
-                                        "type": "SYNTAX_KEYWORD"
+                                        "type": "SYNTAX_MACRO"
                                     }, 
                                     {
                                         "range": {
-                                            "start_line": 6, 
-                                            "end_line": 6, 
-                                            "start_column": 8, 
-                                            "end_column": 12
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 62, 
+                                            "end_column": 83
                                         }, 
-                                        "type": "SYNTAX_KEYWORD"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 6, 
-                                            "end_line": 6, 
-                                            "start_column": 34, 
-                                            "end_column": 39
-                                        }, 
-                                        "type": "SYNTAX_KEYWORD"
+                                        "type": "SNIPPET_QUERY_MATCH"
                                     }
                                 ]
-                            }, 
-                            "first_line_number": 20, 
-                            "match_reason": {
-                                "content": true, 
-                                "scoped_symbol": true
-                            }, 
-                            "scope": "base"
+                            }
                         }, 
                         {
-                            "text": {
-                                "text": "  AutoLock lock(g_top_manager->lock_);\n  DCHECK(!g_top_manager->processing_callbacks_);\n  g_top_manager->stack_.push(std::move(task));\n}\n\n// static\n", 
-                                "range": [
-                                    {
-                                        "range": {
-                                            "start_line": 1, 
-                                            "end_line": 1, 
-                                            "start_column": 17, 
-                                            "end_column": 30
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 2, 
-                                            "end_line": 2, 
-                                            "start_column": 11, 
-                                            "end_column": 24
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 3, 
-                                            "end_line": 3, 
-                                            "start_column": 3, 
-                                            "end_column": 16
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 6, 
-                                            "end_line": 7, 
-                                            "start_column": 1, 
-                                            "end_column": 1
-                                        }, 
-                                        "type": "SYNTAX_COMMENT"
-                                    }
-                                ]
-                            }, 
-                            "first_line_number": 62, 
+                            "scope": "blink", 
+                            "first_line_number": 39, 
                             "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": "base::AtExitManager::RegisterTask"
-                        }
-                    ], 
-                    "full_history_search": false, 
-                    "num_duplicates": 0, 
-                    "top_file": {
-                        "file": {
-                            "changelist": "0", 
-                            "name": "src/base/at_exit.cc", 
-                            "package_name": "webrtc", 
-                            "revision": "0"
-                        }
-                    }, 
-                    "has_unshown_matches": true, 
-                    "num_matches": 20
-                }, 
-                {
-                    "docid": "A8sapeUr92w", 
-                    "language": "c++", 
-                    "match_reason": {
-                        "content": true, 
-                        "scoped_symbol": true
-                    }, 
-                    "best_matching_line_number": 23, 
-                    "snippet": [
-                        {
-                            "text": {
-                                "text": "// version of the constructor, and if we are building a dynamic library we may\n// end up with multiple AtExitManagers on the same process.  We don't protect\n// this for thread-safe access, since it will only be modified in testing.\nstatic AtExitManager* g_top_manager = NULL;\n\nstatic bool g_disable_managers = false;\n\n", 
-                                "range": [
-                                    {
-                                        "range": {
-                                            "start_line": 1, 
-                                            "end_line": 2, 
-                                            "start_column": 1, 
-                                            "end_column": 1
-                                        }, 
-                                        "type": "SYNTAX_COMMENT"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 2, 
-                                            "end_line": 3, 
-                                            "start_column": 1, 
-                                            "end_column": 1
-                                        }, 
-                                        "type": "SYNTAX_COMMENT"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 3, 
-                                            "end_line": 4, 
-                                            "start_column": 1, 
-                                            "end_column": 1
-                                        }, 
-                                        "type": "SYNTAX_COMMENT"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 4, 
-                                            "end_line": 4, 
-                                            "start_column": 1, 
-                                            "end_column": 7
-                                        }, 
-                                        "type": "SYNTAX_KEYWORD"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 4, 
-                                            "end_line": 4, 
-                                            "start_column": 23, 
-                                            "end_column": 36
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 6, 
-                                            "end_line": 6, 
-                                            "start_column": 1, 
-                                            "end_column": 7
-                                        }, 
-                                        "type": "SYNTAX_KEYWORD"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 6, 
-                                            "end_line": 6, 
-                                            "start_column": 8, 
-                                            "end_column": 12
-                                        }, 
-                                        "type": "SYNTAX_KEYWORD"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 6, 
-                                            "end_line": 6, 
-                                            "start_column": 34, 
-                                            "end_column": 39
-                                        }, 
-                                        "type": "SYNTAX_KEYWORD"
-                                    }
-                                ]
-                            }, 
-                            "first_line_number": 20, 
-                            "match_reason": {
+                                "blame": false, 
                                 "content": true, 
-                                "scoped_symbol": true
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
                             }, 
-                            "scope": "base"
-                        }, 
-                        {
                             "text": {
-                                "text": "  AutoLock lock(g_top_manager->lock_);\n  DCHECK(!g_top_manager->processing_callbacks_);\n  g_top_manager->stack_.push(std::move(task));\n}\n\n// static\n", 
+                                "text": "}  // namespace blink\n\n#endif  // THIRD_PARTY_BLINK_RENDERER_MODULES_CREDENTIALMANAGER_CREDENTIALS_CONTAINER_H_\n", 
                                 "range": [
                                     {
                                         "range": {
                                             "start_line": 1, 
-                                            "end_line": 1, 
-                                            "start_column": 17, 
-                                            "end_column": 30
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 2, 
                                             "end_line": 2, 
-                                            "start_column": 11, 
-                                            "end_column": 24
+                                            "start_column": 4, 
+                                            "end_column": 1
                                         }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
+                                        "type": "SYNTAX_COMMENT"
                                     }, 
                                     {
                                         "range": {
                                             "start_line": 3, 
                                             "end_line": 3, 
-                                            "start_column": 3, 
-                                            "end_column": 16
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 6, 
-                                            "end_line": 7, 
                                             "start_column": 1, 
-                                            "end_column": 1
+                                            "end_column": 7
                                         }, 
-                                        "type": "SYNTAX_COMMENT"
-                                    }
-                                ]
-                            }, 
-                            "first_line_number": 62, 
-                            "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": "base::AtExitManager::RegisterTask"
-                        }
-                    ], 
-                    "full_history_search": false, 
-                    "num_duplicates": 0, 
-                    "top_file": {
-                        "file": {
-                            "changelist": "0", 
-                            "name": "src/base/at_exit.cc", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
-                    }, 
-                    "has_unshown_matches": true, 
-                    "num_matches": 20
-                }, 
-                {
-                    "docid": "svems5DwV8Q", 
-                    "language": "c++", 
-                    "match_reason": {
-                        "content": true
-                    }, 
-                    "best_matching_line_number": 121, 
-                    "snippet": [
-                        {
-                            "text": {
-                                "text": "\"race:base::Thread::StopSoon\\n\"\n\n// http://crbug.com/272095\n\"race:base::g_top_manager\\n\"\n\n// http://crbug.com/308590\n\"race:CustomThreadWatcher::~CustomThreadWatcher\\n\"\n", 
-                                "range": [
-                                    {
-                                        "range": {
-                                            "start_line": 1, 
-                                            "end_line": 1, 
-                                            "start_column": 1, 
-                                            "end_column": 32
-                                        }, 
-                                        "type": "SYNTAX_STRING"
+                                        "type": "SYNTAX_MACRO"
                                     }, 
                                     {
                                         "range": {
                                             "start_line": 3, 
                                             "end_line": 4, 
+                                            "start_column": 9, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 65, 
+                                            "end_column": 86
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }
+                                ]
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "ca4ec1dda90f6d9308fb186f7f732d1ab1a5fd94", 
+                            "name": "src/third_party/blink/renderer/modules/credentialmanager/credentials_container.h", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 3, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "72mhI6GEG_g", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 5, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n#include \"third_party/blink/renderer/modules/credentialmanager/credentials_container.h\"\n\n#include <memory>\n#include <utility>\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 3, 
                                             "start_column": 1, 
                                             "end_column": 1
                                         }, 
@@ -351,7 +177,16 @@
                                             "start_line": 4, 
                                             "end_line": 4, 
                                             "start_column": 1, 
-                                            "end_column": 29
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 10, 
+                                            "end_column": 88
                                         }, 
                                         "type": "SYNTAX_STRING"
                                     }, 
@@ -359,71 +194,481 @@
                                         "range": {
                                             "start_line": 4, 
                                             "end_line": 4, 
-                                            "start_column": 13, 
-                                            "end_column": 26
+                                            "start_column": 64, 
+                                            "end_column": 85
                                         }, 
                                         "type": "SNIPPET_QUERY_MATCH"
                                     }, 
                                     {
                                         "range": {
                                             "start_line": 6, 
-                                            "end_line": 7, 
+                                            "end_line": 6, 
                                             "start_column": 1, 
-                                            "end_column": 1
+                                            "end_column": 9
                                         }, 
-                                        "type": "SYNTAX_COMMENT"
+                                        "type": "SYNTAX_MACRO"
                                     }, 
                                     {
                                         "range": {
                                             "start_line": 7, 
                                             "end_line": 7, 
                                             "start_column": 1, 
-                                            "end_column": 51
+                                            "end_column": 9
                                         }, 
-                                        "type": "SYNTAX_STRING"
+                                        "type": "SYNTAX_MACRO"
                                     }
                                 ]
                             }, 
-                            "first_line_number": 118, 
+                            "first_line_number": 2, 
                             "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": "kTSanDefaultSuppressions"
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }
                     ], 
-                    "full_history_search": false, 
                     "num_duplicates": 0, 
                     "top_file": {
+                        "display_name": {}, 
                         "file": {
-                            "changelist": "0", 
-                            "name": "src/build/sanitizers/tsan_suppressions.cc", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
+                            "changelist": "7223b2b997a2d68e0b788bedb545cbc2634cca04", 
+                            "name": "src/third_party/blink/renderer/modules/credentialmanager/credentials_container.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
                     }, 
                     "has_unshown_matches": false, 
-                    "num_matches": 1
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
                 }, 
                 {
-                    "docid": "bJVh0iqXkDc", 
-                    "language": "c++", 
+                    "docid": "YJCY0UTEAD4", 
                     "match_reason": {
-                        "content": true
+                        "blame": false, 
+                        "content": false, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
                     }, 
-                    "best_matching_line_number": 121, 
+                    "language": "idl", 
+                    "best_matching_line_number": 1, 
                     "snippet": [
                         {
                             "text": {
-                                "text": "\"race:base::Thread::StopSoon\\n\"\n\n// http://crbug.com/272095\n\"race:base::g_top_manager\\n\"\n\n// http://crbug.com/308590\n\"race:CustomThreadWatcher::~CustomThreadWatcher\\n\"\n", 
+                                "text": "// Copyright 2014 The Chromium Authors. All rights reserved.\n// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n// https://w3c.github.io/webappsec-credential-management/#credentialscontainer\n\n[Exposed=Window, SecureContext]\n"
+                            }, 
+                            "first_line_number": 1, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": false, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "075f8ee3f10e8c321ea34cf1362d48dcd6ad1f65", 
+                            "name": "src/third_party/blink/renderer/modules/credentialmanager/credentials_container.idl", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 0, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "o-aVf_5xBqY", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 5, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "// Use of this source code is governed by a BSD-style license that can be\n// found in the LICENSE file.\n\n#include \"third_party/blink/renderer/modules/credentialmanager/credentials_container.h\"\n\n#include <memory>\n#include <utility>\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 3, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 10, 
+                                            "end_column": 88
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 64, 
+                                            "end_column": 85
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 2, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "7d8b2c19a9bfc4d22aa06860d747d10df6742290", 
+                            "name": "src/third_party/blink/renderer/modules/credentialmanager/credentials_container_test.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "nMAADpiiZfo", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 18, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "#include \"third_party/blink/renderer/bindings/core/v8/native_value_traits.h\"\n#include \"third_party/blink/renderer/bindings/core/v8/to_v8_for_core.h\"\n#include \"third_party/blink/renderer/bindings/core/v8/v8_binding_for_core.h\"\n#include \"third_party/blink/renderer/modules/credentialmanager/credentials_container.h\"\n#include \"third_party/blink/renderer/modules/modules_export.h\"\n#include \"third_party/blink/renderer/platform/bindings/script_wrappable.h\"\n#include \"third_party/blink/renderer/platform/bindings/v8_dom_wrapper.h\"\n", 
                                 "range": [
                                     {
                                         "range": {
                                             "start_line": 1, 
                                             "end_line": 1, 
                                             "start_column": 1, 
-                                            "end_column": 32
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 10, 
+                                            "end_column": 77
                                         }, 
                                         "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 10, 
+                                            "end_column": 72
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 10, 
+                                            "end_column": 77
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 10, 
+                                            "end_column": 88
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 64, 
+                                            "end_column": 85
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 10, 
+                                            "end_column": 63
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 10, 
+                                            "end_column": 75
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 10, 
+                                            "end_column": 73
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 15, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "b529a409ed9b2e8a6aa7fcd6794ea9012f198fc5", 
+                            "name": "src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "9T93-EyTn08", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": true, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 35, 
+                    "snippet": [
+                        {
+                            "scope": "blink::NavigatorCredentials", 
+                            "first_line_number": 32, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": true, 
+                                "filename": false
+                            }, 
+                            "text": {
+                                "text": "  explicit NavigatorCredentials(Navigator&);\n  CredentialsContainer* credentials();\n\n  Member<CredentialsContainer> credentials_container_;\n};\n\n}  // namespace blink\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 3, 
+                                            "end_column": 11
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 32, 
+                                            "end_column": 53
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 8, 
+                                            "start_column": 4, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }
+                                ]
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "0e0920e6fc2c333a8d537d25cd55bff63fc71fa7", 
+                            "name": "src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.h", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "NtxtRTva1AI", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 11, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "// DO NOT MODIFY!\n\n// clang-format off\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h\"\n\n#include \"base/memory/scoped_refptr.h\"\n#include \"third_party/blink/renderer/bindings/core/v8/script_promise.h\"\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
                                     }, 
                                     {
                                         "range": {
@@ -439,7 +684,16 @@
                                             "start_line": 4, 
                                             "end_line": 4, 
                                             "start_column": 1, 
-                                            "end_column": 29
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 10, 
+                                            "end_column": 85
                                         }, 
                                         "type": "SYNTAX_STRING"
                                     }, 
@@ -447,15 +701,408 @@
                                         "range": {
                                             "start_line": 4, 
                                             "end_line": 4, 
-                                            "start_column": 13, 
-                                            "end_column": 26
+                                            "start_column": 61, 
+                                            "end_column": 82
                                         }, 
                                         "type": "SNIPPET_QUERY_MATCH"
                                     }, 
                                     {
                                         "range": {
                                             "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 10, 
+                                            "end_column": 39
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
                                             "end_line": 7, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 10, 
+                                            "end_column": 72
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 8, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "bbab7a16af53f0787d62bb68296cd5f055269a6a", 
+                            "name": "src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "C7BVHQYkGfs", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 18, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "#include \"third_party/blink/renderer/bindings/core/v8/native_value_traits.h\"\n#include \"third_party/blink/renderer/bindings/core/v8/to_v8_for_core.h\"\n#include \"third_party/blink/renderer/bindings/core/v8/v8_binding_for_core.h\"\n#include \"third_party/blink/renderer/modules/credentialmanager/credentials_container.h\"\n#include \"third_party/blink/renderer/modules/modules_export.h\"\n#include \"third_party/blink/renderer/platform/bindings/script_wrappable.h\"\n#include \"third_party/blink/renderer/platform/bindings/v8_dom_wrapper.h\"\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 10, 
+                                            "end_column": 77
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 10, 
+                                            "end_column": 72
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 10, 
+                                            "end_column": 77
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 10, 
+                                            "end_column": 88
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 64, 
+                                            "end_column": 85
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 10, 
+                                            "end_column": 63
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 10, 
+                                            "end_column": 75
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 10, 
+                                            "end_column": 73
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 15, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "b529a409ed9b2e8a6aa7fcd6794ea9012f198fc5", 
+                            "name": "src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "8SuFZO6f4fM", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 11, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "#include \"third_party/blink/renderer/core/frame/local_dom_window.h\"\n#include \"third_party/blink/renderer/core/frame/local_frame.h\"\n#include \"third_party/blink/renderer/core/frame/navigator.h\"\n#include \"third_party/blink/renderer/modules/credentialmanager/credentials_container.h\"\n\nnamespace blink {\n\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 10, 
+                                            "end_column": 68
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 10, 
+                                            "end_column": 63
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 10, 
+                                            "end_column": 61
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 10, 
+                                            "end_column": 88
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 64, 
+                                            "end_column": 85
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 10
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 8, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "8051c1c017f1fc666e597acdb4f4b35c2dfc93ed", 
+                            "name": "src/third_party/blink/renderer/modules/credentialmanager/navigator_credentials.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 5, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "--7osi099OM", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 11, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "// DO NOT MODIFY!\n\n// clang-format off\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h\"\n\n#include \"base/memory/scoped_refptr.h\"\n#include \"third_party/blink/renderer/bindings/core/v8/script_promise.h\"\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 2, 
                                             "start_column": 1, 
                                             "end_column": 1
                                         }, 
@@ -463,38 +1110,1549 @@
                                     }, 
                                     {
                                         "range": {
+                                            "start_line": 3, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 10, 
+                                            "end_column": 85
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 61, 
+                                            "end_column": 82
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 10, 
+                                            "end_column": 39
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
                                             "start_line": 7, 
                                             "end_line": 7, 
                                             "start_column": 1, 
-                                            "end_column": 51
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 10, 
+                                            "end_column": 72
                                         }, 
                                         "type": "SYNTAX_STRING"
                                     }
                                 ]
                             }, 
-                            "first_line_number": 118, 
+                            "first_line_number": 8, 
                             "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": "kTSanDefaultSuppressions"
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }
                     ], 
-                    "full_history_search": false, 
                     "num_duplicates": 0, 
                     "top_file": {
+                        "display_name": {}, 
                         "file": {
-                            "changelist": "0", 
-                            "name": "src/build/sanitizers/tsan_suppressions.cc", 
-                            "package_name": "webrtc", 
-                            "revision": "0"
-                        }
+                            "changelist": "bbab7a16af53f0787d62bb68296cd5f055269a6a", 
+                            "name": "src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
                     }, 
                     "has_unshown_matches": false, 
-                    "num_matches": 1
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "zZELh_IX3_U", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "gn", 
+                    "best_matching_line_number": 21, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "    \"credential_manager_proxy.h\",\n    \"credential_manager_type_converters.cc\",\n    \"credential_manager_type_converters.h\",\n    \"credentials_container.cc\",\n    \"credentials_container.h\",\n    \"federated_credential.cc\",\n    \"federated_credential.h\",\n    \"navigator_credentials.cc\",\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 5, 
+                                            "end_column": 33
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 5, 
+                                            "end_column": 44
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 5, 
+                                            "end_column": 43
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 5, 
+                                            "end_column": 31
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 6, 
+                                            "end_column": 27
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 5, 
+                                            "end_column": 30
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 6, 
+                                            "end_column": 27
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 5, 
+                                            "end_column": 30
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 5, 
+                                            "end_column": 29
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 8, 
+                                            "end_line": 8, 
+                                            "start_column": 5, 
+                                            "end_column": 31
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 18, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "92c07988a6f483dfd065d12c10b983eb59167005", 
+                            "name": "src/third_party/blink/renderer/modules/credentialmanager/BUILD.gn", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 2, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "5GdKAshcP-g", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "gn", 
+                    "best_matching_line_number": 249, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "    \"canvas/canvas2d/canvas_rendering_context_2d_test.cc\",\n    \"canvas/htmlcanvas/html_canvas_element_module_test.cc\",\n    \"canvas/offscreencanvas/offscreen_canvas_test.cc\",\n    \"credentialmanager/credentials_container_test.cc\",\n    \"credentialmanager/password_credential_test.cc\",\n    \"csspaint/paint_rendering_context_2d_test.cc\",\n    \"csspaint/paint_worklet_test.cc\",\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 5, 
+                                            "end_column": 58
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 5, 
+                                            "end_column": 59
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 5, 
+                                            "end_column": 54
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 5, 
+                                            "end_column": 54
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 24, 
+                                            "end_column": 45
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 5, 
+                                            "end_column": 52
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 5, 
+                                            "end_column": 50
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 5, 
+                                            "end_column": 37
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 246, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "a58c88a7b9eb7011380a9cc29766ad938a947645", 
+                            "name": "src/third_party/blink/renderer/modules/BUILD.gn", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "iLfpztII32s", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "gn", 
+                    "best_matching_line_number": 105, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "          \"credentialmanager/authenticator_attestation_response.idl\",\n          \"credentialmanager/authenticator_response.idl\",\n          \"credentialmanager/credential.idl\",\n          \"credentialmanager/credentials_container.idl\",\n          \"credentialmanager/federated_credential.idl\",\n          \"credentialmanager/password_credential.idl\",\n          \"credentialmanager/public_key_credential.idl\",\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 11, 
+                                            "end_column": 69
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 11, 
+                                            "end_column": 57
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 11, 
+                                            "end_column": 45
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 11, 
+                                            "end_column": 56
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 30, 
+                                            "end_column": 51
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 11, 
+                                            "end_column": 55
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 11, 
+                                            "end_column": 54
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 11, 
+                                            "end_column": 56
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 102, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "4f60eef6fc874c2b6a585cb8fe2cab77f62723c8", 
+                            "name": "src/third_party/blink/renderer/modules/modules_idl_files.gni", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "jw2Cs5O31gc", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 76, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "#include \"third_party/blink/renderer/bindings/modules/v8/v8_cookie_change_event.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_cookie_store.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_credential.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_crypto.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_crypto_key.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_database.h\"\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 10, 
+                                            "end_column": 83
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 10, 
+                                            "end_column": 76
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 10, 
+                                            "end_column": 74
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 10, 
+                                            "end_column": 85
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 61, 
+                                            "end_column": 82
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 10, 
+                                            "end_column": 70
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 10, 
+                                            "end_column": 74
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 10, 
+                                            "end_column": 72
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 73, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "91b8f6a7ad4013d7256b8a8e24b927abac59386f", 
+                            "name": "src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "W09cIoMQZl4", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 448, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "#include \"third_party/blink/renderer/bindings/modules/v8/v8_convolver_node.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_coordinates.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_credential.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_crypto.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_crypto_key.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_css_partial.h\"\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 10, 
+                                            "end_column": 78
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 10, 
+                                            "end_column": 75
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 10, 
+                                            "end_column": 74
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 10, 
+                                            "end_column": 85
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 61, 
+                                            "end_column": 82
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 10, 
+                                            "end_column": 70
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 10, 
+                                            "end_column": 74
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 10, 
+                                            "end_column": 75
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 445, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "cc36c7e8113432869deda560ed66787e6d7bea93", 
+                            "name": "src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "R4HpCv553Ac", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 25, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "#include \"third_party/blink/renderer/bindings/modules/v8/v8_bluetooth.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_budget_service.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_clipboard.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_deprecated_storage_quota.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_gamepad_list.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_geolocation.h\"\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 10, 
+                                            "end_column": 73
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 10, 
+                                            "end_column": 78
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 10, 
+                                            "end_column": 73
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 10, 
+                                            "end_column": 85
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 61, 
+                                            "end_column": 82
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 10, 
+                                            "end_column": 88
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 10, 
+                                            "end_column": 76
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 10, 
+                                            "end_column": 75
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 22, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "10c8891a18c617c063f3f87df406c74f88fb90af", 
+                            "name": "src/out/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "11HhBDHaVOM", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 76, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "#include \"third_party/blink/renderer/bindings/modules/v8/v8_cookie_change_event.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_cookie_store.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_credential.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_crypto.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_crypto_key.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_database.h\"\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 10, 
+                                            "end_column": 83
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 10, 
+                                            "end_column": 76
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 10, 
+                                            "end_column": 74
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 10, 
+                                            "end_column": 85
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 61, 
+                                            "end_column": 82
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 10, 
+                                            "end_column": 70
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 10, 
+                                            "end_column": 74
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 10, 
+                                            "end_column": 72
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 73, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "91b8f6a7ad4013d7256b8a8e24b927abac59386f", 
+                            "name": "src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_window_partial.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "eRKwrVDWF3o", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 448, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "#include \"third_party/blink/renderer/bindings/modules/v8/v8_convolver_node.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_coordinates.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_credential.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_crypto.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_crypto_key.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_css_partial.h\"\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 10, 
+                                            "end_column": 78
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 10, 
+                                            "end_column": 75
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 10, 
+                                            "end_column": 74
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 10, 
+                                            "end_column": 85
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 61, 
+                                            "end_column": 82
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 10, 
+                                            "end_column": 70
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 10, 
+                                            "end_column": 74
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 10, 
+                                            "end_column": 75
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 445, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "cc36c7e8113432869deda560ed66787e6d7bea93", 
+                            "name": "src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_context_snapshot_external_references.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "s0fGdiCt6po", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 25, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "#include \"third_party/blink/renderer/bindings/modules/v8/v8_bluetooth.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_budget_service.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_clipboard.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_credentials_container.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_deprecated_storage_quota.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_gamepad_list.h\"\n#include \"third_party/blink/renderer/bindings/modules/v8/v8_geolocation.h\"\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 10, 
+                                            "end_column": 73
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 10, 
+                                            "end_column": 78
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 10, 
+                                            "end_column": 73
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 10, 
+                                            "end_column": 85
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 61, 
+                                            "end_column": 82
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 10, 
+                                            "end_column": 88
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 10, 
+                                            "end_column": 76
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 10, 
+                                            "end_column": 75
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 22, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "10c8891a18c617c063f3f87df406c74f88fb90af", 
+                            "name": "src/out/chromium-android/Debug/gen/third_party/blink/renderer/bindings/modules/v8/v8_navigator_partial.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
                 }
             ], 
-            "results_offset": 0
+            "results_offset": 0, 
+            "hit_max_matches_per_file": false, 
+            "maybe_skipped_documents": false, 
+            "hit_max_to_score": false
         }
-    ], 
-    "elapsed_ms": 5
+    ]
 }

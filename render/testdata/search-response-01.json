@@ -1,75 +1,570 @@
 {
     "search_response": [
         {
-            "maybe_skipped_documents": false, 
-            "estimated_total_number_of_results": 13, 
-            "hit_max_matches_per_file": true, 
-            "results_offset": 0, 
+            "hit_max_results": false, 
+            "status": 0, 
+            "estimated_total_number_of_results": 16, 
             "search_result": [
                 {
-                    "docid": "zzUX4LneK-Q", 
-                    "language": "c++", 
+                    "docid": "WNv6OTWGZz4", 
                     "match_reason": {
+                        "blame": false, 
                         "content": true, 
-                        "scoped_symbol": true
+                        "filename_lineno": false, 
+                        "scoped_symbol": true, 
+                        "filename": false
                     }, 
-                    "best_matching_line_number": 24, 
+                    "language": "c++", 
+                    "best_matching_line_number": 52, 
                     "snippet": [
                         {
                             "text": {
-                                "text": "// Therefore only considering files that exist on the filesystem is\n// insufficient. This class tracks files that are assigned to active downloads\n// so that uniquification can take those into account as well.\nclass DownloadPathReservationTracker {\n public:\n  // Callback used with |GetReservedPath|. |target_path| specifies the target\n  // path for the download. |target_path_verified| is true if all of the\n", 
+                                "text": "//\n// The only public entrypoint is the static Start() method which creates an\n// instance of DownloadTargetDeterminer.\nclass DownloadTargetDeterminer : public download::DownloadItem::Observer {\n public:\n  using CompletionCallback =\n      base::Callback<void(std::unique_ptr<DownloadTargetInfo>)>;\n", 
                                 "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 3, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 16, 
+                                            "end_column": 40
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
                                     {
                                         "range": {
                                             "start_line": 4, 
                                             "end_line": 4, 
-                                            "start_column": 15, 
-                                            "end_column": 37
+                                            "start_column": 1, 
+                                            "end_column": 6
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 7, 
+                                            "end_column": 31
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 34, 
+                                            "end_column": 40
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 2, 
+                                            "end_column": 8
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 3, 
+                                            "end_column": 8
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 22, 
+                                            "end_column": 26
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 49, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": true, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "d3f49be120b71537f4780f51c79a1ddefee127c7", 
+                            "name": "src/chrome/browser/download/download_target_determiner.h", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 12, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "rGzlI55GPI8", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": true, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 89, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "DownloadTargetDeterminerDelegate::~DownloadTargetDeterminerDelegate() {\n}\n\nDownloadTargetDeterminer::DownloadTargetDeterminer(\n    DownloadItem* download,\n    const base::FilePath& initial_virtual_path,\n    DownloadPathReservationTracker::FilenameConflictAction conflict_action,\n    DownloadPrefs* download_prefs,\n    DownloadTargetDeterminerDelegate* delegate,\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 25
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 36, 
+                                            "end_column": 60
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 25
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 27, 
+                                            "end_column": 51
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 5, 
+                                            "end_column": 10
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 9, 
+                                            "end_line": 9, 
+                                            "start_column": 5, 
+                                            "end_column": 29
                                         }, 
                                         "type": "SNIPPET_QUERY_MATCH"
                                     }
                                 ]
                             }, 
-                            "first_line_number": 21, 
+                            "first_line_number": 86, 
                             "match_reason": {
+                                "blame": false, 
                                 "content": true, 
-                                "scoped_symbol": true
-                            }, 
-                            "scope": ""
+                                "filename_lineno": false, 
+                                "scoped_symbol": true, 
+                                "filename": false
+                            }
                         }
                     ], 
-                    "full_history_search": false, 
                     "num_duplicates": 0, 
                     "top_file": {
+                        "display_name": {}, 
                         "file": {
-                            "changelist": "0", 
-                            "name": "src/chrome/browser/download/download_path_reservation_tracker.h", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
+                            "changelist": "82eee2a72cc48918ff97ac2624c0ffa253d09a04", 
+                            "name": "src/chrome/browser/download/download_target_determiner.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
                     }, 
-                    "has_unshown_matches": false, 
-                    "num_matches": 1
+                    "has_unshown_matches": true, 
+                    "num_matches": 52, 
+                    "is_augmented": false, 
+                    "hit_max_matches": true
                 }, 
                 {
-                    "docid": "BExR-2xcwiM", 
-                    "language": "c++", 
+                    "docid": "WxJXrluMwrA", 
                     "match_reason": {
+                        "blame": false, 
                         "content": true, 
-                        "scoped_symbol": true
+                        "filename_lineno": false, 
+                        "scoped_symbol": true, 
+                        "filename": false
                     }, 
-                    "best_matching_line_number": 35, 
+                    "language": "c++", 
+                    "best_matching_line_number": 26, 
+                    "snippet": [
+                        {
+                            "scope": "download", 
+                            "first_line_number": 21, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": true, 
+                                "filename": false
+                            }, 
+                            "text": {
+                                "text": "class DownloadItem;\n}\n\n// Delegate for DownloadTargetDeterminer. The delegate isn't owned by\n// DownloadTargetDeterminer and is expected to outlive it.\nclass DownloadTargetDeterminerDelegate {\n public:\n  // Callback to be invoked after NotifyExtensions() completes. The\n  // |new_virtual_path| should be set to a new path if an extension wishes to\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 6
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 17, 
+                                            "end_column": 41
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 4, 
+                                            "end_column": 28
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 6
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 7, 
+                                            "end_column": 31
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 2, 
+                                            "end_column": 8
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 8, 
+                                            "end_line": 9, 
+                                            "start_column": 3, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 9, 
+                                            "end_line": 10, 
+                                            "start_column": 3, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }
+                                ]
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "33634167777641124667f3968ce8c6ebccc3aa4d", 
+                            "name": "src/chrome/browser/download/download_target_determiner_delegate.h", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 4, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "_JvbiSSqvHg", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": true, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 241, 
+                    "snippet": [
+                        {
+                            "scope": "<anonymous>::MockDownloadTargetDeterminerDelegate::NullDetermineLocalPath", 
+                            "first_line_number": 238, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": true, 
+                                "filename": false
+                            }, 
+                            "text": {
+                                "text": "      const LocalPathCallback& callback);\n};\n\nclass DownloadTargetDeterminerTest : public ChromeRenderViewHostTestHarness {\n public:\n  DownloadTargetDeterminerTest() = default;\n\n  // ::testing::Test\n  void SetUp() override;\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 7, 
+                                            "end_column": 12
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 6
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 7, 
+                                            "end_column": 31
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 38, 
+                                            "end_column": 44
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 2, 
+                                            "end_column": 8
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 3, 
+                                            "end_column": 27
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 36, 
+                                            "end_column": 43
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 8, 
+                                            "end_line": 9, 
+                                            "start_column": 3, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 9, 
+                                            "end_line": 9, 
+                                            "start_column": 3, 
+                                            "end_column": 7
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 9, 
+                                            "end_line": 9, 
+                                            "start_column": 16, 
+                                            "end_column": 24
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }
+                                ]
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "79e4a32cb8246c948ead6f34978d5628aa6738df", 
+                            "name": "src/chrome/browser/download/download_target_determiner_unittest.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 42, 
+                    "is_augmented": false, 
+                    "hit_max_matches": true
+                }, 
+                {
+                    "docid": "UdEkhr_Se7Y", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 412, 
                     "snippet": [
                         {
                             "text": {
-                                "text": "namespace {\n\nclass DownloadPathReservationTrackerTest : public testing::Test {\n public:\n  DownloadPathReservationTrackerTest();\n\n  // testing::Test\n  void SetUp() override;\n", 
+                                "text": "bool DownloadPrefs::ShouldOpenPdfInSystemReader() const {\n#if defined(OS_WIN)\n  if (IsAdobeReaderDefaultPDFViewer() &&\n      !DownloadTargetDeterminer::IsAdobeReaderUpToDate()) {\n      return false;\n  }\n#endif\n", 
                                 "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 5
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 51, 
+                                            "end_column": 56
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 4
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
                                     {
                                         "range": {
                                             "start_line": 3, 
                                             "end_line": 3, 
-                                            "start_column": 15, 
-                                            "end_column": 37
+                                            "start_column": 3, 
+                                            "end_column": 5
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 8, 
+                                            "end_column": 32
                                         }, 
                                         "type": "SNIPPET_QUERY_MATCH"
                                     }, 
@@ -77,96 +572,96 @@
                                         "range": {
                                             "start_line": 5, 
                                             "end_line": 5, 
-                                            "start_column": 11, 
-                                            "end_column": 33
+                                            "start_column": 7, 
+                                            "end_column": 13
                                         }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 14, 
+                                            "end_column": 19
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 1, 
+                                            "end_column": 7
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
                                     }
                                 ]
                             }, 
-                            "first_line_number": 33, 
+                            "first_line_number": 409, 
                             "match_reason": {
+                                "blame": false, 
                                 "content": true, 
-                                "scoped_symbol": true
-                            }, 
-                            "scope": ""
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }
                     ], 
-                    "full_history_search": false, 
                     "num_duplicates": 0, 
                     "top_file": {
+                        "display_name": {}, 
                         "file": {
-                            "changelist": "0", 
-                            "name": "src/chrome/browser/download/download_path_reservation_tracker_unittest.cc", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
+                            "changelist": "095f65c5a7169299d87a6bcfde9c08e6292a64b2", 
+                            "name": "src/chrome/browser/download/download_prefs.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
                     }, 
-                    "has_unshown_matches": true, 
-                    "num_matches": 61, 
-                    "hit_max_matches": true
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
                 }, 
                 {
-                    "docid": "LtEGRGlTIGY", 
-                    "language": "c++", 
+                    "docid": "yXW0FVY0aVw", 
                     "match_reason": {
+                        "blame": false, 
                         "content": true, 
-                        "scoped_symbol": true
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
                     }, 
-                    "best_matching_line_number": 165, 
+                    "language": "c++", 
+                    "best_matching_line_number": 1975, 
                     "snippet": [
                         {
                             "text": {
-                                "text": "    const base::FilePath& suggested_path,\n    const base::FilePath& default_download_path,\n    bool create_directory,\n    DownloadPathReservationTracker::FilenameConflictAction conflict_action,\n    base::FilePath* reserved_path) {\n  DCHECK_CURRENTLY_ON(BrowserThread::FILE);\n  DCHECK(suggested_path.IsAbsolute());\n", 
+                                "text": "  // slow download job.\n  history::DownloadRow& row(downloads_in_database->at(0));\n  EXPECT_EQ(DestinationFile(browser(), file), row.target_path);\n  EXPECT_EQ(DownloadTargetDeterminer::GetCrDownloadPath(\n                DestinationFile(browser(), file)),\n            row.current_path);\n  ASSERT_EQ(2u, row.url_chain.size());\n", 
                                 "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 2, 
+                                            "start_column": 3, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 55, 
+                                            "end_column": 56
+                                        }, 
+                                        "type": "SYNTAX_NUMBER"
+                                    }, 
                                     {
                                         "range": {
                                             "start_line": 4, 
                                             "end_line": 4, 
                                             "start_column": 13, 
-                                            "end_column": 35
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }
-                                ]
-                            }, 
-                            "first_line_number": 162, 
-                            "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": ""
-                        }
-                    ], 
-                    "full_history_search": false, 
-                    "num_duplicates": 0, 
-                    "top_file": {
-                        "file": {
-                            "changelist": "0", 
-                            "name": "src/chrome/browser/download/download_path_reservation_tracker.cc", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
-                    }, 
-                    "has_unshown_matches": true, 
-                    "num_matches": 7
-                }, 
-                {
-                    "docid": "WNv6OTWGZz4", 
-                    "language": "c++", 
-                    "match_reason": {
-                        "content": true
-                    }, 
-                    "best_matching_line_number": 173, 
-                    "snippet": [
-                        {
-                            "text": {
-                                "text": "  // |conflict_action_|.\n  void NotifyExtensionsDone(\n      const base::FilePath& new_path,\n      DownloadPathReservationTracker::FilenameConflictAction conflict_action);\n\n  // Invokes ReserveVirtualPath() on the delegate to acquire a reservation for\n  // the path. See DownloadPathReservationTracker.\n  // Next state:\n  // - STATE_PROMPT_USER_FOR_DOWNLOAD_PATH.\n  Result DoReserveVirtualPath();\n", 
-                                "range": [
-                                    {
-                                        "range": {
-                                            "start_line": 4, 
-                                            "end_line": 4, 
-                                            "start_column": 15, 
                                             "end_column": 37
                                         }, 
                                         "type": "SNIPPET_QUERY_MATCH"
@@ -175,448 +670,96 @@
                                         "range": {
                                             "start_line": 7, 
                                             "end_line": 7, 
-                                            "start_column": 28, 
-                                            "end_column": 50
+                                            "start_column": 13, 
+                                            "end_column": 14
                                         }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
+                                        "type": "SYNTAX_NUMBER"
                                     }
                                 ]
                             }, 
-                            "first_line_number": 170, 
+                            "first_line_number": 1972, 
                             "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": ""
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }
                     ], 
-                    "full_history_search": false, 
                     "num_duplicates": 0, 
                     "top_file": {
+                        "display_name": {}, 
                         "file": {
-                            "changelist": "0", 
-                            "name": "src/chrome/browser/download/download_target_determiner.h", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
+                            "changelist": "c29d2add9cd1af2f7a59db92e2d68d43600c212a", 
+                            "name": "src/chrome/browser/download/download_browsertest.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
                     }, 
                     "has_unshown_matches": true, 
-                    "num_matches": 3
+                    "num_matches": 2, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
                 }, 
                 {
-                    "docid": "rGzlI55GPI8", 
-                    "language": "c++", 
+                    "docid": "WUxbx8gXKVI", 
                     "match_reason": {
-                        "content": true
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
                     }, 
-                    "best_matching_line_number": 107, 
+                    "language": "c++", 
+                    "best_matching_line_number": 423, 
                     "snippet": [
                         {
-                            "text": {
-                                "text": "      should_prompt_(false),\n      should_notify_extensions_(false),\n      create_target_directory_(false),\n      conflict_action_(DownloadPathReservationTracker::OVERWRITE),\n      danger_type_(download->GetDangerType()),\n      danger_level_(DownloadFileType::NOT_DANGEROUS),\n      virtual_path_(initial_virtual_path),\n", 
-                                "range": [
-                                    {
-                                        "range": {
-                                            "start_line": 4, 
-                                            "end_line": 4, 
-                                            "start_column": 32, 
-                                            "end_column": 54
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }
-                                ]
-                            }, 
-                            "first_line_number": 104, 
+                            "scope": "DownloadCommands::CanOpenPdfInSystemViewer", 
+                            "first_line_number": 420, 
                             "match_reason": {
-                                "content": true
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
                             }, 
-                            "scope": ""
-                        }
-                    ], 
-                    "full_history_search": false, 
-                    "num_duplicates": 0, 
-                    "top_file": {
-                        "file": {
-                            "changelist": "0", 
-                            "name": "src/chrome/browser/download/download_target_determiner.cc", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
-                    }, 
-                    "has_unshown_matches": true, 
-                    "num_matches": 7
-                }, 
-                {
-                    "docid": "yj8BH5ftBkg", 
-                    "language": "c++", 
-                    "match_reason": {
-                        "content": true
-                    }, 
-                    "best_matching_line_number": 306, 
-                    "snippet": [
-                        {
                             "text": {
-                                "text": " public:\n  typedef base::Callback<void(\n      const base::FilePath& changed_filename,\n      DownloadPathReservationTracker::FilenameConflictAction)>\n    FilenameChangedCallback;\n\n  static void SetDetermineFilenameTimeoutSecondsForTesting(int s);\n", 
-                                "range": [
-                                    {
-                                        "range": {
-                                            "start_line": 4, 
-                                            "end_line": 4, 
-                                            "start_column": 15, 
-                                            "end_column": 37
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }
-                                ]
-                            }, 
-                            "first_line_number": 303, 
-                            "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": ""
-                        }
-                    ], 
-                    "full_history_search": false, 
-                    "num_duplicates": 0, 
-                    "top_file": {
-                        "file": {
-                            "changelist": "0", 
-                            "name": "src/chrome/browser/extensions/api/downloads/downloads_api.h", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
-                    }, 
-                    "has_unshown_matches": false, 
-                    "num_matches": 1
-                }, 
-                {
-                    "docid": "vGZDy-f1g8M", 
-                    "language": "c++", 
-                    "match_reason": {
-                        "content": true
-                    }, 
-                    "best_matching_line_number": 586, 
-                    "snippet": [
-                        {
-                            "text": {
-                                "text": "DownloadPathReservationTracker::FilenameConflictAction ConvertConflictAction(\n    downloads::FilenameConflictAction action) {\n  switch (action) {\n    case downloads::FILENAME_CONFLICT_ACTION_NONE:\n    case downloads::FILENAME_CONFLICT_ACTION_UNIQUIFY:\n      return DownloadPathReservationTracker::UNIQUIFY;\n    case downloads::FILENAME_CONFLICT_ACTION_OVERWRITE:\n      return DownloadPathReservationTracker::OVERWRITE;\n    case downloads::FILENAME_CONFLICT_ACTION_PROMPT:\n      return DownloadPathReservationTracker::PROMPT;\n", 
+                                "text": "  bool is_adobe_pdf_reader_up_to_date = false;\n  if (IsDownloadPdf() && IsAdobeReaderDefaultPDFViewer()) {\n    is_adobe_pdf_reader_up_to_date =\n        DownloadTargetDeterminer::IsAdobeReaderUpToDate();\n  }\n  return IsDownloadPdf() &&\n         (IsAdobeReaderDefaultPDFViewer() ? is_adobe_pdf_reader_up_to_date\n", 
                                 "range": [
                                     {
                                         "range": {
                                             "start_line": 1, 
                                             "end_line": 1, 
+                                            "start_column": 3, 
+                                            "end_column": 7
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 41, 
+                                            "end_column": 46
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 3, 
+                                            "end_column": 5
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
                                             "start_column": 9, 
-                                            "end_column": 31
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 6, 
-                                            "end_line": 6, 
-                                            "start_column": 22, 
-                                            "end_column": 44
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 8, 
-                                            "end_line": 8, 
-                                            "start_column": 22, 
-                                            "end_column": 44
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 10, 
-                                            "end_line": 10, 
-                                            "start_column": 22, 
-                                            "end_column": 44
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }
-                                ]
-                            }, 
-                            "first_line_number": 586, 
-                            "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": ""
-                        }
-                    ], 
-                    "full_history_search": false, 
-                    "num_duplicates": 0, 
-                    "top_file": {
-                        "file": {
-                            "changelist": "0", 
-                            "name": "src/chrome/browser/extensions/api/downloads/downloads_api.cc", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
-                    }, 
-                    "has_unshown_matches": true, 
-                    "num_matches": 5
-                }, 
-                {
-                    "docid": "WxJXrluMwrA", 
-                    "language": "c++", 
-                    "match_reason": {
-                        "content": true
-                    }, 
-                    "best_matching_line_number": 33, 
-                    "snippet": [
-                        {
-                            "text": {
-                                "text": "  // ignored.\n  typedef base::Callback<void(\n      const base::FilePath& new_virtual_path,\n      DownloadPathReservationTracker::FilenameConflictAction conflict_action)>\n  NotifyExtensionsCallback;\n\n  // Callback to be invoked when ReserveVirtualPath() completes. If the path\n", 
-                                "range": [
-                                    {
-                                        "range": {
-                                            "start_line": 4, 
-                                            "end_line": 4, 
-                                            "start_column": 15, 
-                                            "end_column": 37
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }
-                                ]
-                            }, 
-                            "first_line_number": 30, 
-                            "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": ""
-                        }
-                    ], 
-                    "full_history_search": false, 
-                    "num_duplicates": 0, 
-                    "top_file": {
-                        "file": {
-                            "changelist": "0", 
-                            "name": "src/chrome/browser/download/download_target_determiner_delegate.h", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
-                    }, 
-                    "has_unshown_matches": true, 
-                    "num_matches": 2
-                }, 
-                {
-                    "docid": "liZvKXVDLM8", 
-                    "language": "c++", 
-                    "match_reason": {
-                        "content": true
-                    }, 
-                    "best_matching_line_number": 111, 
-                    "snippet": [
-                        {
-                            "text": {
-                                "text": "      content::DownloadItem* download,\n      const base::FilePath& virtual_path,\n      bool create_directory,\n      DownloadPathReservationTracker::FilenameConflictAction conflict_action,\n      const ReservedPathCallback& callback) override;\n  void PromptUserForDownloadPath(content::DownloadItem* download,\n                                 const base::FilePath& suggested_virtual_path,\n", 
-                                "range": [
-                                    {
-                                        "range": {
-                                            "start_line": 4, 
-                                            "end_line": 4, 
-                                            "start_column": 15, 
-                                            "end_column": 37
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }
-                                ]
-                            }, 
-                            "first_line_number": 108, 
-                            "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": ""
-                        }
-                    ], 
-                    "full_history_search": false, 
-                    "num_duplicates": 0, 
-                    "top_file": {
-                        "file": {
-                            "changelist": "0", 
-                            "name": "src/chrome/browser/download/chrome_download_manager_delegate.h", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
-                    }, 
-                    "has_unshown_matches": false, 
-                    "num_matches": 1
-                }, 
-                {
-                    "docid": "_JvbiSSqvHg", 
-                    "language": "c++", 
-                    "match_reason": {
-                        "content": true
-                    }, 
-                    "best_matching_line_number": 167, 
-                    "snippet": [
-                        {
-                            "text": {
-                                "text": "                    const LocalPathCallback&));\n  MOCK_METHOD5(ReserveVirtualPath,\n               void(DownloadItem*, const base::FilePath&, bool,\n                    DownloadPathReservationTracker::FilenameConflictAction,\n                    const ReservedPathCallback&));\n  MOCK_METHOD2(GetFileMimeType,\n               void(const base::FilePath&,\n", 
-                                "range": [
-                                    {
-                                        "range": {
-                                            "start_line": 4, 
-                                            "end_line": 4, 
-                                            "start_column": 29, 
-                                            "end_column": 51
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }
-                                ]
-                            }, 
-                            "first_line_number": 164, 
-                            "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": ""
-                        }
-                    ], 
-                    "full_history_search": false, 
-                    "num_duplicates": 0, 
-                    "top_file": {
-                        "file": {
-                            "changelist": "0", 
-                            "name": "src/chrome/browser/download/download_target_determiner_unittest.cc", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
-                    }, 
-                    "has_unshown_matches": true, 
-                    "num_matches": 13
-                }, 
-                {
-                    "docid": "6bZrtHH9Up0", 
-                    "language": "c++", 
-                    "match_reason": {
-                        "content": true
-                    }, 
-                    "best_matching_line_number": 580, 
-                    "snippet": [
-                        {
-                            "text": {
-                                "text": "                   DownloadPathReservationTracker::UNIQUIFY);\n    router->OnDeterminingFilename(download, virtual_path.BaseName(),\n                                  original_path_callback,\n                                  callback);\n    return;\n  }\n#endif\n  callback.Run(base::FilePath(), DownloadPathReservationTracker::UNIQUIFY);\n", 
-                                "range": [
-                                    {
-                                        "range": {
-                                            "start_line": 1, 
-                                            "end_line": 1, 
-                                            "start_column": 28, 
-                                            "end_column": 50
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 8, 
-                                            "end_line": 8, 
-                                            "start_column": 42, 
-                                            "end_column": 64
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }
-                                ]
-                            }, 
-                            "first_line_number": 580, 
-                            "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": ""
-                        }
-                    ], 
-                    "full_history_search": false, 
-                    "num_duplicates": 0, 
-                    "top_file": {
-                        "file": {
-                            "changelist": "0", 
-                            "name": "src/chrome/browser/download/chrome_download_manager_delegate.cc", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
-                    }, 
-                    "has_unshown_matches": true, 
-                    "num_matches": 4
-                }, 
-                {
-                    "docid": "68uZqksL2gs", 
-                    "language": "c++", 
-                    "match_reason": {
-                        "content": true
-                    }, 
-                    "best_matching_line_number": 104, 
-                    "snippet": [
-                        {
-                            "text": {
-                                "text": "                 DownloadPathReservationTracker::UNIQUIFY);\n  }\n\n  void ReserveVirtualPath(\n      content::DownloadItem* download,\n      const base::FilePath& virtual_path,\n      bool create_directory,\n      DownloadPathReservationTracker::FilenameConflictAction conflict_action,\n      const DownloadPathReservationTracker::ReservedPathCallback& callback)\n", 
-                                "range": [
-                                    {
-                                        "range": {
-                                            "start_line": 1, 
-                                            "end_line": 1, 
-                                            "start_column": 26, 
-                                            "end_column": 48
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 8, 
-                                            "end_line": 8, 
-                                            "start_column": 15, 
-                                            "end_column": 37
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }, 
-                                    {
-                                        "range": {
-                                            "start_line": 9, 
-                                            "end_line": 9, 
-                                            "start_column": 21, 
-                                            "end_column": 43
-                                        }, 
-                                        "type": "SNIPPET_QUERY_MATCH"
-                                    }
-                                ]
-                            }, 
-                            "first_line_number": 104, 
-                            "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": ""
-                        }
-                    ], 
-                    "full_history_search": false, 
-                    "num_duplicates": 0, 
-                    "top_file": {
-                        "file": {
-                            "changelist": "0", 
-                            "name": "src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
-                    }, 
-                    "has_unshown_matches": false, 
-                    "num_matches": 3
-                }, 
-                {
-                    "docid": "mVasASkQUKc", 
-                    "language": "c++", 
-                    "match_reason": {
-                        "content": true
-                    }, 
-                    "best_matching_line_number": 84, 
-                    "snippet": [
-                        {
-                            "text": {
-                                "text": "  DownloadPathReservationTracker::GetReservedPath(\n      download_item_,\n      file_path_,\n      download_dir,\n      true,\n      DownloadPathReservationTracker::UNIQUIFY,\n", 
-                                "range": [
-                                    {
-                                        "range": {
-                                            "start_line": 1, 
-                                            "end_line": 1, 
-                                            "start_column": 11, 
                                             "end_column": 33
                                         }, 
                                         "type": "SNIPPET_QUERY_MATCH"
@@ -625,35 +768,995 @@
                                         "range": {
                                             "start_line": 6, 
                                             "end_line": 6, 
-                                            "start_column": 15, 
-                                            "end_column": 37
+                                            "start_column": 3, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }
+                                ]
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "3a64f7928c891db69dc26ee2a10fabd6d940637e", 
+                            "name": "src/chrome/browser/download/download_commands.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "6bZrtHH9Up0", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 135, 
+                    "snippet": [
+                        {
+                            "scope": "<anonymous>::PlatformDownloadPathType", 
+                            "first_line_number": 132, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }, 
+                            "text": {
+                                "text": "};\n\n// Returns a path in the form that that is expected by platform_util::OpenItem /\n// platform_util::ShowItemInFolder / DownloadTargetDeterminer.\n//\n// DownloadItems corresponding to Drive downloads use a temporary file as the\n// target path. The paths returned by DownloadItem::GetFullPath() /\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 38, 
+                                            "end_column": 62
                                         }, 
                                         "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 7, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 8, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }
+                                ]
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "19b1f34431b3fda9a26b982859b88f5b4d390141", 
+                            "name": "src/chrome/browser/download/chrome_download_manager_delegate.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 9, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "K1Ukq4aHypo", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c", 
+                    "best_matching_line_number": 8, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "#ifndef CHROME_BROWSER_DOWNLOAD_DOWNLOAD_CONFIRMATION_REASON_H_\n#define CHROME_BROWSER_DOWNLOAD_DOWNLOAD_CONFIRMATION_REASON_H_\n\n// Reason why DownloadTargetDeterminer requested additional confirmation for the\n// target path via RequestConfirmation delegate method.\nenum class DownloadConfirmationReason {\n  NONE,\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 8
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 8
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 15, 
+                                            "end_column": 39
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 5
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 6, 
+                                            "end_column": 11
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
                                     }
                                 ]
                             }, 
-                            "first_line_number": 84, 
+                            "first_line_number": 5, 
                             "match_reason": {
-                                "content": true
-                            }, 
-                            "scope": ""
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
                         }
                     ], 
-                    "full_history_search": false, 
                     "num_duplicates": 0, 
                     "top_file": {
+                        "display_name": {}, 
                         "file": {
-                            "changelist": "0", 
-                            "name": "src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc", 
-                            "package_name": "chromium", 
-                            "revision": "0"
-                        }
+                            "changelist": "b3cafd5be051d7c9f37867be532f3d04c251df05", 
+                            "name": "src/chrome/browser/download/download_confirmation_reason.h", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
                     }, 
                     "has_unshown_matches": false, 
-                    "num_matches": 2
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "liZvKXVDLM8", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 54, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "class ChromeDownloadManagerDelegate\n    : public content::DownloadManagerDelegate,\n      public content::NotificationObserver,\n      public DownloadTargetDeterminerDelegate {\n public:\n  explicit ChromeDownloadManagerDelegate(Profile* profile);\n  ~ChromeDownloadManagerDelegate() override;\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 6
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 7, 
+                                            "end_column": 13
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 7, 
+                                            "end_column": 13
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 7, 
+                                            "end_column": 13
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 14, 
+                                            "end_column": 38
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 2, 
+                                            "end_column": 8
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 3, 
+                                            "end_column": 11
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 36, 
+                                            "end_column": 44
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 51, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "e0bd9a9e10bb95138209dd9aeb40701d5d0698ed", 
+                            "name": "src/chrome/browser/download/chrome_download_manager_delegate.h", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 3, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "vGZDy-f1g8M", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 1694, 
+                    "snippet": [
+                        {
+                            "scope": "extensions", 
+                            "first_line_number": 1691, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }, 
+                            "text": {
+                                "text": "// chrome.downloads.onDeterminingFilename.addListener, which adds an\n// EventListener object to ExtensionEventRouter::listeners().\n//\n// When a download's filename is being determined, DownloadTargetDeterminer (via\n// ChromeDownloadManagerDelegate (CDMD) ::NotifyExtensions()) passes 2 callbacks\n// to ExtensionDownloadsEventRouter::OnDeterminingFilename (ODF), which stores\n// the callbacks in the item's ExtensionDownloadsEventRouterData (EDERD) along\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 2, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 3, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 52, 
+                                            "end_column": 76
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 6, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 7, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 8, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }
+                                ]
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "91e94f805570a2ca0e1be361ef00e75f8e8c6061", 
+                            "name": "src/chrome/browser/extensions/api/downloads/downloads_api.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 2, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "rb7P5QShQDg", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c", 
+                    "best_matching_line_number": 11, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "#include \"build/build_config.h\"\n\n// Result of RequestConfirmation delegate method for\n// DownloadTargetDeterminerDelegate.\nenum class DownloadConfirmationResult {\n  // The user confirmed the path. Only use this value if the user was explicitly\n  // shown the path or at least the filename being downloaded.\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 9
+                                        }, 
+                                        "type": "SYNTAX_MACRO"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 10, 
+                                            "end_column": 32
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 4, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 4, 
+                                            "end_column": 28
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 1, 
+                                            "end_column": 5
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 6, 
+                                            "end_column": 11
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 7, 
+                                            "start_column": 3, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 8, 
+                                            "start_column": 3, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 8, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "7b92014ea9c2011cf6ed00d92f950f1818aa7e19", 
+                            "name": "src/chrome/browser/download/download_confirmation_result.h", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "68uZqksL2gs", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 152, 
+                    "snippet": [
+                        {
+                            "scope": "<anonymous>::TestChromeDownloadManagerDelegate", 
+                            "first_line_number": 150, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }, 
+                            "text": {
+                                "text": "  // DownloadPathReservationTracker talks to the underlying file system. For\n  // tests we are going to mock it out so that we can test how\n  // ChromeDownloadManagerDelegate reponds to various DownloadTargetDeterminer\n  // results.\n  void ReserveVirtualPath(\n      download::DownloadItem* download,\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 2, 
+                                            "start_column": 3, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 3, 
+                                            "start_column": 3, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 4, 
+                                            "start_column": 3, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 55, 
+                                            "end_column": 79
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 5, 
+                                            "start_column": 3, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 5, 
+                                            "end_line": 5, 
+                                            "start_column": 3, 
+                                            "end_column": 7
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }
+                                ]
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "1d1a57cf69db6e91ecdff9d170a3a5316c3263a2", 
+                            "name": "src/chrome/browser/download/chrome_download_manager_delegate_unittest.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 4, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "0oqkL1vxP-c", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 2931, 
+                    "snippet": [
+                        {
+                            "scope": "extensions", 
+                            "first_line_number": 2928, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }, 
+                            "text": {
+                                "text": "  EXPECT_EQ(\"\", error);\n\n  // Calling DetermineFilename again should return an error instead of calling\n  // DownloadTargetDeterminer.\n  ASSERT_FALSE(ExtensionDownloadsEventRouter::DetermineFilename(\n      current_browser()->profile(), false, GetExtensionId(), result_id,\n      base::FilePath(FILE_PATH_LITERAL(\"different\")),\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 13, 
+                                            "end_column": 15
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 4, 
+                                            "start_column": 3, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 5, 
+                                            "start_column": 3, 
+                                            "end_column": 1
+                                        }, 
+                                        "type": "SYNTAX_COMMENT"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 6, 
+                                            "end_column": 30
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 37, 
+                                            "end_column": 42
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 7, 
+                                            "end_line": 7, 
+                                            "start_column": 40, 
+                                            "end_column": 51
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }
+                                ]
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "a6529fc0fdbda165e4d8af5288f052ae53cd53a7", 
+                            "name": "src/chrome/browser/extensions/api/downloads/downloads_api_browsertest.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "BExR-2xcwiM", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 249, 
+                    "snippet": [
+                        {
+                            "scope": "DownloadPathReservationTrackerTest_ConflictingFiles", 
+                            "first_line_number": 246, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }, 
+                            "text": {
+                                "text": "  ASSERT_EQ(0, base::WriteFile(path, \"\", 0));\n  ASSERT_EQ(0,\n            base::WriteFile(\n                DownloadTargetDeterminer::GetCrDownloadPath(path1), \"\", 0));\n  ASSERT_TRUE(IsPathInUse(path));\n\n  base::FilePath reserved_path;\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 13, 
+                                            "end_column": 14
+                                        }, 
+                                        "type": "SYNTAX_NUMBER"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 38, 
+                                            "end_column": 40
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 42, 
+                                            "end_column": 43
+                                        }, 
+                                        "type": "SYNTAX_NUMBER"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 2, 
+                                            "end_line": 2, 
+                                            "start_column": 13, 
+                                            "end_column": 14
+                                        }, 
+                                        "type": "SYNTAX_NUMBER"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 17, 
+                                            "end_column": 41
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 69, 
+                                            "end_column": 71
+                                        }, 
+                                        "type": "SYNTAX_STRING"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 73, 
+                                            "end_column": 74
+                                        }, 
+                                        "type": "SYNTAX_NUMBER"
+                                    }
+                                ]
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "0b0a709edc072786ccc9c30b95549ce0ca16e52c", 
+                            "name": "src/chrome/browser/download/download_path_reservation_tracker_unittest.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": false, 
+                    "num_matches": 1, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
+                }, 
+                {
+                    "docid": "mVasASkQUKc", 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": true, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }, 
+                    "language": "c++", 
+                    "best_matching_line_number": 24, 
+                    "snippet": [
+                        {
+                            "text": {
+                                "text": "namespace {\n\nvoid CreateNewFileDone(\n    const DownloadTargetDeterminerDelegate::ConfirmationCallback& callback,\n    PathValidationResult result,\n    const base::FilePath& target_path) {\n  DCHECK_CURRENTLY_ON(content::BrowserThread::UI);\n", 
+                                "range": [
+                                    {
+                                        "range": {
+                                            "start_line": 1, 
+                                            "end_line": 1, 
+                                            "start_column": 1, 
+                                            "end_column": 10
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 3, 
+                                            "end_line": 3, 
+                                            "start_column": 1, 
+                                            "end_column": 5
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 5, 
+                                            "end_column": 10
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 4, 
+                                            "end_line": 4, 
+                                            "start_column": 11, 
+                                            "end_column": 35
+                                        }, 
+                                        "type": "SNIPPET_QUERY_MATCH"
+                                    }, 
+                                    {
+                                        "range": {
+                                            "start_line": 6, 
+                                            "end_line": 6, 
+                                            "start_column": 5, 
+                                            "end_column": 10
+                                        }, 
+                                        "type": "SYNTAX_KEYWORD"
+                                    }
+                                ]
+                            }, 
+                            "first_line_number": 21, 
+                            "match_reason": {
+                                "blame": false, 
+                                "content": true, 
+                                "filename_lineno": false, 
+                                "scoped_symbol": false, 
+                                "filename": false
+                            }
+                        }
+                    ], 
+                    "num_duplicates": 0, 
+                    "top_file": {
+                        "display_name": {}, 
+                        "file": {
+                            "changelist": "283794562e586d33b46b480d86191276a5e87ac1", 
+                            "name": "src/chrome/browser/android/download/chrome_duplicate_download_infobar_delegate.cc", 
+                            "package_name": "chromium"
+                        }, 
+                        "license": {}, 
+                        "size": 0
+                    }, 
+                    "has_unshown_matches": true, 
+                    "num_matches": 3, 
+                    "is_augmented": false, 
+                    "hit_max_matches": false
                 }
-            ]
+            ], 
+            "results_offset": 0, 
+            "hit_max_matches_per_file": true, 
+            "maybe_skipped_documents": false, 
+            "hit_max_to_score": false
         }
-    ], 
-    "elapsed_ms": 22
+    ]
 }

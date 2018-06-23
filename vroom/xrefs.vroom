@@ -1,0 +1,79 @@
+Cross References
+----------------
+
+Cross references are what people see when they hit :CrXrefSearch. Let's see how
+that works.
+
+First lets open up a file that's inside a fake directory that looks like a
+Chromium checkout.
+
+  :e testdata/src/base/base64.cc
+
+The file above is supposed to convince the CodeSearch plugin that it is inside a
+Chromium checkout. Let's see if the file got loaded correctly.
+
+  & // Copyright (c) 2012 The Chromium Authors. All rights reserved.
+  & // Use of this source code is governed by a BSD-style license that can be
+  & // found in the LICENSE file.
+  & 
+  & #include "base/base64.h"
+  & 
+  & #include <stddef.h>
+
+Good. Now let's navigate down to the Base64Encode function. The cursor is going
+to be on the first B:
+
+  > /Base64Encode<CR>
+
+And invoke cross reference search:
+
+  :CrXrefSearch
+
+  & ^Cat{Definition:
+  & }Cat_  ^F{src/base/base64.cc}F_
+  &     13:  ^>{void Base64Encode(const StringPiece& input, std::string* output) {}>_
+
+Let's go to the declaration:
+
+  > /Declaration<CR>j
+
+And jump to the file under the cursor
+
+  > <CR>
+
+  & // Copyright (c) 2011 The Chromium Authors. All rights reserved.
+  & // Use of this source code is governed by a BSD-style license that can be
+  & // found in the LICENSE file.
+  &
+  & #ifndef BASE_BASE64_H_
+  & #define BASE_BASE64_H_
+
+See we are in the header file. Let's go back to the search results page.
+
+  > <C-O>
+  : echomsg bufname("%")
+  ~ Crossreferences* (glob)
+
+Jump to the definition:
+
+  > gg/Definition<CR>jj
+
+And move the cursor over to the B in Base64Encode:
+
+  > 0fB
+
+And jump to the file:
+
+  > <CR>
+
+This time we should be on the line containing the definition:
+
+  : echomsg bufname("%")
+  ~ *base64.cc (glob)
+
+Not only that, the cursor should be on the first B:
+
+  > "aye
+  : echomsg getreg("a")
+  ~ Base64Encode
+

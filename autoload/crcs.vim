@@ -56,6 +56,8 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
   
   syn region csMarkedupCode concealends matchgroup=csConceal start=/\^>{/ end=/}>_/ transparent contains=@csFormatGroups
 
+  syn region csQuery concealends matchgroup=csConceal start=/\^q{/ end=/}q_/
+
   hi def link csKeyword cStatement
   hi def link csString cString
   hi def link csComment cComment
@@ -69,6 +71,7 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
   hi def link csConceal Conceal
   hi def link csLineNum Comment
   hi def link csContinuation Comment
+  hi def link csQuery Special
   
   " High level syntax groups for describing search results.
   if a:buftype ==# 'search'
@@ -92,7 +95,7 @@ function! crcs#SetupCodesearchBuffer(bufname, dirname, buftype)
     syn region csFilename concealends matchgroup=csConceal start=/\^F{/ end=/}F_/ contains=NONE nextgroup=csLine
     syn match csLine /^ *\d+:/me=e-1 nextgroup=csMarkedupCode
     hi def link csCategory Special
-    hi def link csLine Number
+    hi def link csLine LineNr
     hi def link csFilename Directory
 
     nnoremap <buffer> <silent> [[ :call crcs#JumpToNextFile()<CR>

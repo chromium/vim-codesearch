@@ -5,75 +5,81 @@ will be inserted into the vim buffer at that line. The immediately following
 line contains an object representing associated metadata.
 -------------------------------------------------------------------------------
 
-001|^N{[-] ^S{net::HttpAuthHandler::GenerateAuthToken(const net::AuthCredentials *, const net::HttpRequestInfo *, const base::Callback<...> &, std::basic_string<...> *)}S_
-   |{'s': 'cpp:net::class-HttpAuthHandler::GenerateAuthToken(const net::AuthCredentials *, const net::HttpRequestInfo *, const base::Callback<void (int), base::internal::CopyMode::Copyable, base::internal::RepeatMode::Repeating> &, std::basic_string<char, std::char_traits<char>, std::allocator<char> > *)@chromium/../../net/http/http_auth_handler.h|decl', 'j': ('src/net/http/http_auth_handler.h', 75, 10)}
+001|^N{[-] 
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler.h#JeFRw996xZZVV9czj%2FFb1cDpm3lK9KygMuH3I5j8Gvs%3D'}
 002|
    |{}
-003|^N{    [+] ^S{net::HttpAuthController::MaybeGenerateAuthToken(const net::HttpRequestInfo *, const base::Callback<...> &, const net::NetLogWithSource &)}S_^>{
-   |{'s': 'cpp:net::class-HttpAuthController::MaybeGenerateAuthToken(const net::HttpRequestInfo *, const base::Callback<void (int), base::internal::CopyMode::Copyable, base::internal::RepeatMode::Repeating> &, const net::NetLogWithSource &)@chromium/../../net/http/http_auth_controller.cc|def', 'j': ('src/net/http/http_auth_controller.cc', 143, 14)}
-004|        158   int rv = handler_->GenerateAuthToken(
-   |{'j': ('src/net/http/http_auth_controller.cc', 157, 12)}
+003|^N{    [+] ^S{MaybeGenerateAuthToken}S_ ^F{src/net/http/http_auth_controller.cc}F_^>{
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_controller.cc#KT6dW2Oyiv3OtfDK3Auh0pjK2V2ZCCzASfU34HIjU1A%3D', 'j': ('src/net/http/http_auth_controller.cc', 144, 14)}
+004|        159   int rv = handler_->GenerateAuthToken(
+   |{'j': ('src/net/http/http_auth_controller.cc', 158, 12)}
 005|}>_
    |{}
-006|}N_^N{    [+] ^S{net::HttpAuthHandlerBasicTest_GenerateAuthToken_Test::TestBody()}S_^>{
-   |{'s': 'cpp:net::class-HttpAuthHandlerBasicTest_GenerateAuthToken_Test::TestBody()@chromium/../../net/http/http_auth_handler_basic_unittest.cc|def', 'j': ('src/net/http/http_auth_handler_basic_unittest.cc', 25, 17)}
+006|}N_^N{    [+] ^S{TestBody}S_ ^F{src/net/http/http_auth_handler_basic_unittest.cc}F_^>{
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_basic_unittest.cc#rGyD7PGS8PcACbNF5dm7cMXAM6Dsg2C7f2H2w45x0Xo%3D', 'j': ('src/net/http/http_auth_handler_basic_unittest.cc', 25, 17)}
 007|        54     int rv = basic->GenerateAuthToken(&credentials, &request_info,
    |{'j': ('src/net/http/http_auth_handler_basic_unittest.cc', 53, 11)}
 008|}>_
    |{}
-009|}N_^N{    [+] ^S{net::{}::RespondToChallenge(net::HttpAuth::Target, const std::basic_string<...> &, const std::basic_string<...> &, const std::basic_string<...> &, std::basic_string<...> *)}S_^>{
-   |{'s': 'cpp:net::<anonymous-namespace>::RespondToChallenge(net::HttpAuth::Target, const std::basic_string<char, std::char_traits<char>, std::allocator<char> > &, const std::basic_string<char, std::char_traits<char>, std::allocator<char> > &, const std::basic_string<char, std::char_traits<char>, std::allocator<char> > &, std::basic_string<char, std::char_traits<char>, std::allocator<char> > *)@chromium/../../net/http/http_auth_handler_digest_unittest.cc|def', 'j': ('src/net/http/http_auth_handler_digest_unittest.cc', 37, 17)}
+009|}N_^N{    [+] ^S{RespondToChallenge}S_ ^F{src/net/http/http_auth_handler_digest_unittest.cc}F_^>{
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_digest_unittest.cc#NWXPUm5fOZr6UiWzw8QJpbFF8qT%2Bbs0%2FWxz%2Bz6rxCAE%3D', 'j': ('src/net/http/http_auth_handler_digest_unittest.cc', 37, 17)}
 010|        80   int rv_generate = handler->GenerateAuthToken(
    |{'j': ('src/net/http/http_auth_handler_digest_unittest.cc', 79, 11)}
 011|}>_
    |{}
-012|}N_^N{    [+] ^S{net::HttpAuthHandlerNegotiateTest_DisableCname_Test::TestBody()}S_^>{
-   |{'s': 'cpp:net::class-HttpAuthHandlerNegotiateTest_DisableCname_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 244, 17)}
-013|        255   EXPECT_EQ(OK, callback.GetResult(auth_handler->GenerateAuthToken(
-   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 254, 12)}
+012|}N_^N{    [+] ^S{TestBody}S_ ^F{src/net/http/http_auth_handler_negotiate_unittest.cc}F_^>{
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#K4ikCIS9mEQ2mHfCRGMW5LQewkaTRwkdAaRECIIEiX8%3D', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 246, 17)}
+013|        257   EXPECT_EQ(OK, callback.GetResult(auth_handler->GenerateAuthToken(
+   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 256, 12)}
 014|}>_
    |{}
-015|}N_^N{    [+] ^S{net::HttpAuthHandlerNegotiateTest_DisableCnameStandardPort_Test::TestBody()}S_^>{
-   |{'s': 'cpp:net::class-HttpAuthHandlerNegotiateTest_DisableCnameStandardPort_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 263, 17)}
-016|        273   EXPECT_EQ(OK, callback.GetResult(auth_handler->GenerateAuthToken(
-   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 272, 12)}
+015|}N_^N{    [+] ^S{TestBody}S_ ^F{src/net/http/http_auth_handler_negotiate_unittest.cc}F_^>{
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#VfqfOw7DzVIjSOvfAoZkrsRnILsU2svoU3J3QXGEKdE%3D', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 265, 17)}
+016|        275   EXPECT_EQ(OK, callback.GetResult(auth_handler->GenerateAuthToken(
+   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 274, 12)}
 017|}>_
    |{}
-018|}N_^N{    [+] ^S{net::HttpAuthHandlerNegotiateTest_DisableCnameNonstandardPort_Test::TestBody()}S_^>{
-   |{'s': 'cpp:net::class-HttpAuthHandlerNegotiateTest_DisableCnameNonstandardPort_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 281, 17)}
-019|        291   EXPECT_EQ(OK, callback.GetResult(auth_handler->GenerateAuthToken(
-   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 290, 12)}
+018|}N_^N{    [+] ^S{TestBody}S_ ^F{src/net/http/http_auth_handler_negotiate_unittest.cc}F_^>{
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#MazmFIKzSqLuiLofsfY1tlOdgXUaTXxd8SccEVJ9HWw%3D', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 283, 17)}
+019|        293   EXPECT_EQ(OK, callback.GetResult(auth_handler->GenerateAuthToken(
+   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 292, 12)}
 020|}>_
    |{}
-021|}N_^N{    [+] ^S{net::HttpAuthHandlerNegotiateTest_CnameSync_Test::TestBody()}S_^>{
-   |{'s': 'cpp:net::class-HttpAuthHandlerNegotiateTest_CnameSync_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 299, 17)}
-022|        309   EXPECT_EQ(OK, callback.GetResult(auth_handler->GenerateAuthToken(
-   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 308, 12)}
+021|}N_^N{    [+] ^S{TestBody}S_ ^F{src/net/http/http_auth_handler_negotiate_unittest.cc}F_^>{
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#g7ofIg8EBdx3S%2Bg8ITGeYjzFy5DEXZ4SDF5UPD7BpcI%3D', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 301, 17)}
+022|        311   EXPECT_EQ(OK, callback.GetResult(auth_handler->GenerateAuthToken(
+   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 310, 12)}
 023|}>_
    |{}
-024|}N_^N{    [+] ^S{net::HttpAuthHandlerNegotiateTest_CnameAsync_Test::TestBody()}S_^>{
-   |{'s': 'cpp:net::class-HttpAuthHandlerNegotiateTest_CnameAsync_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 317, 17)}
-025|        327   EXPECT_EQ(ERR_IO_PENDING, auth_handler->GenerateAuthToken(
-   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 326, 12)}
+024|}N_^N{    [+] ^S{TestBody}S_ ^F{src/net/http/http_auth_handler_negotiate_unittest.cc}F_^>{
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#7FHB99jS0bE%2BoVdt265ONAIqYAdc4DR5kppiAcF0YSE%3D', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 319, 17)}
+025|        329   EXPECT_EQ(ERR_IO_PENDING, auth_handler->GenerateAuthToken(
+   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 328, 12)}
 026|}>_
    |{}
-027|}N_^N{    [+] ^S{net::HttpAuthHandlerNegotiateTest_ServerNotInKerberosDatabase_Test::TestBody()}S_^>{
-   |{'s': 'cpp:net::class-HttpAuthHandlerNegotiateTest_ServerNotInKerberosDatabase_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 340, 17)}
-028|        350   EXPECT_EQ(ERR_IO_PENDING, auth_handler->GenerateAuthToken(
-   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 349, 12)}
+027|}N_^N{    [+] ^S{TestBody}S_ ^F{src/net/http/http_auth_handler_negotiate_unittest.cc}F_^>{
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#Rrtf%2FzL8yfwFbA8Xf%2B5Q6%2FnOxpoky4ikgHiK7MnTTVE%3D', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 342, 17)}
+028|        352   EXPECT_EQ(ERR_IO_PENDING, auth_handler->GenerateAuthToken(
+   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 351, 12)}
 029|}>_
    |{}
-030|}N_^N{    [+] ^S{net::HttpAuthHandlerNegotiateTest_NoKerberosCredentials_Test::TestBody()}S_^>{
-   |{'s': 'cpp:net::class-HttpAuthHandlerNegotiateTest_NoKerberosCredentials_Test::TestBody()@chromium/../../net/http/http_auth_handler_negotiate_unittest.cc|def', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 356, 17)}
-031|        366   EXPECT_EQ(ERR_IO_PENDING, auth_handler->GenerateAuthToken(
-   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 365, 12)}
+030|}N_^N{    [+] ^S{TestBody}S_ ^F{src/net/http/http_auth_handler_negotiate_unittest.cc}F_^>{
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#d7IMoCLUefiYaXMDOaxLMz2FMx7QtVnkwNSfvTNNtxc%3D', 'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 358, 17)}
+031|        368   EXPECT_EQ(ERR_IO_PENDING, auth_handler->GenerateAuthToken(
+   |{'j': ('src/net/http/http_auth_handler_negotiate_unittest.cc', 367, 12)}
 032|}>_
    |{}
-033|}N_^N{    [+] ^S{net::HttpAuthHandlerTest_NetLog_Test::TestBody()}S_^>{
-   |{'s': 'cpp:net::class-HttpAuthHandlerTest_NetLog_Test::TestBody()@chromium/../../net/http/http_auth_handler_unittest.cc|def', 'j': ('src/net/http/http_auth_handler_unittest.cc', 23, 17)}
-034|        53         mock_handler.GenerateAuthToken(&credentials, &request,
-   |{'j': ('src/net/http/http_auth_handler_unittest.cc', 52, 11)}
+033|}N_^N{    [+] ^S{GenerateAuthToken}S_ ^F{src/net/http/http_auth_handler_ntlm_portable_unittest.cc}F_^>{
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_ntlm_portable_unittest.cc#MLDmQc3F5wGTwKNVa06Shcenysy7X%2FMfsWLA3KgPVt4%3D', 'j': ('src/net/http/http_auth_handler_ntlm_portable_unittest.cc', 78, 17)}
+034|        82     return callback.GetResult(GetAuthHandler()->GenerateAuthToken(
+   |{'j': ('src/net/http/http_auth_handler_ntlm_portable_unittest.cc', 81, 11)}
 035|}>_
    |{}
-036|}N_}N_
+036|}N_^N{    [+] ^S{TestBody}S_ ^F{src/net/http/http_auth_handler_unittest.cc}F_^>{
+   |{'s': 'kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_unittest.cc#GA%2Bgg3Wjb9br4%2BfIxRALnWq0B%2BIzV4PD4r7%2FPajlk9Y%3D', 'j': ('src/net/http/http_auth_handler_unittest.cc', 24, 17)}
+037|        56         mock_handler.GenerateAuthToken(&credentials, &request,
+   |{'j': ('src/net/http/http_auth_handler_unittest.cc', 55, 11)}
+038|}>_
+   |{}
+039|}N_}N_
    |{}

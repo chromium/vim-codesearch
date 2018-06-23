@@ -11,6 +11,12 @@ from contextlib import contextmanager
 
 import codesearch as cs
 
+# For type checking. Not needed at runtime.
+try:
+  from typing import Any, Optional, List, Dict, Union, Type, Tuple
+except ImportError:
+  pass
+
 SNIPPET_INDENT = 4
 
 TAG_START_FORMAT = '^{:s}{{'
@@ -32,25 +38,36 @@ RE_BLOCK_END_META = re.compile(r'}[^_]+_')
 
 
 def CountBlockMarkupOverhead(s):
-  """Return the number of characters that have been used up by |s| for
-    markup.
+  # type: (str) -> int
+  """\
+  Return the number of characters that have been used up by |s| for
+  markup.
 
-    Only counts complete tags. I.e. "^S{foo}S_" will return 6, but
-    "^S{foo}S" will return 3.
+  Only counts complete tags. I.e. "^S{foo}S_" will
+  return 6:
 
-    """
+  >>> CountBlockMarkupOverhead("^S{foo}S_")
+  6
+
+  , but CountBlockMarkupOverhead("^S{foo}S") will return 3.
+
+  >>> CountBlockMarkupOverhead("^S{foo}S")
+  3
+  """
   return len(''.join(RE_BLOCK_START_META.findall(s))) + \
       len(''.join(RE_BLOCK_END_META.findall(s)))
 
 
-# Context for writing the contents of a tagged block. Automatically writes the
-# start and end blocks with no additional newlines.
-#
-# Use as:
-#    with TaggedBlock(mapper, 'x'):
-#       mapper.write(...)
 @contextmanager
 def TaggedBlock(mapper, block_type):
+  '''\
+  Context for writing the contents of a tagged block. Automatically writes the
+  start and end blocks with no additional newlines.
+
+  Use as:
+     with TaggedBlock(mapper, 'x'):
+        mapper.write(...)
+  '''
   mapper.write(StartTag(block_type))
   yield
   mapper.write(EndTag(block_type))
@@ -109,7 +126,7 @@ class LocationMapper(object):
     return (filename, target_line + 1, target_column + 1)
 
   def PreviousFileLocation(self, line):
-    current_file, _, _ = self.jump_map_[line]
+    current_file, _, _ = self.jump_map_.get(line, ('', 0, 0))
 
     line -= 2
     while line >= 1:
@@ -143,7 +160,11 @@ class LocationMapper(object):
     assert line > 0
     line -= 1
     if line not in self.signature_map_:
-      line = max([l for l in self.signature_map_.keys() if l < line])
+      candidates =[l for l in self.signature_map_.keys() if l < line] 
+      if len(candidates) == 0:
+        return None
+
+      line = max(candidates)
     return self.signature_map_[line]
 
 
@@ -176,19 +197,17 @@ def RenderAnnotatedText(mapper,
 
   insertions = []
 
-  if hasattr(annotated_text, 'range'):
-    ranges = annotated_text.range
-    for r in ranges:
-      block_type = GetBlockTypeFromFormatType(r.type)
-      if block_type is None:
-        continue
-      if r.range.end_column == 1 and r.range.start_line != r.range.end_line:
-        r.range.end_line -= 1
-        r.range.end_column = len(text_lines[r.range.end_line - 1]) + 1
-      insertions.append((r.range.end_line, r.range.end_column,
-                         EndTag(block_type)))
-      insertions.append((r.range.start_line, r.range.start_column,
-                         StartTag(block_type)))
+  for r in annotated_text.range:
+    block_type = GetBlockTypeFromFormatType(r.type)
+    if block_type is None:
+      continue
+    if r.range.end_column == 1 and r.range.start_line != r.range.end_line:
+      r.range.end_line -= 1
+      r.range.end_column = len(text_lines[r.range.end_line - 1]) + 1
+    insertions.append((r.range.end_line, r.range.end_column,
+                       EndTag(block_type)))
+    insertions.append((r.range.start_line, r.range.start_column,
+                       StartTag(block_type)))
 
   insertions.sort(
       lambda i1, i2: i2[0] - i1[0] if i2[0] != i1[0] else i2[1] - i1[1])
@@ -215,8 +234,7 @@ def RenderSnippet(mapper,
                   filename,
                   level=1,
                   aux_first_line_number=1):
-  first_line_number = snippet.first_line_number if hasattr(
-      snippet, 'first_line_number') else aux_first_line_number
+  first_line_number = snippet.first_line_number if snippet.first_line_number else aux_first_line_number
   if s_index != 0:
     mapper.newline()
     mapper.write(' ' * SNIPPET_INDENT * level)
@@ -236,11 +254,38 @@ def RenderSearchResult(mapper, index, search_result):
   mapper.newline()
 
 
-def RenderSearchResponse(mapper, search_response):
-  for index, result in enumerate(search_response.search_result):
-    RenderSearchResult(mapper, index, result)
+def RenderSearchResponse(mapper, query, search_response):
+  assert isinstance(search_response, cs.SearchResponse)
+
+  if search_response.search_result:
+    mapper.write('CodeSearch results for ')
+    with TaggedBlock(mapper, 'q'):
+      mapper.write(query)
+    mapper.newline()
     mapper.newline()
 
+    for index, result in enumerate(search_response.search_result):
+      RenderSearchResult(mapper, index + search_response.results_offset, result)
+      mapper.newline()
+
+    if search_response.hit_max_results:
+      mapper.write('Search results are truncated. Showing {} results out of an estimated {}.'.format(
+          len(search_response.search_result),
+          search_response.estimated_total_number_of_results
+      ))
+      mapper.newline()
+  else:
+    mapper.write('No results for query ')
+    with TaggedBlock(mapper, 'q'):
+      mapper.write(query)
+    mapper.newline()
+    mapper.newline()
+
+    if search_response.status_message:
+      mapper.write('Server status: {}'.format(search_response.status_message))
+      mapper.newline()
+    mapper.write('Status code  : {}'.format(search_response.status))
+    mapper.newline()
 
 def RenderXrefResults(mapper, results):
 
@@ -273,8 +318,11 @@ def RenderXrefResults(mapper, results):
 
 def RenderXrefSearchResponse(mapper, xref_search_response):
   # Failed?
-  if hasattr(xref_search_response,
-             'status') and xref_search_response.status != 0:
+  if xref_search_response.status != 0:
+    mapper.write('No results for query\n')
+    if xref_search_response.status_message:
+      mapper.write('Server status: {}'.format(xref_search_response.status_message))
+    mapper.write(  'Status code  : {}'.format(xref_search_response.status))
     return
 
   class Bin:
@@ -290,12 +338,16 @@ def RenderXrefSearchResponse(mapper, xref_search_response):
   collectors = {
       cs.KytheXrefKind.DEFINITION: Bin('Definition', 1),
       cs.KytheXrefKind.DECLARATION: Bin('Declaration', 2),
-      cs.KytheXrefKind.CALLED_BY: Bin('Calls', 3),
+      cs.KytheXrefKind.CALLED_BY: Bin('Called by', 3),
       cs.KytheXrefKind.INSTANTIATION: Bin('Instantiations', 4),
       cs.KytheXrefKind.OVERRIDDEN_BY: Bin('Overridden by', 5),
       cs.KytheXrefKind.OVERRIDES: Bin('Overrides', 6),
       cs.KytheXrefKind.EXTENDED_BY: Bin('Extended by', 7),
       cs.KytheXrefKind.EXTENDS: Bin('Extends', 8),
+      cs.KytheXrefKind.GENERATES: Bin('Generates', 9),
+      cs.KytheXrefKind.GENERATED_BY: Bin('Generated by', 10),
+      cs.KytheXrefKind.ANNOTATES: Bin('Annotates', 11),
+      cs.KytheXrefKind.ANNOTATED_BY: Bin('Annotated by', 12),
 
       # Everything else.
       0: Bin('References', 100)
@@ -358,20 +410,20 @@ def RenderNode(mapper, node, level):
     # Widget
     mapper.SetSignatureForLine(node.signature)
 
-    if hasattr(node, 'children'):
-      expander = '-' if len(node.children) > 0 else '*'
+    if node.children:
+      expander = '[-]' if len(node.children) > 0 else ' * '
     else:
-      expander = '+'
+      expander = '[+]'
 
-    mapper.write('{indent}[{expander}] '.format(
+    mapper.write('{indent}{expander} '.format(
         indent=' ' * (level * NODE_INDENT), expander=expander))
 
     # Symbol
-    if hasattr(node, 'file_path') and hasattr(node, 'identifier'):
+    if node.file_path and node.identifier:
         with TaggedBlock(mapper, 'S'):
-          if hasattr(node, 'call_scope_range'):
+          if node.call_scope_range.start_line:
             start_line = node.call_scope_range.start_line
-          elif hasattr(node, 'call_site_range'):
+          elif node.call_site_range.start_line:
             start_line = node.call_site_range.start_line
           else:
             start_line = 1
@@ -382,9 +434,9 @@ def RenderNode(mapper, node, level):
             mapper.write(node.file_path)
 
     # Render snippet
-    if hasattr(node, 'snippet') and hasattr(node, 'snippet_file_path'):
-      aux_first_line_number = node.call_site_range.start_line if hasattr(
-          node, 'call_site_range') else 1
+    if node.snippet_file_path:
+      aux_first_line_number = node.call_site_range.start_line \
+          if node.call_site_range.start_line else 1
       with TaggedBlock(mapper, '>'):
         RenderSnippet(mapper, 0, node.snippet, node.snippet_file_path,
                       level + 1, aux_first_line_number)
@@ -395,28 +447,30 @@ def RenderNode(mapper, node, level):
     # Add some padding. Otherwise it looks too "busy".
     mapper.newline()
 
-    if hasattr(node, 'children'):
-      for c in node.children:
-        RenderNode(mapper, c, level + 1)
+    for c in node.children:
+      RenderNode(mapper, c, level + 1)
 
 
-def RenderCompoundResponse(compound_response):
+def RenderCompoundResponse(compound_response, query):
   mapper = LocationMapper()
 
-  if hasattr(compound_response, 'search_response'):
+  if compound_response.search_response:
     assert isinstance(compound_response.search_response, list)
     assert len(compound_response.search_response) == 1
-    RenderSearchResponse(mapper, compound_response.search_response[0])
+    RenderSearchResponse(mapper, query, compound_response.search_response[0])
 
-  if hasattr(compound_response, 'xref_search_response'):
+  elif compound_response.xref_search_response:
     assert isinstance(compound_response.xref_search_response, list)
     assert len(compound_response.xref_search_response) == 1
     RenderXrefSearchResponse(mapper, compound_response.xref_search_response[0])
 
-  if hasattr(compound_response, 'call_graph_response'):
+  elif compound_response.call_graph_response:
     assert isinstance(compound_response.call_graph_response, list)
     assert len(compound_response.call_graph_response) == 1
     RenderNode(mapper, compound_response.call_graph_response[0].node, 0)
+
+  else:
+    raise Exception("Unknown response type")
 
   return mapper
 
