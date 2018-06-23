@@ -111,9 +111,9 @@ class LocationMapper(object):
     line -= 1
     column -= 1
     if line not in self.jump_map_:
-      candidates = [l for l in self.jump_map_.keys() if l < line] 
+      candidates = [l for l in self.jump_map_.keys() if l < line]
       if len(candidates) == 0:
-          return None
+        return None
       line = max(candidates)
     filename, target_line, offset_column = self.jump_map_[line]
     if offset_column < column:
@@ -160,7 +160,7 @@ class LocationMapper(object):
     assert line > 0
     line -= 1
     if line not in self.signature_map_:
-      candidates =[l for l in self.signature_map_.keys() if l < line] 
+      candidates = [l for l in self.signature_map_.keys() if l < line]
       if len(candidates) == 0:
         return None
 
@@ -269,10 +269,11 @@ def RenderSearchResponse(mapper, query, search_response):
       mapper.newline()
 
     if search_response.hit_max_results:
-      mapper.write('Search results are truncated. Showing {} results out of an estimated {}.'.format(
-          len(search_response.search_result),
-          search_response.estimated_total_number_of_results
-      ))
+      mapper.write(
+          'Search results are truncated. Showing {} results out of an estimated {}.'.
+          format(
+              len(search_response.search_result),
+              search_response.estimated_total_number_of_results))
       mapper.newline()
   else:
     mapper.write('No results for query ')
@@ -286,6 +287,7 @@ def RenderSearchResponse(mapper, query, search_response):
       mapper.newline()
     mapper.write('Status code  : {}'.format(search_response.status))
     mapper.newline()
+
 
 def RenderXrefResults(mapper, results):
 
@@ -308,8 +310,8 @@ def RenderXrefResults(mapper, results):
       with TaggedBlock(mapper, 'F'):
         mapper.write(fn.name)
       mapper.newline()
-    mapper.write(
-        '{indent:s}{line:d}:  '.format(indent=' ' * 4, line=m.line_number))
+    mapper.write('{indent:s}{line:d}:  '.format(
+        indent=' ' * 4, line=m.line_number))
     mapper.SetTargetForPos(last_fn, m.line_number)
     with TaggedBlock(mapper, '>'):
       mapper.write(m.line_text)
@@ -321,8 +323,9 @@ def RenderXrefSearchResponse(mapper, xref_search_response):
   if xref_search_response.status != 0:
     mapper.write('No results for query\n')
     if xref_search_response.status_message:
-      mapper.write('Server status: {}'.format(xref_search_response.status_message))
-    mapper.write(  'Status code  : {}'.format(xref_search_response.status))
+      mapper.write('Server status: {}'.format(
+          xref_search_response.status_message))
+    mapper.write('Status code  : {}'.format(xref_search_response.status))
     return
 
   class Bin:
@@ -420,18 +423,18 @@ def RenderNode(mapper, node, level):
 
     # Symbol
     if node.file_path and node.identifier:
-        with TaggedBlock(mapper, 'S'):
-          if node.call_scope_range.start_line:
-            start_line = node.call_scope_range.start_line
-          elif node.call_site_range.start_line:
-            start_line = node.call_site_range.start_line
-          else:
-            start_line = 1
-          mapper.SetTargetForPos(node.file_path, start_line)
-          mapper.write(AbbreviateCppSymbol(node.identifier))
-        mapper.write(' ')
-        with TaggedBlock(mapper, 'F'):
-            mapper.write(node.file_path)
+      with TaggedBlock(mapper, 'S'):
+        if node.call_scope_range.start_line:
+          start_line = node.call_scope_range.start_line
+        elif node.call_site_range.start_line:
+          start_line = node.call_site_range.start_line
+        else:
+          start_line = 1
+        mapper.SetTargetForPos(node.file_path, start_line)
+        mapper.write(AbbreviateCppSymbol(node.identifier))
+      mapper.write(' ')
+      with TaggedBlock(mapper, 'F'):
+        mapper.write(node.file_path)
 
     # Render snippet
     if node.snippet_file_path:

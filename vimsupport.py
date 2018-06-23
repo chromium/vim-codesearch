@@ -19,13 +19,17 @@ else:
 sys.path.append(os.path.join(CR_CS_PYTHON_ROOT, 'third_party', 'codesearch-py'))
 sys.path.append(CR_CS_PYTHON_ROOT)
 
+
 def EscapeVimString(s):
   assert isinstance(s, str)
-  return '"{}"'.format(s.replace('\\', '\\\\').replace("'", "\\'").replace('\n', r'\n'))
+  return '"{}"'.format(
+      s.replace('\\', '\\\\').replace("'", "\\'").replace('\n', r'\n'))
+
 
 def EchoVimError(s):
   vim.command('echohl WarningMsg | echo {} | echohl None'.format(
       EscapeVimString(s)))
+
 
 try:
   from codesearch import \
@@ -125,7 +129,10 @@ def _GetCodeSearch(base_filename=None):
   if g_codesearch:
     return g_codesearch
 
-  arguments = {'user_agent_string': 'Vim-CodeSearch-Client (https://github.com/chromium/vim-codesearch)'}
+  arguments = {
+      'user_agent_string':
+          'Vim-CodeSearch-Client (https://github.com/chromium/vim-codesearch)'
+  }
 
   if 'codesearch_source_root' in vim.vars:
     arguments['source_root'] = vim.vars['codesearch_source_root']
@@ -139,14 +146,16 @@ def _GetCodeSearch(base_filename=None):
     arguments['a_path_inside_source_dir'] = base_filename
 
   if 'codesearch_cache_dir' in vim.vars:
-      arguments['cache_dir'] = vim.vars['codesearch_cache_dir']
-      arguments['should_cache'] = True
+    arguments['cache_dir'] = vim.vars['codesearch_cache_dir']
+    arguments['should_cache'] = True
 
   if 'codesearch_cache_timeout_in_seconds' in vim.vars:
-      arguments['cache_timeout_in_seconds'] = int(vim.vars['codesearch_cache_timeout_in_seconds'])
+    arguments['cache_timeout_in_seconds'] = int(
+        vim.vars['codesearch_cache_timeout_in_seconds'])
 
   if 'codesearch_timeout_in_seconds' in vim.vars:
-    arguments['request_timeout_in_seconds'] = int(vim.vars['codesearch_timeout_in_seconds'])
+    arguments['request_timeout_in_seconds'] = int(
+        vim.vars['codesearch_timeout_in_seconds'])
 
   g_codesearch = CodeSearch(**arguments)
 
@@ -346,7 +355,7 @@ def RunCallgraphSearch():
       # |parent_node| has no children known to the server.
       setattr(parent_node, 'children', [])
     else:
-      # |new_node.children| are the new children that we are going to 
+      # |new_node.children| are the new children that we are going to
       # attach to the parent node.
       new_node = response.call_graph_response[0].node
 
@@ -417,10 +426,9 @@ def GetCallers():
     if not c.file_path or c.call_site_range.Empty() or c.snippet.Empty():
       continue
     lines.append('{}:{}:{}: {}'.format(
-        os.path.join(cs.GetSourceRoot(), c.file_path),
-        c.call_site_range.start_line,
-        c.call_site_range.start_column,
-        c.identifier))
+        os.path.join(cs.GetSourceRoot(),
+                     c.file_path), c.call_site_range.start_line,
+        c.call_site_range.start_column, c.identifier))
   return '\n'.join(lines)
 
 
@@ -428,13 +436,12 @@ def _XrefSearchResultsToQuickFixList(cs, results):
   lines = []
   assert isinstance(results, list)
   for r in results:
-      assert isinstance(r, XrefNode)
-      if not r.single_match.line_number or not r.single_match.line_text:
-          continue
-      filepath = os.path.join(cs.GetSourceRoot(), r.filespec.name)
-      lines.append('{}:{}:1: {}'.format(
-          filepath, r.single_match.line_number,
-          r.single_match.line_text))
+    assert isinstance(r, XrefNode)
+    if not r.single_match.line_number or not r.single_match.line_text:
+      continue
+    filepath = os.path.join(cs.GetSourceRoot(), r.filespec.name)
+    lines.append('{}:{}:1: {}'.format(filepath, r.single_match.line_number,
+                                      r.single_match.line_text))
   return lines
 
 
@@ -455,13 +462,14 @@ def _GetCallTargets():
     return []
   cs = _GetCodeSearch()
   node = XrefNode.FromSignature(cs, signature)
-  dcl_list = node.Traverse([KytheXrefKind.DECLARATION, KytheXrefKind.DEFINITION])
+  dcl_list = node.Traverse(
+      [KytheXrefKind.DECLARATION, KytheXrefKind.DEFINITION])
   if len(dcl_list) == 0:
-      return []
+    return []
 
   overrides = []
   for dcl in dcl_list:
-      overrides.extend(dcl.Traverse(KytheXrefKind.OVERRIDDEN_BY))
+    overrides.extend(dcl.Traverse(KytheXrefKind.OVERRIDDEN_BY))
 
   results = dcl_list + overrides
   return _XrefSearchResultsToQuickFixList(cs, results)
@@ -528,8 +536,8 @@ def ShowAnnotationsHere():
   column = int(column)
   for annotation in result.annotation:
     if annotation.range.Contains(line, column):
-      vim.command('echo \'{}\''.format('&'.join('{}={}'.format(
-          k, v) for k, v in annotation.AsQueryString())))
+      vim.command('echo \'{}\''.format('&'.join(
+          '{}={}'.format(k, v) for k, v in annotation.AsQueryString())))
 
 
 @CalledFromVim()
@@ -541,8 +549,8 @@ def ShowSignature():
   vim.command('echo {}'.format(
       EscapeVimString('Signature: {}'.format(signature))))
 
+
 @CalledFromVim()
 def PrepareForTesting():
-    InstallTestRequestHandler(
-        test_data_dir=vim.eval('g:codesearch_test_data_dir'))
-
+  InstallTestRequestHandler(
+      test_data_dir=vim.eval('g:codesearch_test_data_dir'))

@@ -25,7 +25,8 @@ def TestDataPath(p):
 
 
 def LocationMapToString(l):
-  s = ['''\
+  s = [
+      '''\
 This file contains the rendered output per line and its associated metadata.
 
 Lines that begin with a line number contains (after the '|') the contents that
@@ -63,8 +64,7 @@ class TestRenderers(unittest.TestCase):
     l_map = self.run_render_test('search-response-01.json')
 
     fn, l, c = l_map.JumpTargetAt(50, 1)
-    self.assertEqual(
-        'src/chrome/browser/download/download_prefs.cc', fn)
+    self.assertEqual('src/chrome/browser/download/download_prefs.cc', fn)
     self.assertEqual(409, l)
     self.assertEqual(1, c)
 
