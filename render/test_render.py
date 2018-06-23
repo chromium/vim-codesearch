@@ -25,8 +25,8 @@ def TestDataPath(p):
 
 
 def LocationMapToString(l):
-  s = [
-      '''This file contains the rendered output per line and its associated metadata.
+  s = ['''\
+This file contains the rendered output per line and its associated metadata.
 
 Lines that begin with a line number contains (after the '|') the contents that
 will be inserted into the vim buffer at that line. The immediately following

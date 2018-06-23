@@ -11,6 +11,12 @@ from contextlib import contextmanager
 
 import codesearch as cs
 
+# For type checking. Not needed at runtime.
+try:
+  from typing import Any, Optional, List, Dict, Union, Type, Tuple
+except ImportError:
+  pass
+
 SNIPPET_INDENT = 4
 
 TAG_START_FORMAT = '^{:s}{{'
@@ -32,25 +38,36 @@ RE_BLOCK_END_META = re.compile(r'}[^_]+_')
 
 
 def CountBlockMarkupOverhead(s):
-  """Return the number of characters that have been used up by |s| for
-    markup.
+  # type: (str) -> int
+  """\
+  Return the number of characters that have been used up by |s| for
+  markup.
 
-    Only counts complete tags. I.e. "^S{foo}S_" will return 6, but
-    "^S{foo}S" will return 3.
+  Only counts complete tags. I.e. "^S{foo}S_" will
+  return 6:
 
-    """
+  >>> CountBlockMarkupOverhead("^S{foo}S_")
+  6
+
+  , but CountBlockMarkupOverhead("^S{foo}S") will return 3.
+
+  >>> CountBlockMarkupOverhead("^S{foo}S")
+  3
+  """
   return len(''.join(RE_BLOCK_START_META.findall(s))) + \
       len(''.join(RE_BLOCK_END_META.findall(s)))
 
 
-# Context for writing the contents of a tagged block. Automatically writes the
-# start and end blocks with no additional newlines.
-#
-# Use as:
-#    with TaggedBlock(mapper, 'x'):
-#       mapper.write(...)
 @contextmanager
 def TaggedBlock(mapper, block_type):
+  '''\
+  Context for writing the contents of a tagged block. Automatically writes the
+  start and end blocks with no additional newlines.
+
+  Use as:
+     with TaggedBlock(mapper, 'x'):
+        mapper.write(...)
+  '''
   mapper.write(StartTag(block_type))
   yield
   mapper.write(EndTag(block_type))
