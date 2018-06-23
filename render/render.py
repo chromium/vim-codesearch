@@ -126,7 +126,7 @@ class LocationMapper(object):
     return (filename, target_line + 1, target_column + 1)
 
   def PreviousFileLocation(self, line):
-    current_file, _, _ = self.jump_map_[line]
+    current_file, _, _ = self.jump_map_.get(line, ('', 0, 0))
 
     line -= 2
     while line >= 1:
@@ -160,7 +160,11 @@ class LocationMapper(object):
     assert line > 0
     line -= 1
     if line not in self.signature_map_:
-      line = max([l for l in self.signature_map_.keys() if l < line])
+      candidates =[l for l in self.signature_map_.keys() if l < line] 
+      if len(candidates) == 0:
+        return None
+
+      line = max(candidates)
     return self.signature_map_[line]
 
 
