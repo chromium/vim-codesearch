@@ -1,10 +1,5 @@
 language: generic
 
-# Ubuntu Trusty is required for getting Python3 PIP setup working without too
-# much pain. The Precise images don't have a python3-pip package.
-dist: trusty
-sudo: required
-
 before_install:
   - sudo apt-get update -q
   - sudo apt-get install -qq python python3 python-pip python-setuptools python3-setuptools python3-pip
@@ -14,5 +9,11 @@ before_install:
   - mkdir deps
   - cd deps && git clone --depth 1 -q https://github.com/google/vroom.git && cd vroom && python3 setup.py build && sudo python3 setup.py install && cd ../..
 
-script: ./run_tests.sh
+before_script:
+  - python2 -m pip install --user flake8
+  - python3 -m pip install --user flake8
+  # stop the build if there are Python syntax errors or undefined names
+  - python2 -m flake8 . --count --select=E901,E999,F821,F822,F823 --show-source --statistics
+  - python3 -m flake8 . --count --select=E901,E999,F821,F822,F823 --show-source --statistics
 
+script: ./run_tests.sh
