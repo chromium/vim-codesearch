@@ -212,8 +212,9 @@ def JumpToContext():
     return
 
   filename, line, col = target
-  filename = os.path.join(root_path, filename)
-  vim.command('e {}'.format(filename))
+  cs = _GetCodeSearch(root_path)
+  local_filename = cs.GetLocalPath(filename)
+  vim.command('e {}'.format(local_filename))
   vim.eval("setpos('.', [%d, %d, %d, %d])" % (0, line, col, 0))
 
 
