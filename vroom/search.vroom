@@ -12,36 +12,39 @@ Chromium checkout.
 Try a simple search. This should result in a search results page:
 
   :CrSearch hello world
-  CodeSearch results for ^q{hello\ world}q_
+  CodeSearch results for ^q{hello world}q_
   &
-  1. src/gin/shell/hello_world.js^>{
-      2 ^c{//^c{}c_ Use of this source code is governed by a BSD-style license that can be}c_
-      3 ^c{//^c{}c_ found in the LICENSE file.}c_
-      4 
-      5 log(^s{"^${Hello World}$_"}s_);
-      6 }>_
-  &
-  2. src/v8/samples/hello-world.cc^>{
+  1. src/v8/samples/hello-world.cc^>{
       31     ^c{// Create a new context.}c_
       32     v8::Local<v8::Context> context = v8::Context::New(isolate);
       33 
-      34     ^c{// Enter the context for compiling and running the ^${hello world}$_ script.}c_
+      34     ^c{// Enter the context for compiling and running the ^${hello}$_ ^${world}$_ script.}c_
       35     v8::Context::Scope context_scope(context);
       36 
       37     {
-      38 }>_
+      38       ^c{// Create a string containing the JavaScript source code.}c_
+      39       v8::Local<v8::String> source =
+      40           v8::String::NewFromUtf8(isolate, ^s{"'^${Hello}$_' + ', ^${World}$_!'"}s_,
+      41 }>_
+  &
+  2. src/gin/shell/hello_world.js^>{
+      2 ^c{//^c{}c_ Use of this source code is governed by a BSD-style license that can be}c_
+      3 ^c{//^c{}c_ found in the LICENSE file.}c_
+      4 
+      5 log(^s{"^${Hello}$_ ^${World}$_"}s_);
+      6 }>_
 
 Now let's try moving to a line containing code and then hitting <CR>.:
 
   > 5Gw<CR>
   :echomsg expand('%:t')
-  ~ hello_world.js
+  ~ hello-world.cc
 
 And try to go back:
 
   > <C-O>
   :echomsg bufname("%")
-  ~ Codesearch: hello\ world (verbatim)
+  ~ Codesearch: hello world (verbatim)
 
 Jump to the top of the page:
 
@@ -57,7 +60,7 @@ And the next file:
 
   > [[
   :echomsg line(".")
-  ~ 10
+  ~ 16
 
 Try to navigate back:
 
@@ -66,7 +69,7 @@ Try to navigate back:
   ~ 58
   > ]]
   :echomsg line(".")
-  ~ 39
+  ~ 40
 
 Navigation should work at the top and the bottom of the buffer.
 
@@ -75,5 +78,5 @@ Navigation should work at the top and the bottom of the buffer.
   ~ 1
   > G[[
   :echomsg line(".")
-  ~ 964
+  ~ 1025
 
