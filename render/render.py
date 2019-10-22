@@ -204,13 +204,13 @@ def RenderAnnotatedText(mapper,
     if r.range.end_column == 1 and r.range.start_line != r.range.end_line:
       r.range.end_line -= 1
       r.range.end_column = len(text_lines[r.range.end_line - 1]) + 1
-    insertions.append((r.range.end_line, r.range.end_column,
-                       EndTag(block_type)))
-    insertions.append((r.range.start_line, r.range.start_column,
-                       StartTag(block_type)))
+    insertions.append(
+        (r.range.end_line, r.range.end_column, EndTag(block_type)))
+    insertions.append(
+        (r.range.start_line, r.range.start_column, StartTag(block_type)))
 
-  insertions.sort(
-      lambda i1, i2: i2[0] - i1[0] if i2[0] != i1[0] else i2[1] - i1[1])
+  insertions.sort(lambda i1, i2: i2[0] - i1[0]
+                  if i2[0] != i1[0] else i2[1] - i1[1])
 
   for line, column, tag in insertions:
     assert line > 0
@@ -270,8 +270,8 @@ def RenderSearchResponse(mapper, query, search_response):
 
     if search_response.hit_max_results:
       mapper.write(
-          'Search results are truncated. Showing {} results out of an estimated {}.'.
-          format(
+          'Search results are truncated. Showing {} results out of an estimated {}.'
+          .format(
               len(search_response.search_result),
               search_response.estimated_total_number_of_results))
       mapper.newline()

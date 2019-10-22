@@ -7,11 +7,9 @@ In the beginning, we search for 'hello world'. Fortunately there are lots of
 instances of this in the Chromium tree.
 
   :CrSearch hello world
-  CodeSearch results for ^q{hello\ world}q_
+  CodeSearch results for ^q{hello world}q_
   &
-  *hello_world.js* (glob)
-  * (glob)
-  *found in the LICENSE file* (glob)
+  *hello-world.cc* (glob)
 
 That should be it for a basic test case.
 
