@@ -173,7 +173,7 @@ endfunction
 
 function! crcs#CodeSearch(query)
   call crcs#Setup()
-  exec 'py' 'RunCodeSearch("' . escape(a:query, '"\n') . '")'
+  exec 'py' 'RunCodeSearch("' . escape(a:query, '"') . '")'
 endfunction
 
 function! crcs#JumpToContext()
